@@ -46,8 +46,6 @@ public class My_First_Group_Project_steps {
     @Then("the user is successfully directed to the dashboard page {string}")
     public void the_user_is_successfully_directed_to_the_dashboard_page(String expectedUrl) {
         CommonMethods.assertEquals(driver.getCurrentUrl(), expectedUrl);
-
-
     }
 
 
