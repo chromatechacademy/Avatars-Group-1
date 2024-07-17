@@ -86,6 +86,5 @@ public class Student_Admission_Steps {
     public void user_sees_error_message(String text) {
         CommonMethods.isElementDisplayed(studentAdmissionPage.errorText);
         CommonMethods.assertEquals(studentAdmissionPage.errorText.getText(), text);
-        CommonMethods.sleep(3000);
     }
 }
