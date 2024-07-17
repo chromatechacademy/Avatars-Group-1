@@ -572,15 +572,4 @@ public class CommonMethods extends WebDriverUtils {
 		}
 		return jsonFile;
 	}
-
-	/**
-	 * Scrolls the browser window to bring a specific element into view.
-	 *
-	 * @param element the web element to scroll into view
-	 */
-	public static void scrollIntoView(WebElement element) {
-		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
-		jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
-	}
-
 }

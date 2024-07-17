@@ -1,8 +1,10 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
 import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
+import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.StudentAdmissionPage;
 import com.chromatech.utils.CommonMethods;
+import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -13,15 +15,16 @@ public class Student_Admission_Steps {
 
     StudentAdmissionPage studentAdmissionPage = new StudentAdmissionPage();
     DashboardPage dashboardPage = new DashboardPage();
+    SearchPage searchPage = new SearchPage();
 
-    @Given("a CTSMS user is logged in to the Student Admission page {string}")
+    @Given("CTSMS user is logged in to the Student Admission page {string}")
     public void a_ctsms_user_is_logged_in_to_the_student_admission_page(String url) {
         CommonMethods.click(dashboardPage.studentInformationModule);
         CommonMethods.click(dashboardPage.studentAdmissionSubModule);
-        CommonMethods.assertEquals(driver.getWindowHandle(), url);
+        CommonMethods.assertEquals(driver.getCurrentUrl(), url);
     }
 
-    @When("enters Unique Admission Number {string}")
+    @When("user enters Unique Admission Number {string}")
     public void enters_unique_admission_number(String number) {
         CommonMethods.sendKeys(studentAdmissionPage.admissionNumberTextBox, number);
     }
@@ -58,7 +61,8 @@ public class Student_Admission_Steps {
 
     @When("enter father name {string}")
     public void enter_father_name(String text) {
-        CommonMethods.scrollIntoView(studentAdmissionPage.fatherNameTextBox);
+        JavascriptMethods.scrollIntoView(studentAdmissionPage.fatherNameTextBox);
+//        CommonMethods.scrollIntoView(studentAdmissionPage.fatherNameTextBox);
         CommonMethods.sendKeys(studentAdmissionPage.fatherNameTextBox, text);
     }
 
@@ -86,5 +90,49 @@ public class Student_Admission_Steps {
     public void user_sees_error_message(String text) {
         CommonMethods.isElementDisplayed(studentAdmissionPage.errorText);
         CommonMethods.assertEquals(studentAdmissionPage.errorText.getText(), text);
+    }
+
+    @When("User clicks on the {string} module")
+    public void user_clicks_on_the_module(String text) {
+        CommonMethods.assertEquals(dashboardPage.studentInformationModule.getText(), text);
+        CommonMethods.click(dashboardPage.studentInformationModule);
+
+    }
+
+    @When("And within the expanded module, clicks on the {string} submodule")
+    public void and_within_the_expanded_module_clicks_on_the_submodule(String text) {
+        CommonMethods.assertEquals(dashboardPage.studentAdmissionSubModule.getText(), text);
+        CommonMethods.click(dashboardPage.studentAdmissionSubModule);
+    }
+
+    @Then("user is on the Student Admission page {string}")
+    public void a_user_is_on_the_student_admission_page(String url) {
+        CommonMethods.assertEquals(driver.getCurrentUrl(), url);
+    }
+
+    @When("user clicks on the {string} submodule")
+    public void user_clicks_on_the_submodule(String text) {
+        CommonMethods.assertEquals(studentAdmissionPage.studentDetailsSubModule.getText(), text);
+        CommonMethods.click(studentAdmissionPage.studentDetailsSubModule);
+    }
+
+    @Then("the user navigates to the student search page {string}")
+    public void the_user_navigates_to_the_student_search_page(String url) {
+        CommonMethods.assertEquals(driver.getCurrentUrl(), url);
+    }
+
+    @Then("user sees a message about successful card creation {string}")
+    public void user_sees_a_message_about_successful_card_creation(String text) {
+        CommonMethods.assertEquals(studentAdmissionPage.textOfSuccess.getText(), text);
+    }
+
+    @When("enters the Admission Number {string} in the Search By Keyword field")
+    public void enters_the_admission_number_in_the_search_by_keyword_field(String number) {
+        CommonMethods.sendKeys(searchPage.SearchByKeywordTextBox, number);
+    }
+
+    @When("clicks the search button")
+    public void clicks_the_search_button() {
+        CommonMethods.click(searchPage.searchButton);
     }
 }

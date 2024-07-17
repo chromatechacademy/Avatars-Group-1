@@ -63,4 +63,12 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//p[contains(text(),'The Admission No field must contain a unique value')]")
     public WebElement errorText;
 
+    // Student Details SubModule
+    @FindBy(xpath = "(//a[@href=\"https://mexil.it/chroma/student/search\"])[2]")
+    public WebElement studentDetailsSubModule;
+
+    // "Record Saved Successfully" text
+    @FindBy(xpath = "//div[@class='alert alert-success']")
+    public WebElement textOfSuccess;
+
 }

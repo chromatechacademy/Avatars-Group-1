@@ -4,17 +4,22 @@ Feature: AG1CP
   @Login
   Scenario: Valid Credentials Login
     Given a Chroma Tech Academy teacher or admin is on the login page "https://mexil.it/chroma/site/login"
-    When the user logs in with valid credentials "general@teacher.com" and "123456"
+    When user enters "general@teacher.com" in the login field
+    And enters "123456" in the password field
+    And clicks on the Sing In button
     Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
 
   # AG1CP - 12
   @StudentAdmission
   Scenario: Student Admission
     Given a Chroma Tech Academy teacher or admin is on the login page "https://mexil.it/chroma/site/login"
-    When the user logs in with valid credentials "general@teacher.com" and "123456"
-    And the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
-    When a CTSMS user is logged in to the Student Admission page "https://mexil.it/chroma/student/create"
-    And enters Unique Admission Number "42001"
+    When user enters "general@teacher.com" in the login field
+    And enters "123456" in the password field
+    And clicks on the Sing In button
+    And User clicks on the "Student Information" module
+    And And within the expanded module, clicks on the "Student Admission" submodule
+    Then user is on the Student Admission page "https://mexil.it/chroma/student/create"
+    When user enters Unique Admission Number "42001"
     And selects SDET for class drop down "SDET"
     And selects "Cucumber Fundamentals" for section drop down
     And enters first name "FirstName"
@@ -26,22 +31,35 @@ Feature: AG1CP
     And enter guardian name "Guardian Name"
     And enter guardian phone number "6028800001"
     And saves submission
-    Then the student is successfully admitted
+    Then user sees a message about successful card creation "Record Saved Successfully"
+    When user clicks on the "Student Details" submodule
+    And the user navigates to the student search page "https://mexil.it/chroma/student/search"
+    When the user selects "SDET" in the Class dropdown
+    And selects "Cucumber Fundamentals" in the Section dropdown
+    And enters the Admission Number "42001" in the Search By Keyword field
+    And clicks the search button
+    Then student's record "42001" is displayed
+    When user clicks on the student's name "FirstName" on the card with Admission Number "42001"
+
 
 #  # AG1CP - 4
 #  @StudentInformationModule
 #  Scenario: Student Information module
-#    Given a CTSMS user is on the dashboard page
+#    Given a Chroma Tech Academy teacher or admin is on the login page "https://mexil.it/chroma/site/login"
+#    When user enters "general@teacher.com" in the login field
+#    And enters "123456" in the password field
+#    And clicks on the Sing In button
+#    Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
 #    When the user clicks on Student Information module
 #    Then the following submodules display:
-#    * Student Details
-#    * Student Admission
-#    * Disabled Students
-#    * Bulk Delete
-#    * Student Categories
-#    * Student House
-#    * Disable Reason
-#
+#    And "Student Details" submodule is displayed
+#    And "Student Admission" submodule is displayed
+#    And "Disabled Students"  submodule is displayed
+#    And "Bulk Delete" submodule is displayed
+#    And "Student Categories" submodule is displayed
+#    And "Student House" submodule is displayed
+#    And "Disable Reason" submodule is displayed
+
 #  # AG1CP - 2
 #  @SecurityMechanismToPreventInvalidCredentialsLogin
 #  Scenario: Security mechanism to prevent invalid credentials login
@@ -60,10 +78,13 @@ Feature: AG1CP
   @StudentAdmissionWithUniqueAdmissionNumber
   Scenario: Student Admission with Unique Admission Number
     Given a Chroma Tech Academy teacher or admin is on the login page "https://mexil.it/chroma/site/login"
-    When the user logs in with valid credentials "general@teacher.com" and "123456"
-    And the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
-    When a CTSMS user is logged in to the Student Admission page "https://mexil.it/chroma/student/create"
-    And enters Unique Admission Number "42001"
+    When user enters "general@teacher.com" in the login field
+    And enters "123456" in the password field
+    And clicks on the Sing In button
+    And User clicks on the "Student Information" module
+    And And within the expanded module, clicks on the "Student Admission" submodule
+    Then user is on the Student Admission page "https://mexil.it/chroma/student/create"
+    When user enters Unique Admission Number "42001"
     And selects SDET for class drop down "SDET"
     And selects "Cucumber Fundamentals" for section drop down
     And enters first name "FirstName"
@@ -76,6 +97,13 @@ Feature: AG1CP
     And enter guardian phone number "6028800001"
     And saves submission
     Then user sees error message "The Admission No field must contain a unique value."
+    When user clicks on the "Student Details" submodule
+    Then the user navigates to the student search page "https://mexil.it/chroma/student/search"
+    When the user selects "SDET" in the Class dropdown
+    And selects "Cucumber Fundamentals" in the Section dropdown
+    And enters the Admission Number "42001" in the Search By Keyword field
+    And clicks the search button
+    Then student's record "42001" is displayed
 
 #  # AG1CP - 14
 #  @AbilityToEditStudentRecords
@@ -108,11 +136,17 @@ Feature: AG1CP
 #    * Department
 #    * Designation
 #
-#  @SeacrhStudentsRecords
-#  Scenario: Ability to search students records
-#    Given a CTSMS user is on the Student Details page
-#    When the user selects value in the Class dropdown
-#    And selects value in the Section dropdown
-#    And enter admission number in Search By Keyword field
-#    And clicks the search button
-#    Then student's record is displayed
+  @SeacrhStudentsRecords
+  Scenario: Ability to search students records
+    Given a Chroma Tech Academy teacher or admin is on the login page "https://mexil.it/chroma/site/login"
+    When user enters "general@teacher.com" in the login field
+    And enters "123456" in the password field
+    And clicks on the Sing In button
+    And User clicks on the "Student Information" module
+    When user clicks on the "Student Details" submodule
+    Then user is on the Student Details page "https://mexil.it/chroma/student/search"
+    When the user selects "SDET" in the Class dropdown
+    And selects "Cucumber Fundamentals" in the Section dropdown
+    And enters the Admission Number "42001" in the Search By Keyword field
+    And clicks the search button
+    Then student's record "42001" is displayed

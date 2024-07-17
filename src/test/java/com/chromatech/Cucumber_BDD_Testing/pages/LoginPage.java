@@ -15,12 +15,11 @@ public class LoginPage {
     @FindBy(xpath = "//input[@id='form-username']")
     public WebElement userNameTextBox;
 
-    // Password TextBox
+    // Password TexoBox
     @FindBy(xpath = "//input[@id='form-password']")
     public WebElement passwordTextBox;
 
     // Sign In button
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement signInButton;
-
 }
