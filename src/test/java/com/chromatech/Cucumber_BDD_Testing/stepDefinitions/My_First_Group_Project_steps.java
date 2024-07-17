@@ -24,22 +24,26 @@ public class My_First_Group_Project_steps {
     @When("the user enters username {string} in username text box")
     public void the_user_enters_username_in_username_text_box(String username) {
         LoginPage1.usernameTextBox.sendKeys(username);
+        CucumberLogUtils.logScreenShot();
     }
 
     @When("the user enters password {string} in password text box")
     public void the_user_enters_password_in_password_text_box(String password) {
         LoginPage1.passwordTextBox.sendKeys(password);
+        CucumberLogUtils.logScreenShot();
     }
 
     @When("clicks on Sign In button")
     public void clicks_on_sign_in_button() {
         LoginPage1.signInButton.click();
+        CucumberLogUtils.logScreenShot();
     }
 
     @Then("the user is successfully directed to the dashboard page {string}")
     public void the_user_is_successfully_directed_to_the_dashboard_page(String expectedUrl) {
         String actualUrl = WebDriverUtils.driver.getCurrentUrl();
         Assert.assertEquals(actualUrl,expectedUrl);
+        CucumberLogUtils.logScreenShot();
     }
 
 
