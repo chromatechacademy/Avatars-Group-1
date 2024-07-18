@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ValidCredentialsLoginPage {
+public class LoginPage {
 
     /* USERNAME TEXT BOX*/
     @FindBy(xpath = "//input[@placeholder='Username']")
@@ -19,6 +19,6 @@ public class ValidCredentialsLoginPage {
     @FindBy(xpath = " //button[normalize-space()='Sign In']")
     public  WebElement signInButton;
 
-    public ValidCredentialsLoginPage() {PageFactory.initElements(WebDriverUtils.driver, this);}
+    public LoginPage() {PageFactory.initElements(WebDriverUtils.driver, this);}
 }
 
