@@ -10,12 +10,13 @@ Feature: AG1CP
     Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
 
   # AG1CP - 12
-  @StudentAdmission
+  @StudentAdmission @Regression @Vlad @AG1CP-12
   Scenario: Student Admission
-    Given a Chroma Tech Academy teacher or admin is on the login page "https://mexil.it/chroma/site/login"
-    When user enters "general@teacher.com" in the login field
-    And enters "123456" in the password field
-    And clicks on the Sing In button
+    Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
+    When the user enters username "general@teacher.com" in username text box
+    When the user enters password "123456" in password text box
+    And clicks on Sign In button
+    Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
     And User clicks on the "Student Information" module
     And And within the expanded module, clicks on the "Student Admission" submodule
     Then user is on the Student Admission page "https://mexil.it/chroma/student/create"
@@ -40,6 +41,7 @@ Feature: AG1CP
     And clicks the search button
     Then student's record "42001" is displayed
     When user clicks on the student's name "FirstName" on the card with Admission Number "42001"
+    Then 
 
 
 #  # AG1CP - 4
