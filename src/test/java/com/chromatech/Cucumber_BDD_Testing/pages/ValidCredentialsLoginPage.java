@@ -5,10 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage1 {
+public class ValidCredentialsLoginPage {
 
     /* USERNAME TEXT BOX*/
-
     @FindBy(xpath = "//input[@placeholder='Username']")
     public  WebElement usernameTextBox;
 
@@ -20,9 +19,6 @@ public class LoginPage1 {
     @FindBy(xpath = " //button[normalize-space()='Sign In']")
     public  WebElement signInButton;
 
-
-
-    public LoginPage1() {PageFactory.initElements(WebDriverUtils.driver, this);}
-
+    public ValidCredentialsLoginPage() {PageFactory.initElements(WebDriverUtils.driver, this);}
 }
 
