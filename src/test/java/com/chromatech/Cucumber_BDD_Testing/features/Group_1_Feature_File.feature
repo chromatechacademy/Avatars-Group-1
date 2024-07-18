@@ -75,7 +75,7 @@ Feature: AG1CP
 #  Examples:
 
   # AG1CP - 13
-  @StudentAdmissionWithUniqueAdmissionNumber
+  @StudentAdmissionWithUniqueAdmissionNumber @Vlad @AG1CP-1 @Regression
   Scenario: Student Admission with Unique Admission Number
     Given a Chroma Tech Academy teacher or admin is on the login page "https://mexil.it/chroma/site/login"
     When user enters "general@teacher.com" in the login field
