@@ -5,7 +5,6 @@ import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class Valid_Credentials_Login_steps {
