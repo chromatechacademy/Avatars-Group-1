@@ -9,7 +9,7 @@ import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class Valid_Credentials_Login_steps {
 
-    ValidCredentialsLoginPage loginPage = new ValidCredentialsLoginPage();
+    ValidCredentialsLoginPage validCredentialsLoginPage = new ValidCredentialsLoginPage();
 
     @Given("a Chroma Tech Academy teacher or admin is on the login page {string}")
     public void a_chroma_tech_academy_teacher_or_admin_is_on_the_login_page(String url) {
@@ -18,17 +18,17 @@ public class Valid_Credentials_Login_steps {
 
     @When("the user enters username {string} in username text box")
     public void the_user_enters_username_in_username_text_box(String username) {
-        CommonMethods.sendKeys(loginPage.usernameTextBox, username);
+        CommonMethods.sendKeys(validCredentialsLoginPage.usernameTextBox, username);
     }
 
     @When("the user enters password {string} in password text box")
     public void the_user_enters_password_in_password_text_box(String password) {
-        CommonMethods.sendKeys(loginPage.passwordTextBox, password);
+        CommonMethods.sendKeys(validCredentialsLoginPage.passwordTextBox, password);
     }
 
     @When("clicks on Sign In button")
     public void clicks_on_sign_in_button() {
-        CommonMethods.click(loginPage.signInButton);
+        CommonMethods.click(validCredentialsLoginPage.signInButton);
     }
 
     @Then("the user is successfully directed to the dashboard page {string}")
