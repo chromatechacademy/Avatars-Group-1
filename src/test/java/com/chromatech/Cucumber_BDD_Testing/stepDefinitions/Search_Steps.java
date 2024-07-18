@@ -26,11 +26,6 @@ public class Search_Steps {
         CommonMethods.selectDropDownValue(text, searchPage.sectionDropDown);
     }
 
-    @Then("student's record {string} is displayed")
-    public void student_s_record_is_displayed(String number) {
-        CommonMethods.assertTrue(searchPage.tableLocatorByText(number).isDisplayed());
-    }
-
     @When("user clicks on the student's name {string} on the card with Admission Number {string}")
     public void user_clicks_on_the_student_s_name_on_the_card_with_admission_number(String name, String number) {
         CommonMethods.assertTrue(searchPage.dynamicTableLocator(number).getText().contains(name));

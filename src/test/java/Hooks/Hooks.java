@@ -18,10 +18,6 @@ public class Hooks {
         PageInitializer.initializeAllPages();
     }
 
-    @AfterStep
-    public void each(Scenario scenario) {
-        CucumberLogUtils.logScreenShot();
-    }
     //add the screen shots
     @AfterStep
     public void each(Scenario scenario) {

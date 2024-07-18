@@ -8,7 +8,6 @@ import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class Student_Admission_Steps {
@@ -62,7 +61,6 @@ public class Student_Admission_Steps {
     @When("enter father name {string}")
     public void enter_father_name(String text) {
         JavascriptMethods.scrollIntoView(studentAdmissionPage.fatherNameTextBox);
-//        CommonMethods.scrollIntoView(studentAdmissionPage.fatherNameTextBox);
         CommonMethods.sendKeys(studentAdmissionPage.fatherNameTextBox, text);
     }
 
@@ -96,10 +94,9 @@ public class Student_Admission_Steps {
     public void user_clicks_on_the_module(String text) {
         CommonMethods.assertEquals(dashboardPage.studentInformationModule.getText(), text);
         CommonMethods.click(dashboardPage.studentInformationModule);
-
     }
 
-    @When("And within the expanded module, clicks on the {string} submodule")
+    @When("within the expanded module, clicks on the {string} submodule")
     public void and_within_the_expanded_module_clicks_on_the_submodule(String text) {
         CommonMethods.assertEquals(dashboardPage.studentAdmissionSubModule.getText(), text);
         CommonMethods.click(dashboardPage.studentAdmissionSubModule);
@@ -134,5 +131,11 @@ public class Student_Admission_Steps {
     @When("clicks the search button")
     public void clicks_the_search_button() {
         CommonMethods.click(searchPage.searchButton);
+    }
+
+    @Then("make sure the entry {string} is in the list")
+    public void student_s_record_is_displayed(String number) {
+        CommonMethods.assertTrue(searchPage.tableLocatorByText(number).isDisplayed());
+        CommonMethods.sleep(2000);
     }
 }
