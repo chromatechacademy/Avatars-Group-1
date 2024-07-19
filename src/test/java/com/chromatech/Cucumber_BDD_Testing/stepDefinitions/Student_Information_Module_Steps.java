@@ -53,4 +53,7 @@ public class Student_Information_Module_Steps {
         CommonMethods.assertTrue(dashboardPage.disableReason.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.disableReason.getText(), disableReason);
     }
+
+    public static class Ability_to_edit_student_records_steps {
+    }
 }
