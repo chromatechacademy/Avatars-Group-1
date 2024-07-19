@@ -10,7 +10,7 @@ Feature: AG1CP-12: StudentAdmission
     And user clicks on the "Student Information" module
     And within the expanded module, clicks on the "Student Admission" submodule
     Then user is on the Student Admission page "https://mexil.it/chroma/student/create"
-    When user enters Unique Admission Number "42001"
+    When user enters Unique Admission Number "42001abc"
     And user enters Roll Number "1001"
     And selects "SDET" for class drop down
     And selects "Cucumber Fundamentals" for section drop down
@@ -45,13 +45,13 @@ Feature: AG1CP-12: StudentAdmission
     And the user navigates to the student search page "https://mexil.it/chroma/student/search"
     When the user selects "SDET" in the Class dropdown
     And selects "Cucumber Fundamentals" in the Section dropdown
-    And enters the Admission Number "42001" in the Search By Keyword field
+    And enters the Admission Number "42001abc" in the Search By Keyword field
     And clicks the search button
-    Then make sure the entry "42001" is in the list
+    Then make sure the entry "42001abc" is in the list
     When user clicks on the submodule "Bulk Delete" to delete a student record
     Then user is on the page for deleting records "https://mexil.it/chroma/student/bulkdelete"
     When user selects the student's class "SDET" from the dropdown list
     And user selects the student's section "Cucumber Fundamentals" from the dropdown list
     And user clicks on the search button
-    And user clicks on the checkbox next to the record with the Admission Number "42001"
+    And user clicks on the checkbox next to the record with the Admission Number "42001abc"
     And user clicks on the delete button and accept alert with text "Are you sure you want to delete this?"
