@@ -47,6 +47,15 @@ public class DashboardPage {
     @FindBy(xpath = "//a[normalize-space()='Disable Reason']")
     public WebElement disableReason;
 
+    // Human Resource Module
+    @FindBy(xpath = "//span[normalize-space()='Human Resource']")
+    public WebElement humanResourceModule;
+
+    //Human Resource Module Staff Directory
+    @FindBy(xpath = "//li[@class='active']//a[normalize-space()='Staff Directory']")
+    public WebElement humanResourceModuleStaffDirectory;
+
+
     public DashboardPage() {
         PageFactory.initElements(WebDriverUtils.driver, this);}
 }
