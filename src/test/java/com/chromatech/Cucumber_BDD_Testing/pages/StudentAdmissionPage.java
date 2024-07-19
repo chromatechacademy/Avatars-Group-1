@@ -35,7 +35,7 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//select[@name='gender']")
     public WebElement genderDropDown;
 
-    // Calendar TextBox
+    // Date of Birth textbox
     @FindBy(xpath = "//input[@id='dob']")
     public WebElement calendarTextBox;
 
@@ -46,10 +46,6 @@ public class StudentAdmissionPage {
     // Father RadioButton
     @FindBy(xpath = "//div[@class='bozero']//label[2]")
     public WebElement fatherRadioButton;
-
-    // Guardian Name TextBox
-    @FindBy(xpath = "//input[@id='guardian_name']")
-    public WebElement guardianNameTextBox;
 
     // Guardian Phone Number TextBox
     @FindBy(xpath = "//input[@id='guardian_phone']")
@@ -70,5 +66,70 @@ public class StudentAdmissionPage {
     // "Record Saved Successfully" text
     @FindBy(xpath = "//div[@class='alert alert-success']")
     public WebElement textOfSuccess;
+
+    // Roll Number textbox
+    @FindBy(xpath = "//input[@id='roll_no']")
+    public WebElement rollNumberTextBox;
+
+    // Category dropdown
+    @FindBy(xpath = "//select[@id='category_id']")
+    public WebElement categoryDropDown;
+
+    // Email textBox
+    @FindBy(xpath = "//input[@id='email']")
+    public WebElement emailTextBox;
+
+    // Bloog Group dropdown
+    @FindBy(xpath = "//select[@name='blood_group']")
+    public WebElement bloodGroupDropDown;
+
+    // Mobile Number textBox
+    @FindBy(xpath = "//div[5]//div[1]//div[1]//input[1]")
+    public WebElement mobileNumberTextBox;
+
+    // Height textbox
+    @FindBy(xpath = "//div[5]//div[2]//div[1]//input[1]")
+    public WebElement heightTextBox;
+
+    // Weight textbox
+    @FindBy(xpath = "//div[5]//div[3]//div[1]//input[1]")
+    public WebElement weightTextBox;
+
+    // Father Phone TextBox
+    @FindBy(xpath = "//input[@id='father_phone']")
+    public WebElement fatherPhoneTextBox;
+
+    // Father Occupation textbox
+    @FindBy(xpath = "//input[@id='father_occupation']")
+    public WebElement fatherOccupationTextBox;
+
+    // Mother Name textbox
+    @FindBy(xpath = "//input[@id='mother_name']")
+    public WebElement motherNameTextBox;
+
+    // Mother Phone textbox
+    @FindBy(xpath = "//input[@id='mother_phone']")
+    public WebElement motherPhoneTextBox;
+
+    // Mother Occupation textbox
+    @FindBy(xpath = "//input[@id='mother_occupation']")
+    public WebElement motherOccupationTextBox;
+
+    // Admisson Date textbox
+    @FindBy(xpath = "//input[@id='admission_date']")
+    public WebElement admissionDateTextBox;
+
+    // As on Date textbox
+    @FindBy(xpath = "//input[@id='measure_date']")
+    public WebElement asOnDateTextBox;
+
+    // Guardian Email textbox
+    @FindBy(xpath = "//input[@id='guardian_email']")
+    public WebElement guardianEmailTextBox;
+
+    // Guardian Address textbox
+    @FindBy(xpath = "//textarea[@id='guardian_address']")
+    public WebElement guardianAddressTextBox;
+
 
 }

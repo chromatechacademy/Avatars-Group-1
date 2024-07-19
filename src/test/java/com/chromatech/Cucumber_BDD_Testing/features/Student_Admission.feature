@@ -1,7 +1,7 @@
 Feature: StudentAdmission
 
-  @StudentAdmission @Regression @Vlad @AG1CP-12
-  Scenario: Student Admission
+  @Regression @AG1CP-12 @StudentAdmission @Vlad
+  Scenario: Student Admission (Flow: Create - Search - Delete)
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box
     When the user enters password "123456" in password text box
@@ -11,16 +11,30 @@ Feature: StudentAdmission
     And within the expanded module, clicks on the "Student Admission" submodule
     Then user is on the Student Admission page "https://mexil.it/chroma/student/create"
     When user enters Unique Admission Number "42001"
+    And user enters Roll Number "0001"
     And selects SDET for class drop down "SDET"
     And selects "Cucumber Fundamentals" for section drop down
     And enters first name "FirstName"
     And enters last name "Last Name"
     And select "Female" from gender drop down
-    And selects "01/01/1991" for Date of Birth Calendar
+    And selects "01/02/1991" for Date of Birth Calendar
+    And select "new" from category drop down
+    And enters email "test@email.com"
+    And enters admission date "04/20/2024"
+    And select "A+" from blood group drop down
+    And enters As on Date "04/20/2024"
+    And enters mobile number "6028808888"
+    And enters height "6'3"
+    And enters weight "9999"
     And enter father name "FatherName"
+    And enters father phone "6028801111"
+    And enter father occupation "Father Occupation"
+    And enter mother name "MotherName"
+    And enters mother phone "6028802222"
+    And enter mother occupation "Mother Occupation"
     And selects Father radio button for If guardian is field
-    And enter guardian name "Guardian Name"
-    And enter guardian phone number "6028800001"
+    And enter guardian email "guardian@email.com"
+    And enter guardian address "1142 G Address"
     And saves submission
     Then user sees a message about successful card creation "Record Saved Successfully"
     When user clicks on the "Student Details" submodule
@@ -30,82 +44,10 @@ Feature: StudentAdmission
     And enters the Admission Number "42001" in the Search By Keyword field
     And clicks the search button
     Then make sure the entry "42001" is in the list
-
-#  # AG1CP - 4
-#  @StudentInformationModule
-#  Scenario: Student Information module
-#    Given a Chroma Tech Academy teacher or admin is on the login page "https://mexil.it/chroma/site/login"
-#    When user enters "general@teacher.com" in the login field
-#    And enters "123456" in the password field
-#    And clicks on the Sing In button
-#    Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
-#    When the user clicks on Student Information module
-#    Then the following submodules display:
-#    And "Student Details" submodule is displayed
-#    And "Student Admission" submodule is displayed
-#    And "Disabled Students"  submodule is displayed
-#    And "Bulk Delete" submodule is displayed
-#    And "Student Categories" submodule is displayed
-#    And "Student House" submodule is displayed
-#    And "Disable Reason" submodule is displayed
-
-#  # AG1CP - 2
-#  @SecurityMechanismToPreventInvalidCredentialsLogin
-#  Scenario: Security mechanism to prevent invalid credentials login
-#    Given a user is on the Chroma Tech login page
-#    When the user attempts to log in with invalid credentials
-#    Then the application should not allow user to log in
-#
-#  # AG1CP - 19
-#  @AdmittingmMultipleStudents
-#  Scenario Outline: Admitting multiple students
-#    Given a CTSMS admin or faculty member is on the student admission page
-#    Then the user should be able to admit multiple students with unique admission numbers
-#  Examples:
-
-#  # AG1CP - 14
-#  @AbilityToEditStudentRecords
-#  Scenario: Ability to edit student records
-#    Given a CTSMS user opens a student record
-#    When making and saving changes to the student information
-#    Then the student information is successfully saved
-#
-#  # AG1CP - 10
-#  @HomeworkModule
-#  Scenario: Homework module
-#    Given a CTSMS user is on the dashboard page
-#    When the user clicks on the Homework module
-#    Then the following module displays:
-#    * Add homework
-#
-#  # AG1CP - 9
-#  @HumanResourceModule
-#  Scenario: Human Resource module
-#    Given a CTSMS user is on the dashboard page
-#    When the user clicks on the Human Resource module
-#    Then the following submodules are displayed:
-#    * Staff Directory
-#    * Staff Attendance
-#    * Payroll
-#    * Approve Leave Request
-#    * Apply Leave
-#    * Leave Type
-#    * Teachers Rating
-#    * Department
-#    * Designation
-#
-  @SeacrhStudentsRecords
-  Scenario: Ability to search students records
-    Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
-    When the user enters username "general@teacher.com" in username text box
-    When the user enters password "123456" in password text box
-    And clicks on Sign In button
-    Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
-    When User clicks on the "Student Information" module
-    When user clicks on the "Student Details" submodule
-    Then user is on the Student Details page "https://mexil.it/chroma/student/search"
-    When the user selects "SDET" in the Class dropdown
-    And selects "Cucumber Fundamentals" in the Section dropdown
-    And enters the Admission Number "42001" in the Search By Keyword field
-    And clicks the search button
-    Then make sure the entry "42001" is in the list
+    When user clicks on the submodule "Bulk Delete" to delete a student record
+    Then user is on the page for deleting records "https://mexil.it/chroma/student/bulkdelete"
+    When user selects the student's class "SDET" from the dropdown list
+    And user selects the student's section "Cucumber Fundamentals" from the dropdown list
+    And user click on the search button
+    And user clicks on the checkbox next to the record with the Admission Number "42001"
+    And user clicks on the delete button and accept alert with text "Are you sure you want to delete this?"
