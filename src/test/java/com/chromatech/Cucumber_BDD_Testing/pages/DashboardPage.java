@@ -49,5 +49,4 @@ public class DashboardPage {
 
     public DashboardPage() {
         PageFactory.initElements(WebDriverUtils.driver, this);}
-
 }
