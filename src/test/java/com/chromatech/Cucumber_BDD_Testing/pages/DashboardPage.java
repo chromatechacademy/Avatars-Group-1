@@ -11,17 +11,13 @@ public class DashboardPage {
         PageFactory.initElements(WebDriverUtils.driver, this);
     }
 
-    // Student Information Module
-    @FindBy(xpath = "//span[normalize-space()='Student Information']")
-    public WebElement studentInformationModule;
+    // Student Homework Module
+    @FindBy(xpath = "//span[normalize-space()='Homework']")
+    public WebElement StudentHomeworkModule;
 
-    // Student Admission SubModule
-    @FindBy(xpath = "//a[normalize-space()='Student Admission']")
-    public WebElement studentAdmissionSubModule;
-
-    // Homework Module
-    @FindBy(xpath = "//li[@class='treeview']//a[@href='#']")
-    public WebElement homeworkModule;
+    // Add Homework
+    @FindBy(xpath = "//a[normalize-space()='Add Homework']")
+    public WebElement AddHomework;
 
 
 }
