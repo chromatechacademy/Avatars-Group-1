@@ -9,7 +9,7 @@ public class LoginPage {
 
     /* USERNAME TEXT BOX*/
     @FindBy(xpath = "//input[@placeholder='Username']")
-    public WebElement usernameTextBox;
+    public  WebElement usernameTextBox;
 
     /* PASSWORD TEXT BOX */
     @FindBy(xpath = "//input[@placeholder='Password']")
@@ -17,9 +17,7 @@ public class LoginPage {
 
     /* SIGN IN BUTTON*/
     @FindBy(xpath = " //button[normalize-space()='Sign In']")
-    public WebElement signInButton;
+    public  WebElement signInButton;
 
-    public LoginPage() {
-        PageFactory.initElements(WebDriverUtils.driver, this);
-    }
+    public LoginPage() {PageFactory.initElements(WebDriverUtils.driver, this);}
 }
