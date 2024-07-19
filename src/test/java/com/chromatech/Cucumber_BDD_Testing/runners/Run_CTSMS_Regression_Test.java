@@ -10,7 +10,6 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"com.chromatech.Cucumber_BDD_Testing.stepDefinitions", "Hooks"},
         tags = "@Regression",
         dryRun =false
-
 )
 
 public class Run_CTSMS_Regression_Test extends AbstractTestNGCucumberTests {

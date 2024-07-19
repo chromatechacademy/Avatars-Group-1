@@ -18,6 +18,4 @@ public class DashboardPage {
     // Add Homework
     @FindBy(xpath = "//a[normalize-space()='Add Homework']")
     public WebElement AddHomework;
-
-
 }
