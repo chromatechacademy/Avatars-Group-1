@@ -6,15 +6,8 @@ import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.StudentAdmissionPage;
 import com.chromatech.utils.CommonMethods;
 import com.chromatech.utils.JavascriptMethods;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.UnhandledAlertException;
-
-import java.util.concurrent.TimeUnit;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class Student_Admission_Steps {
@@ -24,11 +17,9 @@ public class Student_Admission_Steps {
     SearchPage searchPage = new SearchPage();
     BulkDeletePage bulkDeletePage = new BulkDeletePage();
 
-    @Given("CTSMS user is logged in to the Student Admission page {string}")
-    public void a_ctsms_user_is_logged_in_to_the_student_admission_page(String url) {
-        CommonMethods.click(dashboardPage.studentInformationModule);
-        CommonMethods.click(dashboardPage.studentAdmissionSubModule);
-        CommonMethods.assertEquals(driver.getCurrentUrl(), url);
+    @Then("within the expanded module, clicks on the {string} submodule")
+    public void within_the_expanded_module_clicks_on_the_submodule(String text) {
+        CommonMethods.click(dashboardPage.studentAdmission);
     }
 
     @When("user enters Unique Admission Number {string}")
@@ -178,12 +169,6 @@ public class Student_Admission_Steps {
     public void user_clicks_on_the_module(String text) {
         CommonMethods.assertEquals(dashboardPage.studentInformationModule.getText(), text);
         CommonMethods.click(dashboardPage.studentInformationModule);
-    }
-
-    @When("within the expanded module, clicks on the {string} submodule")
-    public void and_within_the_expanded_module_clicks_on_the_submodule(String text) {
-        CommonMethods.assertEquals(dashboardPage.studentAdmissionSubModule.getText(), text);
-        CommonMethods.click(dashboardPage.studentAdmissionSubModule);
     }
 
     @Then("user is on the Student Admission page {string}")
