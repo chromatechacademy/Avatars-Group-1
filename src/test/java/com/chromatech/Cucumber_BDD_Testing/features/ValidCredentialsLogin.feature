@@ -1,6 +1,6 @@
 Feature: Valid Credentials Login
 
-  @Regression @Oksana @AG1CP-10 @login
+  @Regression @Hasnaa @AG1CP-1
   Scenario: Valid Credentials Login
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box

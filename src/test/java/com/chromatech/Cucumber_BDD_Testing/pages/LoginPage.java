@@ -20,6 +20,5 @@ public class LoginPage {
     public  WebElement signInButton;
 
     public LoginPage() {PageFactory.initElements(WebDriverUtils.driver, this);}
-
 }
 
