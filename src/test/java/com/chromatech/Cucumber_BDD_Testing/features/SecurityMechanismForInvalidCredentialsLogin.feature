@@ -1,6 +1,6 @@
-Feature: Security mechanism to prevent invalid credentials login
+Feature: AG1CP-2: Security mechanism to prevent invalid credentials login
 
-  @Regression @Hasnaa @AG1CP-2
+  @Regression @Hasnaa @AG1CP-2 @SecurityMechanismToPreventInvalidCredentialsLogin
     Scenario: Security mechanism to prevent invalid credentials login
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "hasnaa@teacher.com" in username text box
@@ -8,6 +8,3 @@ Feature: Security mechanism to prevent invalid credentials login
     And clicks on Sign In button
     Then the user remains on the login page "https://mexil.it/chroma/site/login"
     Then an error message is displayed
-
-
-
