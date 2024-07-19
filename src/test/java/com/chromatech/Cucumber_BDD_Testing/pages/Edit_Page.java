@@ -44,6 +44,54 @@ public class Edit_Page {
     @FindBy(css = "input[id='custom_fields[students][2]']")
     public WebElement height;
 
-    //
+    //Father Name
+    @FindBy(xpath = "//input[@id='father_name']")
+    public WebElement fatherName;
+
+    //Phone No
+    @FindBy(xpath = "//input[@id='father_phone']")
+    public WebElement phoneNo;
+
+    //Father Occupation
+    @FindBy(xpath = "//input[@id='father_occupation']")
+    public WebElement fatherOccupation;
+
+    //Mother Name
+    @FindBy(xpath = "//input[@id='mother_name']")
+    public WebElement motherName;
+
+    //Mother Phone
+    @FindBy(xpath = "//input[@id='mother_phone']")
+    public WebElement motherNo;
+
+    //Mother Occupation
+    @FindBy(xpath = "//input[@id='mother_occupation']")
+    public WebElement MotherOccupation;
+
+    //Guardian Name
+    @FindBy(xpath = "//input[@id='guardian_name']")
+    public WebElement GaurdianName;
+
+    //Guardian Relation
+    @FindBy(xpath = "//input[@id='guardian_relation']")
+    public WebElement GuardianRelation;
+
+    //Guardian Email
+    @FindBy(xpath = "//input[@id='guardian_email']")
+    public WebElement GuardianEmail;
+
+    //Guardian Phone
+    @FindBy(xpath = "//input[@id='guardian_phone']")
+    public  WebElement GuardianPhone;
+
+    //Guardian Occupation
+    @FindBy(xpath = "//input[@id='guardian_occupation']")
+    public WebElement GuardianOccupation;
+
+    //Guardian Address
+    @FindBy(xpath = "//textarea[@id='guardian_address']")
+    public WebElement GaurdianAddress;
+
+
 
 }
