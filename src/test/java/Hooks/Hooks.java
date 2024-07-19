@@ -9,8 +9,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 
 public class Hooks {
-//Before to run the test, we want the browser to open and maximize
-//we want to execute before and after each scenario
+
     @Before
     public void start(Scenario scenario) {
         CucumberLogUtils.scenario = scenario;

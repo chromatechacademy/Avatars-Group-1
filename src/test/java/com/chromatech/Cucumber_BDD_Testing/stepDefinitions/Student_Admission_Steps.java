@@ -19,7 +19,7 @@ public class Student_Admission_Steps {
 
     @Then("within the expanded module, clicks on the {string} submodule")
     public void within_the_expanded_module_clicks_on_the_submodule(String text) {
-        CommonMethods.click(dashboardPage.studentAdmission);
+        CommonMethods.click(dashboardPage.studentAdmissionSubModule);
     }
 
     @When("user enters Unique Admission Number {string}")
@@ -32,7 +32,7 @@ public class Student_Admission_Steps {
         CommonMethods.sendKeys(studentAdmissionPage.rollNumberTextBox, number);
     }
 
-    @When("selects SDET for class drop down {string}")
+    @When("selects {string} for class drop down")
     public void selects_sdet_for_class_drop_down(String text) {
         CommonMethods.selectDropDownValue(text, studentAdmissionPage.classDropDown);
     }
@@ -52,17 +52,17 @@ public class Student_Admission_Steps {
         CommonMethods.sendKeys(studentAdmissionPage.lastNameTextBox, text);
     }
 
-    @When("select {string} from gender drop down")
+    @When("selects {string} from gender drop down")
     public void select_from_gender_drop_down(String text) {
         CommonMethods.selectDropDownValue(text, studentAdmissionPage.genderDropDown);
     }
 
     @When("selects {string} for Date of Birth Calendar")
     public void selects_for_date_of_birth_calendar(String date) {
-        JavascriptMethods.selectDateByJS(studentAdmissionPage.calendarTextBox, date);
+        JavascriptMethods.selectDateByJS(studentAdmissionPage.dateOfBirthTextBox, date);
     }
 
-    @When("select {string} from category drop down")
+    @When("selects {string} from category drop down")
     public void select_from_category_drop_down(String value) {
         CommonMethods.selectDropDownValue(value, studentAdmissionPage.categoryDropDown);
     }
@@ -77,7 +77,7 @@ public class Student_Admission_Steps {
         JavascriptMethods.selectDateByJS(studentAdmissionPage.admissionDateTextBox, date);
     }
 
-    @When("select {string} from blood group drop down")
+    @When("selects {string} from blood group drop down")
     public void select_from_blood_group_drop_down(String text) {
         CommonMethods.selectDropDownValue(text, studentAdmissionPage.bloodGroupDropDown);
     }
@@ -103,7 +103,7 @@ public class Student_Admission_Steps {
         CommonMethods.sendKeys(studentAdmissionPage.weightTextBox, text);
     }
 
-    @When("enter father name {string}")
+    @When("enters father name {string}")
     public void enter_father_name(String text) {
         JavascriptMethods.scrollIntoView(studentAdmissionPage.fatherNameTextBox);
         CommonMethods.sendKeys(studentAdmissionPage.fatherNameTextBox, text);
@@ -114,12 +114,12 @@ public class Student_Admission_Steps {
         CommonMethods.sendKeys(studentAdmissionPage.fatherPhoneTextBox, number);
     }
 
-    @When("enter father occupation {string}")
+    @When("enters father occupation {string}")
     public void enter_father_occupation(String text) {
         CommonMethods.sendKeys(studentAdmissionPage.fatherOccupationTextBox, text);
     }
 
-    @When("enter mother name {string}")
+    @When("enters mother name {string}")
     public void enter_mother_name(String text) {
         CommonMethods.sendKeys(studentAdmissionPage.motherNameTextBox, text);
     }
@@ -129,27 +129,47 @@ public class Student_Admission_Steps {
         CommonMethods.sendKeys(studentAdmissionPage.motherPhoneTextBox, number);
     }
 
-    @When("enter mother occupation {string}")
+    @When("enters mother occupation {string}")
     public void enter_mother_occupation(String text) {
         CommonMethods.sendKeys(studentAdmissionPage.motherOccupationTextBox, text);
     }
 
-    @When("selects Father radio button for If guardian is field")
-    public void selects_father_radio_button_for_if_guardian_is_field() {
-        CommonMethods.click(studentAdmissionPage.fatherRadioButton);
+    @When("selects {string} radio button for If guardian is field")
+    public void selects_radio_button_for_if_guardian_is_field(String text) {
+        CommonMethods.click(studentAdmissionPage.dynamicIfGuardianRadioButton(text));
     }
 
-    @When("enter guardian email {string}")
+    @When("enters guardian name {string}")
+    public void enter_guardian_name(String text) {
+        CommonMethods.sendKeys(studentAdmissionPage.guardianNameTextBox, text);
+    }
+
+    @When("enters guardian relation {string}")
+    public void enter_guardian_relation(String text) {
+        CommonMethods.sendKeys(studentAdmissionPage.guardianRelationTextBox, text);
+    }
+
+    @When("enters guardian phone {string}")
+    public void enters_guardian_phone(String text) {
+        CommonMethods.sendKeys(studentAdmissionPage.guardianPhoneTextBox, text);
+    }
+
+    @When("enters guardian occupation {string}")
+    public void enters_guardian_occupation(String text) {
+        CommonMethods.sendKeys(studentAdmissionPage.guardianOccupationTextBox, text);
+    }
+
+    @When("enters guardian email {string}")
     public void enter_guardian_email(String text) {
         CommonMethods.sendKeys(studentAdmissionPage.guardianEmailTextBox, text);
     }
 
-    @When("enter guardian phone number {string}")
+    @When("enters guardian phone number {string}")
     public void enter_guardian_phone_number(String number) {
         CommonMethods.sendKeys(studentAdmissionPage.guardianPhoneNumberTextBox, number);
     }
 
-    @When("enter guardian address {string}")
+    @When("enters guardian address {string}")
     public void enter_guardian_address(String text) {
         CommonMethods.sendKeys(studentAdmissionPage.guardianAddressTextBox, text);
     }
@@ -165,7 +185,7 @@ public class Student_Admission_Steps {
         CommonMethods.assertEquals(studentAdmissionPage.errorText.getText(), text);
     }
 
-    @When("User clicks on the {string} module")
+    @When("user clicks on the {string} module")
     public void user_clicks_on_the_module(String text) {
         CommonMethods.assertEquals(dashboardPage.studentInformationModule.getText(), text);
         CommonMethods.click(dashboardPage.studentInformationModule);
@@ -242,7 +262,7 @@ public class Student_Admission_Steps {
         CommonMethods.selectDropDownValue(text, bulkDeletePage.sectionDropDown);
     }
 
-    @When("user click on the search button")
+    @When("user clicks on the search button")
     public void user_click_on_the_search_button() {
         CommonMethods.click(bulkDeletePage.searchButton);
     }

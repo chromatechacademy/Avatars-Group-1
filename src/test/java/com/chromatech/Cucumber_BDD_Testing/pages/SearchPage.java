@@ -8,23 +8,19 @@ import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class SearchPage {
 
-    public SearchPage() {
-        PageFactory.initElements(driver, this);
-    }
-
-    // Serch by Keyword Textbox
+    // Search by Keyword textbox
     @FindBy(xpath = "//input[@class='form-control']")
     public WebElement SearchByKeywordTextBox;
 
-    // Search Button
+    // Search button
     @FindBy(xpath = "//button[@value='search_full']")
     public WebElement searchButton;
 
-    // Class Dropdown
+    // Class dropdown
     @FindBy(xpath = "//select[@id='class_id']")
     public WebElement classDropDown;
 
-    // Section DropDown
+    // Section dropDown
     @FindBy(xpath = "//select[@id='section_id']")
     public WebElement sectionDropDown;
 
@@ -33,8 +29,11 @@ public class SearchPage {
         return driver.findElement(By.xpath("//td[contains(text(),'" + text + "')]"));
     }
 
-    // Bulk Delete SubModule
+    // Bulk Delete subModule
     @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
     public WebElement bulkDeleteSubModule;
 
+    public SearchPage() {
+        PageFactory.initElements(driver, this);
+    }
 }
