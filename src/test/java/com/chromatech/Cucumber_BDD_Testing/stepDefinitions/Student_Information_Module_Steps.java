@@ -39,6 +39,7 @@ public class Student_Information_Module_Steps {
         CommonMethods.assertTrue(dashboardPage.bulkDeleteSubModule.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.bulkDeleteSubModule.getText(), bulkDelete);
     }
+    
     @And("the fifth submodule {string} displays")
     public void the_fifth_submodule_is_displays(String studentCategories) {
         CommonMethods.assertTrue(dashboardPage.studentCategoriesSubModule.isDisplayed());
