@@ -27,6 +27,7 @@ public class WebDriverUtils {
      * The driver window is maximized, all cookies are deleted, and the implicit wait timeout is set to 10 seconds.
      */
     public static void setUp() {
+        // this class initializes the browser we want to use, maximise and delete cookies
 
         ConfigReader.readProperties(FrameworkConstants.LOCAL_TEST_SETTINGS_FILEPATH);
         String browser = ConfigReader.getPropertyValue("browser");

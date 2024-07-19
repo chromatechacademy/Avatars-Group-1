@@ -9,10 +9,11 @@ public class ConfigReader {
 
     /*
      * THIS IS A STANDARD CONFIG READER CLASS
+     *
      */
     static Properties prop;
 
-    // STEP 1 - READ THE FILE
+    // STEP 1 - READ THE FILE OF LocalTestSettings.properties from Config/resources
     public static Properties readProperties(String filePath){
         try {
             FileInputStream fis = new FileInputStream(filePath);
@@ -26,7 +27,7 @@ public class ConfigReader {
         return prop;
     }
 
-    // STEP 2: RETRIEVE VALUES FROM PROPERTIES FILE
+    // STEP 2: RETRIEVE VALUES FROM PROPERTIES FILE OF LocalTestSettings.properties from Config/resources - key is browser
     public static String getPropertyValue(String key){
         return prop.getProperty(key);
     }
