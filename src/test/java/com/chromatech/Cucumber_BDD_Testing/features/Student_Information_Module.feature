@@ -1,6 +1,6 @@
-Feature: Student Information Module
+Feature: AG1CP-4: Student Information Module
 
-  @Regression @AG1CP-4 @vero
+  @Regression @AG1CP-4 @Vero @StudentInformationModule
   Scenario: Student Information Module
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box
