@@ -17,16 +17,13 @@ public class DashboardPage {
 
     // *SUBMODULE: ADD INCOME*
     @FindBy (xpath = "(//a[@href='https://mexil.it/chroma/admin/income'])[2]")
-    public WebElement addIncome;
+    public WebElement addIncomeSubModule;
 
     // *SUBMODULE: SEARCH INCOME*
     @FindBy (xpath = "//a[normalize-space()='Search Income']")
-    public WebElement searchIncome;
+    public WebElement searchIncomeSubModule;
 
     //*SUBMODULE: INCOME HEAD*
     @FindBy (xpath ="//a[normalize-space()='Income Head']")
-    public WebElement incomeHead;
-
-
-
+    public WebElement incomeHeadSubModule;
 }

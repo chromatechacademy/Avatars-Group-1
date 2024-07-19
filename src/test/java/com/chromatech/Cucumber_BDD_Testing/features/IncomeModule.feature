@@ -1,6 +1,6 @@
-Feature: Income Module
+Feature: AG1CP-6: Income Module
 
-  @Regression @IncomeModule @Vannia
+  @Regression @IncomeModule @Vannia @AG1CP-6
   Scenario: CTSMS Income Module
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box
@@ -10,5 +10,3 @@ Feature: Income Module
     Then the following submodule "Add Income" is displayed
     And the submodule "Search Income" is displayed
     And the following Income Head submodule "Income Head" is displayed
-
-
