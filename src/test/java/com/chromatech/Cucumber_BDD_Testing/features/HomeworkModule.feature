@@ -1,6 +1,6 @@
 Feature: AG1CP-10: HomeworkModule
 
-  @Regression @Oksana @AG1CP-10 @HomeworkModule
+  @Regression @AG1CP-10 @Oksana @HomeworkModule
   Scenario: HomeworkModule
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box

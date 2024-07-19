@@ -1,6 +1,6 @@
 Feature: AG1CP-12: StudentAdmission
 
-  @Regression @AG1CP-12 @StudentAdmission @Vlad
+  @Regression @AG1CP-12 @Vlad @StudentAdmission
   Scenario: Student Admission (Flow: Create - Search - Delete)
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box
