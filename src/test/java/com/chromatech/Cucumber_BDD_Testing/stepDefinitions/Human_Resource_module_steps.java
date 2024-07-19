@@ -24,11 +24,12 @@ public class Human_Resource_module_steps {
 
     }
 
-    @Then("the following submodules are displayed")
-    public void the_following_submodules_are_displayed(String StaffDirectory) {
-        CommonMethods.assertTrue(DashboardPage.humanResourceModule.isDisplayed());
-        CommonMethods.assertEquals(DashboardPage.humanResourceModule.getText(), "StaffDirectory");
+    @Then("the first Submodule {string} is displayed")
+    public void the_first_submodule_is_displayed(String staffDirectory) {
+        CommonMethods.assertTrue(DashboardPage.humanResourceModuleStaffDirectory.isDisplayed());
+        CommonMethods.assertEquals(DashboardPage.humanResourceModuleStaffDirectory.getText(), staffDirectory);
         CommonMethods.sleep(3000);
 
     }
 }
+
