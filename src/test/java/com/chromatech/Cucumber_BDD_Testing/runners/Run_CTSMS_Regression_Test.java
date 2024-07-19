@@ -7,8 +7,8 @@ import io.cucumber.testng.CucumberOptions;
         "rerun:target/failed.txt",
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/com/chromatech/Cucumber_BDD_Testing/features",
-        glue = {"com.chromatech.Cucumber_BDD_Testing.stepDefinitions", "Hooks"},
-        tags = "@AG1CP-2",
+        glue = "com.chromatech.Cucumber_BDD_Testing.stepDefinitions",
+        tags = "@Regression",
         dryRun = false
 )
 
