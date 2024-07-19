@@ -9,12 +9,10 @@ public class ConfigReader {
 
     /*
      * THIS IS A STANDARD CONFIG READER CLASS
-     *
      */
     static Properties prop;
 
     // STEP 1 - READ THE FILE OF LocalTestSettings.properties from Config/resources
-
     public static Properties readProperties(String filePath){
         try {
             FileInputStream fis = new FileInputStream(filePath);
