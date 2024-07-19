@@ -18,3 +18,7 @@ Feature: Ability to edit student records
     When user clicks on the name of student record with admission number "42999"
     And clicks on edit button located near top right pencil icon
     Then user is on the "Edit Student" page
+    When user edits admission number field to the "42990"
+    And user edits roll number field to "42222"
+    And user edits class drop down to "Cyber Security"
+    And

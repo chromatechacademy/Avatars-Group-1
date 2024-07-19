@@ -16,81 +16,133 @@ public class Edit_Page {
     @FindBy(xpath = "//h3[normalize-space()='Edit Student']")
     public WebElement editStudentHeader;
 
-    //Admission No
+    //Admission No Text Box
     @FindBy(xpath = "//input[@id='admission_no']")
-    public WebElement admissionNo;
+    public WebElement admissionNoTextBox;
 
-    //Roll Number
+    //Roll Number Text Box
     @FindBy(xpath = "//input[@id='roll_no']")
-    public WebElement rollNumber;
+    public WebElement rollNumberTextBox;
 
-    //First Name
+    //Class Drop Down
+    @FindBy(xpath = "//select[@id='class_id']")
+    public WebElement classDropDown;
+
+    //Section Drop Down
+    @FindBy(xpath = "//select[@id='section_id']")
+    public WebElement sectionDropDown;
+
+    //First Name Text Box
     @FindBy(xpath = "//input[@id='firstname']")
-    public WebElement firstName;
+    public WebElement firstNameTextBox;
 
-    //Last Name
+    //Last Name Text Box
     @FindBy(xpath = "//input[@id='lastname']")
-    public WebElement lastName;
+    public WebElement lastNameTextBox;
 
-    //Email
+    //Gender Drop Down
+    @FindBy(xpath = "//select[@name='gender']")
+    public WebElement genderDropDown;
+
+    //DOB
+    @FindBy(xpath = "//input[@id='dob']")
+    public WebElement dob;
+
+    //Category Drop Down
+    @FindBy(xpath = "//select[@id='category_id']")
+    public WebElement categoryDropDown;
+
+    //Email Text Box
     @FindBy(xpath = "//input[@id='email']")
-    public WebElement email;
+    public WebElement emailTextBox;
 
-    //Mobile Number
+    //Admission Date
+    @FindBy(xpath = "//input[@id='admission_date']")
+    public WebElement admissionDate;
+
+    //Student Photo
+    @FindBy(xpath = "(//input[@id='file'])[1]")
+    public WebElement studentPhoto;
+
+    //Blood Group Drop Down
+    @FindBy(xpath = "//select[@name='blood_group']")
+    public WebElement bloodGroupDropDown;
+
+    //As On Date
+    @FindBy(xpath = "//input[@id='measure_date']")
+    public WebElement AsOnDate;
+
+    //Mobile Number Text Box
     @FindBy(css = "input[id='custom_fields[students][1]']")
-    public WebElement mobileNumber;
+    public WebElement mobileNumberTextBox;
 
-    //Height
+    //Height Text Box
     @FindBy(css = "input[id='custom_fields[students][2]']")
-    public WebElement height;
+    public WebElement heightTextBox;
 
-    //Father Name
+    //Father Name Text Box
     @FindBy(xpath = "//input[@id='father_name']")
-    public WebElement fatherName;
+    public WebElement fatherNameTextBox;
 
-    //Phone No
+    //Phone No Text Box
     @FindBy(xpath = "//input[@id='father_phone']")
-    public WebElement phoneNo;
+    public WebElement phoneNoTextBox;
 
-    //Father Occupation
+    //Father Occupation Text Box
     @FindBy(xpath = "//input[@id='father_occupation']")
-    public WebElement fatherOccupation;
+    public WebElement fatherOccupationTextBox;
 
-    //Mother Name
+    //Father Photo
+    @FindBy(xpath = "//input[@name='father_pic']")
+    public WebElement fatherPhoto;
+
+    //Mother Name Text Box
     @FindBy(xpath = "//input[@id='mother_name']")
-    public WebElement motherName;
+    public WebElement motherNameTextBox;
 
-    //Mother Phone
+    //Mother Phone Text Box
     @FindBy(xpath = "//input[@id='mother_phone']")
-    public WebElement motherNo;
+    public WebElement motherNoTextBox;
 
-    //Mother Occupation
+    //Mother Occupation Text Box
     @FindBy(xpath = "//input[@id='mother_occupation']")
-    public WebElement MotherOccupation;
+    public WebElement MotherOccupationTextBox;
 
-    //Guardian Name
+    //Mother Photo
+    @FindBy(xpath = "//input[@name='mother_pic']")
+    public WebElement MotherPhoto;
+
+    //If Guardian Is
+    @FindBy(xpath = "//input[@value='father']")
+    public WebElement IfGuardianIs;
+
+    //Guardian Name Text Box
     @FindBy(xpath = "//input[@id='guardian_name']")
-    public WebElement GaurdianName;
+    public WebElement GaurdianNameTextBox;
 
-    //Guardian Relation
+    //Guardian Relation Text Box
     @FindBy(xpath = "//input[@id='guardian_relation']")
-    public WebElement GuardianRelation;
+    public WebElement GuardianRelationTextBox;
 
-    //Guardian Email
+    //Guardian Email Text Box
     @FindBy(xpath = "//input[@id='guardian_email']")
-    public WebElement GuardianEmail;
+    public WebElement GuardianEmailTextBox;
 
-    //Guardian Phone
+    //Guardian Photo
+    @FindBy(xpath = "//input[@name='guardian_pic']")
+    public WebElement GuardianPhoto;
+
+    //Guardian Phone Text Box
     @FindBy(xpath = "//input[@id='guardian_phone']")
-    public  WebElement GuardianPhone;
+    public  WebElement GuardianPhoneTextBox;
 
-    //Guardian Occupation
+    //Guardian Occupation Text Box
     @FindBy(xpath = "//input[@id='guardian_occupation']")
-    public WebElement GuardianOccupation;
+    public WebElement GuardianOccupationTextBox;
 
-    //Guardian Address
+    //Guardian Address Text Box
     @FindBy(xpath = "//textarea[@id='guardian_address']")
-    public WebElement GaurdianAddress;
+    public WebElement GuardianAddressTextBox;
 
 
 

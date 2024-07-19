@@ -63,12 +63,27 @@ public class Ability_To_Edit_Student_Records_Steps {
     @When("clicks on edit button located near top right pencil icon")
     public void clicks_on_edit_button_located_near_top_right_pencil_logo() {
     CommonMethods.click(searchPage.editIconButton);
-    CommonMethods.sleep(2000);
     }
 
     @Then("user is on the {string} page")
     public void user_is_on_the_page(String text) {
     CommonMethods.assertEquals(editPage.editStudentHeader.getText(), text);
+    }
+
+    @When("user edits admission number field to the {string}")
+    public void user_edits_admission_number_field_to_the(String number) {
+        CommonMethods.sendKeys(editPage.admissionNoTextBox, number);
+    }
+
+    @When("user edits roll number field to {string}")
+    public void user_edits_roll_number_field_to(String number) {
+        CommonMethods.sendKeys(editPage.rollNumberTextBox, number);
+    }
+
+    @When("user edits class drop down to {string}")
+    public void user_edits_class_drop_down_to(String value) {
+        CommonMethods.selectDropDownValue(value, editPage.classDropDown);
+        CommonMethods.sleep(2000);
     }
 
 }
