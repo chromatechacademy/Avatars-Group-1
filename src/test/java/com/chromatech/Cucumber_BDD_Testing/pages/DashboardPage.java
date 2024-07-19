@@ -7,6 +7,14 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DashboardPage {
 
+    // Student Homework Module
+    @FindBy(xpath = "//span[normalize-space()='Homework']")
+    public WebElement StudentHomeworkModule;
+
+    // Add Homework
+    @FindBy(xpath = "//a[normalize-space()='Add Homework']")
+    public WebElement AddHomework;
+  
     //Student Information Module
     @FindBy(xpath = "//span[normalize-space()='Student Information']")
     public WebElement studentInformationModule;
@@ -41,5 +49,4 @@ public class DashboardPage {
 
     public DashboardPage() {
         PageFactory.initElements(WebDriverUtils.driver, this);}
-
 }
