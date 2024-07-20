@@ -9,12 +9,6 @@ public class Human_Resource_module_steps {
 
     DashboardPage DashboardPage = new DashboardPage();
 
-    @When("CTSMS user is on the dashboard page")
-    public void the_user_clicks_on_the_Human_Resource_module() {
-        CommonMethods.assertTrue(DashboardPage.StudentHomeworkModule.isDisplayed());
-        CommonMethods.click(DashboardPage.StudentHomeworkModule);
-    }
-
     @When("the user clicks on the {string} module Human Resource")
     public void the_user_clicks_on_the_human_resource_module(String text) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModule.isDisplayed());

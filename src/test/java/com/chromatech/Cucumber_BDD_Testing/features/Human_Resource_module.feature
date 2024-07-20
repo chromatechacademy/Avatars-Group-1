@@ -7,7 +7,7 @@ Feature: AG1CP-9: HumanResourseModule
     When the user enters password "123456" in password text box
     And clicks on Sign In button
     Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
-    When the user clicks on the "Human Resource" module Human Resource
+    When the user clicks on the "human resource" module Human Resource
     Then the first "Staff Directory" is displayed
     Then the second "Staff Attendance" is displayed
     Then the third "Payroll" is displayed
