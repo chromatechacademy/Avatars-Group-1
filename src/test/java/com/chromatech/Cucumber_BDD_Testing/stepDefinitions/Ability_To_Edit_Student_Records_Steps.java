@@ -37,7 +37,7 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("the user selects {string} in the Class dropdown")
     public void the_user_selects_in_the_class_dropdown(String text) {
-        CommonMethods.selectDropDownValue(text, searchPage.classDropDown);
+        CommonMethods.selectDropDownValue(text, editPage.classDropDown);
     }
 
     @When("selects {string} in the Section dropdown")
@@ -84,6 +84,117 @@ public class Ability_To_Edit_Student_Records_Steps {
     public void user_edits_class_drop_down_to(String value) {
         CommonMethods.selectDropDownValue(value, editPage.classDropDown);
         CommonMethods.sleep(2000);
+    }
+
+    @When("user edits section drop down to {string}")
+    public void user_edit_section_drop_down_to(String value) {
+        CommonMethods.selectDropDownValue(value, editPage.sectionDropDown);
+    }
+
+    @When("user edits first name field to {string}")
+    public void user_edits_first_name_field_to(String text) {
+        CommonMethods.sendKeys(editPage.firstNameTextBox, text);
+        CommonMethods.sleep(2000);
+    }
+
+    @When("user edits last name field to {string}")
+    public void user_edits_last_name_field_to(String text) {
+        CommonMethods.sendKeys(editPage.lastNameTextBox,text);
+    }
+
+    @When("user edits gender field drop down to {string}")
+    public void user_edits_gender_field_drop_down_to(String value) {
+        CommonMethods.selectDropDownValue(value, editPage.genderDropDown);
+    }
+
+    @When("user edits category field to {string}")
+    public void user_edits_category_field_to(String value) {
+        CommonMethods.selectDropDownValue(value, editPage.categoryDropDown);
+    }
+
+    @When("user edits email field to {string}")
+    public void user_edits_email_field_to(String text) {
+        CommonMethods.sendKeys(editPage.emailTextBox, text);
+    }
+
+    @When("user edits Blood Group field to {string}")
+    public void user_edits_blood_group_field_to(String value) {
+        CommonMethods.selectDropDownValue(value, editPage.bloodGroupDropDown);
+    }
+
+    @When("user edits Moblie Number field to {string}")
+    public void user_edits_moblie_number_field_to(String number) {
+        CommonMethods.sendKeys(editPage.mobileNumberTextBox, number);
+    }
+
+    @When("user edits Height field to {string}")
+    public void user_edits_height_field_to(String number) {
+        CommonMethods.sendKeys(editPage.heightTextBox, number);
+    }
+
+    @When("user edits Weight field to {string}")
+    public void user_edits_weight_field_to(String number) {
+        CommonMethods.sendKeys(editPage.weightTextBox, number);
+    }
+
+    @When("user edits Father Name field to {string}")
+    public void user_edits_father_name_field_to(String text) {
+        CommonMethods.sendKeys(editPage.fatherNameTextBox, text);
+    }
+
+    @When("user edits Phone No field to {string}")
+    public void user_edits_phone_no_field_to(String number) {
+        CommonMethods.sendKeys(editPage.phoneNoTextBox, number);
+    }
+
+    @When("user edits Father Occupation field to {string}")
+    public void user_edits_father_occupation_field_to(String text) {
+        CommonMethods.sendKeys(editPage.fatherOccupationTextBox, text);
+    }
+
+    @When("user edits Mother Name field to {string}")
+    public void user_edits_mother_name_field_to(String text) {
+        CommonMethods.sendKeys(editPage.motherNameTextBox, text);
+    }
+
+    @When("user edits Mother Phone field to {string}")
+    public void user_edits_mother_phone_field_to(String text) {
+        CommonMethods.sendKeys(editPage.motherNoTextBox, text);
+    }
+
+    @When("user edits Mother Occupation field to {string}")
+    public void user_edits_mother_occupation_field_to(String text) {
+        CommonMethods.sendKeys(editPage.motherOccupationTextBox, text);
+    }
+
+    @When("user edits Guardian Name to {string}")
+    public void user_edits_guardian_name_to(String text) {
+        CommonMethods.sendKeys(editPage.guardianNameTextBox, text);
+    }
+
+    @When("user edits Guardian Relation to {string}")
+    public void user_edits_guardian_relation_to(String text) {
+        CommonMethods.sendKeys(editPage.guardianRelationTextBox, text);
+    }
+
+    @When("user edits Guardian Email to {string}")
+    public void user_edits_guardian_email_to(String text) {
+        CommonMethods.sendKeys(editPage.guardianEmailTextBox, text);
+    }
+
+    @When("user edits Guardian Phone to {string}")
+    public void user_edits_guardian_phone_to(String number) {
+        CommonMethods.sendKeys(editPage.guardianPhoneTextBox, number);
+    }
+
+    @When("user edits Guardian Occupation to {string}")
+    public void user_edits_guardian_occupation_to(String text) {
+        CommonMethods.sendKeys(editPage.guardianOccupationTextBox, text);
+    }
+
+    @When("user edits Guardian Address {string}")
+    public void user_edits_guardian_address(String text) {
+        CommonMethods.sendKeys(editPage.guardianAddressTextBox, text);
     }
 
 }

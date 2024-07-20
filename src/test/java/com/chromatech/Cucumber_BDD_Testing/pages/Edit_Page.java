@@ -80,6 +80,10 @@ public class Edit_Page {
     @FindBy(css = "input[id='custom_fields[students][2]']")
     public WebElement heightTextBox;
 
+    //Weight Text Box
+    @FindBy(xpath = "//div[5]//div[3]//div[1]//input[1]")
+    public WebElement weightTextBox;
+
     //Father Name Text Box
     @FindBy(xpath = "//input[@id='father_name']")
     public WebElement fatherNameTextBox;
@@ -106,7 +110,7 @@ public class Edit_Page {
 
     //Mother Occupation Text Box
     @FindBy(xpath = "//input[@id='mother_occupation']")
-    public WebElement MotherOccupationTextBox;
+    public WebElement motherOccupationTextBox;
 
     //Mother Photo
     @FindBy(xpath = "//input[@name='mother_pic']")
@@ -118,31 +122,31 @@ public class Edit_Page {
 
     //Guardian Name Text Box
     @FindBy(xpath = "//input[@id='guardian_name']")
-    public WebElement GaurdianNameTextBox;
+    public WebElement guardianNameTextBox;
 
     //Guardian Relation Text Box
     @FindBy(xpath = "//input[@id='guardian_relation']")
-    public WebElement GuardianRelationTextBox;
+    public WebElement guardianRelationTextBox;
 
     //Guardian Email Text Box
     @FindBy(xpath = "//input[@id='guardian_email']")
-    public WebElement GuardianEmailTextBox;
+    public WebElement guardianEmailTextBox;
 
     //Guardian Photo
     @FindBy(xpath = "//input[@name='guardian_pic']")
-    public WebElement GuardianPhoto;
+    public WebElement guardianPhoto;
 
     //Guardian Phone Text Box
     @FindBy(xpath = "//input[@id='guardian_phone']")
-    public  WebElement GuardianPhoneTextBox;
+    public  WebElement guardianPhoneTextBox;
 
     //Guardian Occupation Text Box
     @FindBy(xpath = "//input[@id='guardian_occupation']")
-    public WebElement GuardianOccupationTextBox;
+    public WebElement guardianOccupationTextBox;
 
     //Guardian Address Text Box
     @FindBy(xpath = "//textarea[@id='guardian_address']")
-    public WebElement GuardianAddressTextBox;
+    public WebElement guardianAddressTextBox;
 
 
 
