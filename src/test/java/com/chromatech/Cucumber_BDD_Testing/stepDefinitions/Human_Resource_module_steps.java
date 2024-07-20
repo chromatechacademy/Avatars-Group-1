@@ -54,11 +54,41 @@ public class Human_Resource_module_steps {
         CommonMethods.sleep(3000);
 
     }
+
     @Then("the five Submodule {string} is displayed")
     public void the_five_submodule_is_displayed(String applyLeave) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModuleApplyLeave.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModuleApplyLeave.getText(), applyLeave);
-        CommonMethods.sleep(3000);
+
+
+    }
+
+    @Then("the sixth Submodule {string} is displayed")
+    public void the_sixth_submodule_is_displayed(String leaveType) {
+        CommonMethods.assertTrue(DashboardPage.humanResourceModuleLeaveType.isDisplayed());
+        CommonMethods.assertEquals(DashboardPage.humanResourceModuleLeaveType.getText(), leaveType);
+
+
+    }
+
+    @Then("the seven Submodule {string} is displayed")
+    public void the_seven_submodule_is_displayed(String teachersRating) {
+        CommonMethods.assertTrue(DashboardPage.humanResourceModuleTeachersRating.isDisplayed());
+        CommonMethods.assertEquals(DashboardPage.humanResourceModuleTeachersRating.getText(), teachersRating);
+
+    }
+
+    @Then("the eight Submodule {string} is displayed")
+    public void the_eight_submodule_is_displayed(String department) {
+        CommonMethods.assertTrue(DashboardPage.humanResourceModuleDepartment.isDisplayed());
+        CommonMethods.assertEquals(DashboardPage.humanResourceModuleDepartment.getText(), department);
+
+
+    }
+    @Then("the nine Submodule {string} is displayed")
+    public void the_nine_submodule_is_displayed(String designation) {
+        CommonMethods.assertTrue(DashboardPage.humanResourceModuleDesignation.isDisplayed());
+        CommonMethods.assertEquals(DashboardPage.humanResourceModuleDesignation.getText(), designation);
 
     }
 }

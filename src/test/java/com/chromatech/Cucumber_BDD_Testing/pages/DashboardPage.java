@@ -14,7 +14,7 @@ public class DashboardPage {
     // Add Homework
     @FindBy(xpath = "//a[normalize-space()='Add Homework']")
     public WebElement AddHomework;
-  
+
     //Student Information Module
     @FindBy(xpath = "//span[normalize-space()='Student Information']")
     public WebElement studentInformationModule;
@@ -65,13 +65,30 @@ public class DashboardPage {
 
     //Human Resource Module Approve Leave Reques
     @FindBy(xpath = "//a[normalize-space()='Approve Leave Request']")
-    public  WebElement humanResourceModuleApproveLeaveRequest;
+    public WebElement humanResourceModuleApproveLeaveRequest;
 
     //Human Resource Module Apply Leave
     @FindBy(xpath = "//a[normalize-space()='Apply Leave']")
     public WebElement humanResourceModuleApplyLeave;
 
+    //Human Resource Module Leave Type
+    @FindBy(xpath = "//a[normalize-space()='Leave Type']")
+    public WebElement humanResourceModuleLeaveType;
+
+    //Human Resource Module Teachers Rating
+    @FindBy(xpath = "//a[normalize-space()='Teachers Rating']")
+    public WebElement humanResourceModuleTeachersRating;
+
+    //Human Resource Module Department
+    @FindBy(xpath = "//a[normalize-space()='Department']")
+    public WebElement humanResourceModuleDepartment;
+
+    //Human Resource Module Designation
+    @FindBy(xpath = "//a[normalize-space()='Designation']")
+    public WebElement humanResourceModuleDesignation;
+
 
     public DashboardPage() {
-        PageFactory.initElements(WebDriverUtils.driver, this);}
+        PageFactory.initElements(WebDriverUtils.driver, this);
+    }
 }

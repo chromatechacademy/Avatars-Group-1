@@ -13,3 +13,7 @@ Feature: HumanResourseModule
     Then the third Submodule "Payroll" is displayed
     Then the fourth Submodule "Approve Leave Reques" is displayed
     Then the five Submodule "Apply Leave" is displayed
+    Then the sixth Submodule "Leave Type" is displayed
+    Then the seven Submodule "Teachers Rating" is displayed
+    Then the eight Submodule "Department" is displayed
+    Then the nine Submodule "Designation" is displayed
