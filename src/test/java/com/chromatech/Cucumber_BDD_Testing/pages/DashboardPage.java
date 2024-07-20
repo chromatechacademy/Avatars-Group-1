@@ -55,6 +55,22 @@ public class DashboardPage {
     @FindBy(xpath = "//li[@class='active']//a[normalize-space()='Staff Directory']")
     public WebElement humanResourceModuleStaffDirectory;
 
+    //Human Resource Module Staff Attendance
+    @FindBy(xpath = "//li[@class='active']//a[normalize-space()='Staff Attendance']")
+    public WebElement humanResourceModuleStaffAttendence;
+
+    //Human Resource Module Payroll
+    @FindBy(xpath = "//a[normalize-space()='Payroll']")
+    public WebElement humanResourceModulePayroll;
+
+    //Human Resource Module Approve Leave Reques
+    @FindBy(xpath = "//a[normalize-space()='Approve Leave Request']")
+    public  WebElement humanResourceModuleApproveLeaveRequest;
+
+    //Human Resource Module Apply Leave
+    @FindBy(xpath = "//a[normalize-space()='Apply Leave']")
+    public WebElement humanResourceModuleApplyLeave;
+
 
     public DashboardPage() {
         PageFactory.initElements(WebDriverUtils.driver, this);}

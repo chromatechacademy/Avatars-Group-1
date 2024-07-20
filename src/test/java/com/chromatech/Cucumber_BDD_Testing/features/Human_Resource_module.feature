@@ -9,3 +9,7 @@ Feature: HumanResourseModule
     Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
     When the user clicks on the "Human Resource" module Human Resource
     Then the first Submodule "Staff Directory" is displayed
+    Then the second Submodule "Staff Attendance" is displayed
+    Then the third Submodule "Payroll" is displayed
+    Then the fourth Submodule "Approve Leave Reques" is displayed
+    Then the five Submodule "Apply Leave" is displayed
