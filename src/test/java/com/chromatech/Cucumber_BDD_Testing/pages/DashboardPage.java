@@ -47,19 +47,19 @@ public class DashboardPage {
     @FindBy(xpath = "//a[normalize-space()='Disable Reason']")
     public WebElement disableReasonSubModule;
 
-    // *INCOME MODULE*
+    // Income Module
     @FindBy (xpath = "//span[normalize-space()='Income']")
     public WebElement incomeModule;
 
-    // *SUBMODULE: ADD INCOME*
+    // Add Income subModule
     @FindBy (xpath = "(//a[@href='https://mexil.it/chroma/admin/income'])[2]")
     public WebElement addIncomeSubModule;
 
-    // *SUBMODULE: SEARCH INCOME*
+    // Search Income subModule
     @FindBy (xpath = "//a[normalize-space()='Search Income']")
     public WebElement searchIncomeSubModule;
 
-    //*SUBMODULE: INCOME HEAD*
+    // Income Head subModule
     @FindBy (xpath ="//a[normalize-space()='Income Head']")
     public WebElement incomeHeadSubModule;
 

@@ -23,7 +23,7 @@ public class Income_Module_Steps {
     @Then("the submodule {string} is displayed")
     public void the_submodule_is_displayed(String searchIncome) {
         CommonMethods.assertTrue(dashboardPage.searchIncomeSubModule.isDisplayed());
-        CommonMethods.assertEquals(dashboardPage.searchIncomeSubModule.getText(), searchIncome);git
+        CommonMethods.assertEquals(dashboardPage.searchIncomeSubModule.getText(), searchIncome);
     }
 
     @Then("the following Income Head submodule {string} is displayed")
