@@ -52,11 +52,11 @@ public class DashboardPage {
     public WebElement humanResourceModule;
 
     //Human Resource Module Staff Directory
-    @FindBy(xpath = "//li[@class='active']//a[normalize-space()='Staff Directory']")
+    @FindBy(xpath = "(//a[@href='https://mexil.it/chroma/admin/staff'])[2]")
     public WebElement humanResourceModuleStaffDirectory;
 
     //Human Resource Module Staff Attendance
-    @FindBy(xpath = "//li[@class='active']//a[normalize-space()='Staff Attendance']")
+    @FindBy(xpath = "(//a[normalize-space()='Staff Attendance'])[2]")
     public WebElement humanResourceModuleStaffAttendence;
 
     //Human Resource Module Payroll

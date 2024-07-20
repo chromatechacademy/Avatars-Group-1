@@ -11,7 +11,7 @@ Feature: HumanResourseModule
     Then the first Submodule "Staff Directory" is displayed
     Then the second Submodule "Staff Attendance" is displayed
     Then the third Submodule "Payroll" is displayed
-    Then the fourth Submodule "Approve Leave Reques" is displayed
+    Then the fourth Submodule "Approve Leave Request" is displayed
     Then the five Submodule "Apply Leave" is displayed
     Then the sixth Submodule "Leave Type" is displayed
     Then the seven Submodule "Teachers Rating" is displayed
