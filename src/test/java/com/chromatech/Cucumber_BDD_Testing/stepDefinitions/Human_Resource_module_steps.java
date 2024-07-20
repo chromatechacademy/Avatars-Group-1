@@ -23,7 +23,7 @@ public class Human_Resource_module_steps {
     }
 
     @Then("the first {string} is displayed")
-    public void the_first_is_displayed(String text) {
+    public void the_first_is_displayed(String string) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModuleStaffDirectory.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModuleStaffDirectory.getText(), "Staff Directory");
     }

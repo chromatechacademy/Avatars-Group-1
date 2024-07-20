@@ -1,7 +1,7 @@
-Feature: HumanResourseModule
+Feature: AG1CP-9: HumanResourseModule
 
-  @regression @Dmytro @AG1CP-9
-  Scenario: HumanResourseModule
+  @Regression @Dmytro @AG1CP-9
+  Scenario: HumanResourceModule
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box
     When the user enters password "123456" in password text box
