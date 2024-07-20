@@ -20,7 +20,6 @@ public class Human_Resource_module_steps {
         CommonMethods.assertTrue(DashboardPage.humanResourceModule.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModule.getText(), text);
         CommonMethods.click(DashboardPage.humanResourceModule);
-        CommonMethods.sleep(3000);
 
     }
 
@@ -35,7 +34,6 @@ public class Human_Resource_module_steps {
     public void the_second_submodule_is_displayed(String staffAttendance) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModuleStaffAttendence.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModuleStaffAttendence.getText(), staffAttendance);
-        CommonMethods.sleep(3000);
 
     }
 
@@ -43,7 +41,6 @@ public class Human_Resource_module_steps {
     public void the_third_submodule_is_displayed(String Payroll) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModulePayroll.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModulePayroll.getText(), Payroll);
-        CommonMethods.sleep(3000);
 
     }
 
@@ -51,7 +48,6 @@ public class Human_Resource_module_steps {
     public void the_fourth_submodule_is_displayed(String approveLeaveRequest) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModuleApproveLeaveRequest.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModuleApproveLeaveRequest.getText(), approveLeaveRequest);
-        CommonMethods.sleep(3000);
 
     }
 
@@ -85,6 +81,7 @@ public class Human_Resource_module_steps {
 
 
     }
+
     @Then("the nine Submodule {string} is displayed")
     public void the_nine_submodule_is_displayed(String designation) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModuleDesignation.isDisplayed());
