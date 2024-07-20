@@ -50,12 +50,10 @@ public class Human_Resource_module_steps {
         CommonMethods.assertEquals(DashboardPage.humanResourceModuleApproveLeaveRequest.getText(), approveLeaveRequest);
 
     }
-
     @Then("the five Submodule {string} is displayed")
     public void the_five_submodule_is_displayed(String applyLeave) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModuleApplyLeave.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModuleApplyLeave.getText(), applyLeave);
-
 
     }
 

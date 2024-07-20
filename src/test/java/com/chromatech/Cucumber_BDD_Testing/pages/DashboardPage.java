@@ -87,7 +87,6 @@ public class DashboardPage {
     @FindBy(xpath = "//a[normalize-space()='Designation']")
     public WebElement humanResourceModuleDesignation;
 
-
     public DashboardPage() {
         PageFactory.initElements(WebDriverUtils.driver, this);
     }
