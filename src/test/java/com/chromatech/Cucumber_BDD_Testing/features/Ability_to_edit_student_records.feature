@@ -21,4 +21,4 @@ Feature: Ability to edit student records
     When user edits admission number field to the "42990"
     And user edits roll number field to "42222"
     And user edits class drop down to "Cyber Security"
-    And
+    And user edit section drop down to "Cucumber Fundamentals"

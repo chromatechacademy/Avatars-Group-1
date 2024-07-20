@@ -7,45 +7,45 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DashboardPage {
 
-    // Student Homework Module
+    // Student Homework module
     @FindBy(xpath = "//span[normalize-space()='Homework']")
-    public WebElement StudentHomeworkModule;
+    public WebElement studentHomeworkModule;
 
-    // Add Homework
+    // Add Homework subModule
     @FindBy(xpath = "//a[normalize-space()='Add Homework']")
-    public WebElement AddHomework;
-  
-    //Student Information Module
+    public WebElement addHomework;
+
+    // Student Information module
     @FindBy(xpath = "//span[normalize-space()='Student Information']")
     public WebElement studentInformationModule;
 
-    //Student Details
+    // Student Details subModule
     @FindBy(xpath = "//ul[@class='treeview-menu menu-open']//a[normalize-space()='Student Details']")
-    public WebElement studentDetails;
+    public WebElement studentDetailsSubModule;
 
-    //Student Admission
+    // Student Admission subModule
     @FindBy(xpath = "//a[normalize-space()='Student Admission']")
-    public WebElement studentAdmission;
+    public WebElement studentAdmissionSubModule;
 
-    //Disabled Students
+    // Disabled Students subModule
     @FindBy(xpath = "//a[normalize-space()='Disabled Students']")
-    public WebElement disabledStudents;
+    public WebElement disabledStudentsSubModule;
 
-    //Bulk Delete
+    // Bulk Delete subModule
     @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
-    public WebElement bulkDelete;
+    public WebElement bulkDeleteSubModule;
 
-    //Student Categories
+    // Student Categories subModule
     @FindBy(xpath = "//a[normalize-space()='Student Categories']")
-    public WebElement studentCategories;
+    public WebElement studentCategoriesSubModule;
 
-    //Student House
+    // Student House subModule
     @FindBy(xpath = "//a[normalize-space()='Student House']")
-    public WebElement studentHouse;
+    public WebElement studentHouseSubModule;
 
-    //Disable Reason
+    // Disable Reason subModule
     @FindBy(xpath = "//a[normalize-space()='Disable Reason']")
-    public WebElement disableReason;
+    public WebElement disableReasonSubModule;
 
     public DashboardPage() {
         PageFactory.initElements(WebDriverUtils.driver, this);}

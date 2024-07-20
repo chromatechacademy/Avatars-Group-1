@@ -17,7 +17,7 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("clicks on the student details")
     public void clicks_on_the_student_details() {
-        CommonMethods.click(dashboardPage.studentDetails);
+        CommonMethods.click(dashboardPage.studentDetailsSubModule);
     }
 
     @Then("the user navigates to the student search page {string}")
@@ -27,7 +27,7 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("enters the Admission Number {string} in the Search By Keyword field")
     public void enters_the_admission_number_in_the_search_by_keyword_field(String number) {
-        CommonMethods.sendKeys(searchPage.SearchByKeywordTextBox, number);
+        CommonMethods.sendKeys(searchPage.searchByKeywordTextBox, number);
     }
 
     @Then("user is on the Student Details page {string}")
@@ -57,17 +57,17 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("user clicks on the name of student record with admission number {string}")
     public void user_clicks_on_the_name_of_student_record_with_admission_number(String number) {
-    CommonMethods.click(searchPage.dynamicTableLocator(number));
+        CommonMethods.click(searchPage.dynamicTableLocator(number));
     }
 
     @When("clicks on edit button located near top right pencil icon")
     public void clicks_on_edit_button_located_near_top_right_pencil_logo() {
-    CommonMethods.click(searchPage.editIconButton);
+        CommonMethods.click(searchPage.editIconButton);
     }
 
     @Then("user is on the {string} page")
     public void user_is_on_the_page(String text) {
-    CommonMethods.assertEquals(editPage.editStudentHeader.getText(), text);
+        CommonMethods.assertEquals(editPage.editStudentHeader.getText(), text);
     }
 
     @When("user edits admission number field to the {string}")
