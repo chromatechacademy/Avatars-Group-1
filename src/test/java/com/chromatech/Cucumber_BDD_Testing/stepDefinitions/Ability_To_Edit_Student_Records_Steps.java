@@ -4,6 +4,7 @@ import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.Edit_Page;
 import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
 import com.chromatech.utils.CommonMethods;
+import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -83,7 +84,6 @@ public class Ability_To_Edit_Student_Records_Steps {
     @When("user edits class drop down to {string}")
     public void user_edits_class_drop_down_to(String value) {
         CommonMethods.selectDropDownValue(value, editPage.classDropDown);
-        CommonMethods.sleep(2000);
     }
 
     @When("user edits section drop down to {string}")
@@ -94,7 +94,6 @@ public class Ability_To_Edit_Student_Records_Steps {
     @When("user edits first name field to {string}")
     public void user_edits_first_name_field_to(String text) {
         CommonMethods.sendKeys(editPage.firstNameTextBox, text);
-        CommonMethods.sleep(2000);
     }
 
     @When("user edits last name field to {string}")
@@ -107,6 +106,11 @@ public class Ability_To_Edit_Student_Records_Steps {
         CommonMethods.selectDropDownValue(value, editPage.genderDropDown);
     }
 
+    @When("user edits DOB field to {string}")
+    public void user_edits_dob_field_to(String dateOfBirth) {
+        JavascriptMethods.selectDateByJS(editPage.dateOfBirthTextBox, dateOfBirth);
+    }
+
     @When("user edits category field to {string}")
     public void user_edits_category_field_to(String value) {
         CommonMethods.selectDropDownValue(value, editPage.categoryDropDown);
@@ -117,13 +121,23 @@ public class Ability_To_Edit_Student_Records_Steps {
         CommonMethods.sendKeys(editPage.emailTextBox, text);
     }
 
+    @When("user edits Admission Date field to {string}")
+    public void user_edits_admission_date_field_to(String text) {
+        JavascriptMethods.selectDateByJS(editPage.admissionDateTextBox, text);
+    }
+
     @When("user edits Blood Group field to {string}")
     public void user_edits_blood_group_field_to(String value) {
         CommonMethods.selectDropDownValue(value, editPage.bloodGroupDropDown);
     }
 
-    @When("user edits Moblie Number field to {string}")
-    public void user_edits_moblie_number_field_to(String number) {
+    @When("user edits As On Date field to {string}")
+    public void user_edits_as_on_date_field_to(String text) {
+        JavascriptMethods.selectDateByJS(editPage.asOnDateTextBox, text);
+    }
+
+    @When("user edits Mobile Number field to {string}")
+    public void user_edits_mobile_number_field_to(String number) {
         CommonMethods.sendKeys(editPage.mobileNumberTextBox, number);
     }
 
@@ -165,6 +179,11 @@ public class Ability_To_Edit_Student_Records_Steps {
     @When("user edits Mother Occupation field to {string}")
     public void user_edits_mother_occupation_field_to(String text) {
         CommonMethods.sendKeys(editPage.motherOccupationTextBox, text);
+    }
+
+    @When("user selects on {string} radio button")
+    public void user_selects_on_radio_button(String text) {
+        CommonMethods.click(editPage.dynamicIfGuardianRadioButton(text));
     }
 
     @When("user edits Guardian Name to {string}")

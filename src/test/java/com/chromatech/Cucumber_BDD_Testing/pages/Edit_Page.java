@@ -1,5 +1,6 @@
 package com.chromatech.Cucumber_BDD_Testing.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -44,9 +45,9 @@ public class Edit_Page {
     @FindBy(xpath = "//select[@name='gender']")
     public WebElement genderDropDown;
 
-    //DOB
+    //Date of Birth Text Box
     @FindBy(xpath = "//input[@id='dob']")
-    public WebElement dob;
+    public WebElement dateOfBirthTextBox;
 
     //Category Drop Down
     @FindBy(xpath = "//select[@id='category_id']")
@@ -56,9 +57,9 @@ public class Edit_Page {
     @FindBy(xpath = "//input[@id='email']")
     public WebElement emailTextBox;
 
-    //Admission Date
+    //Admission Date Text Box
     @FindBy(xpath = "//input[@id='admission_date']")
-    public WebElement admissionDate;
+    public WebElement admissionDateTextBox;
 
     //Student Photo
     @FindBy(xpath = "(//input[@id='file'])[1]")
@@ -68,9 +69,9 @@ public class Edit_Page {
     @FindBy(xpath = "//select[@name='blood_group']")
     public WebElement bloodGroupDropDown;
 
-    //As On Date
+    //As On Date Text Box
     @FindBy(xpath = "//input[@id='measure_date']")
-    public WebElement AsOnDate;
+    public WebElement asOnDateTextBox;
 
     //Mobile Number Text Box
     @FindBy(css = "input[id='custom_fields[students][1]']")
@@ -116,9 +117,10 @@ public class Edit_Page {
     @FindBy(xpath = "//input[@name='mother_pic']")
     public WebElement MotherPhoto;
 
-    //If Guardian Is
-    @FindBy(xpath = "//input[@value='father']")
-    public WebElement IfGuardianIs;
+    // Dynamic If Guardian Is radioButton
+    public static WebElement dynamicIfGuardianRadioButton(String text) {
+        return driver.findElement(By.xpath("//input[@value='" + text + "']"));
+    }
 
     //Guardian Name Text Box
     @FindBy(xpath = "//input[@id='guardian_name']")
