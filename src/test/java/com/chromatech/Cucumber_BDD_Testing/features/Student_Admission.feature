@@ -21,7 +21,7 @@ Feature: AG1CP-12: StudentAdmission
     And selects "new" from category drop down
     And enters email "vladislav1142@gmail.com"
     And enters admission date "04/20/2024"
-    And uploads Student Photo "C:\Vlad\Avatars-Group-1\src\main\resources\files\images\Arcane_Silco.png"
+    And uploads Student Photo "https://github.com/chromatechacademy/Avatars-Group-1/blob/d89b5d2cedbe949aec33d525fbdb9be0e24ed889/src/main/resources/files/images/Arcane_Silco.png"
     And selects "A+" from blood group drop down
     And enters As on Date "04/20/2024"
     And clicks on the Add Sibling button
@@ -37,16 +37,16 @@ Feature: AG1CP-12: StudentAdmission
     And enters father name "Leaha"
     And enters father phone "6028801111"
     And enters father occupation "Father Occupation"
-    And uploads Father Photo "C:\Vlad\Avatars-Group-1\src\main\resources\files\images\Arcane_Caitlyn.png"
+    And uploads Father Photo "https://github.com/chromatechacademy/Avatars-Group-1/blob/d89b5d2cedbe949aec33d525fbdb9be0e24ed889/src/main/resources/files/images/Arcane_Caitlyn.png"
     And enters mother name "Tamaria"
     And enters mother phone "6028802222"
     And enters mother occupation "Mother Occupation"
-    And uploads Mother Photo "C:\Vlad\Avatars-Group-1\src\main\resources\files\images\Arcane_Vi.png"
+    And uploads Mother Photo "https://github.com/chromatechacademy/Avatars-Group-1/blob/d89b5d2cedbe949aec33d525fbdb9be0e24ed889/src/main/resources/files/images/Arcane_Vi.png"
     And selects "mother" radio button for If guardian is field
     And enters guardian name "Chroma"
     And enters guardian relation "Tech"
     And enters guardian email "guardian@email.com"
-    And uploads Guardian Photo "C:\Vlad\Avatars-Group-1\src\main\resources\files\images\Arcane_Jinx.png"
+    And uploads Guardian Photo "https://github.com/chromatechacademy/Avatars-Group-1/blob/d89b5d2cedbe949aec33d525fbdb9be0e24ed889/src/main/resources/files/images/Arcane_Jinx.png"
     And enters guardian phone "6028801020"
     And enters guardian occupation "Academy"
     And enters guardian address "1142 G Address"
