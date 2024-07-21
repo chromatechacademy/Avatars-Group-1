@@ -29,7 +29,7 @@ Feature: Ability to edit student records
     And user edits category field to "Selenium"
     And user edits email field to "wh@atsup<3"
     And user edits Admission Date field to "06/06/2024"
-    #And user edits Student Photo field to ""
+    And user edits Student Photo field to "src/main/resources/files/clearbeach.jpg"
     And user edits Blood Group field to "B-"
     And user edits As On Date field to "04/21/2024"
     And user edits Mobile Number field to "1234567890"

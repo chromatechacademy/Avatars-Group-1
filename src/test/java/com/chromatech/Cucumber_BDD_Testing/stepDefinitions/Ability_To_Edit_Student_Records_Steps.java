@@ -38,7 +38,7 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("the user selects {string} in the Class dropdown")
     public void the_user_selects_in_the_class_dropdown(String text) {
-        CommonMethods.selectDropDownValue(text, editPage.classDropDown);
+        CommonMethods.selectDropDownValue(text, searchPage.classDropDown);
     }
 
     @When("selects {string} in the Section dropdown")
@@ -214,6 +214,11 @@ public class Ability_To_Edit_Student_Records_Steps {
     @When("user edits Guardian Address {string}")
     public void user_edits_guardian_address(String text) {
         CommonMethods.sendKeys(editPage.guardianAddressTextBox, text);
+    }
+
+    @When("user edits Student Photo field to {string}")
+    public void user_edits_student_photo_field_to(String path) {
+        CommonMethods.sendKeys(editPage.studentPhoto, CommonMethods.readLocalFile(path));
     }
 
 }

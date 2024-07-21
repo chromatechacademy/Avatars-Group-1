@@ -565,4 +565,14 @@ public class CommonMethods extends WebDriverUtils {
 		}
 		return jsonFile;
 	}
+
+	/**
+	 * Returns the absolute path of a local file.
+	 *
+	 * @param file The name of the file.
+	 * @return The absolute path of the file.
+	 */
+	public static String readLocalFile(String file) {
+		return System.getProperty("user.dir") + "/" + file;
+	}
 }

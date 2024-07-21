@@ -20,7 +20,7 @@ public class SearchPage {
     public WebElement classDropDown;
 
     // Section Drop Down
-    @FindBy(xpath = "//select[@id='section_id']")
+    @FindBy(xpath = "//select[@name='section_id']")
     public WebElement sectionDropDown;
 
     // Table Locator by Text
