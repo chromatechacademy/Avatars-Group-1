@@ -7,83 +7,83 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DashboardPage {
 
-    // Student Homework Module
+    // Student Homework module
     @FindBy(xpath = "//span[normalize-space()='Homework']")
     public WebElement StudentHomeworkModule;
 
-    // Add Homework
+    // Add Homework subModule
     @FindBy(xpath = "//a[normalize-space()='Add Homework']")
     public WebElement AddHomework;
 
-    //Student Information Module
+    // Student Information Module
     @FindBy(xpath = "//span[normalize-space()='Student Information']")
     public WebElement studentInformationModule;
 
-    //Student Details
+    // Student Details subModule
     @FindBy(xpath = "//ul[@class='treeview-menu menu-open']//a[normalize-space()='Student Details']")
     public WebElement studentDetails;
 
-    //Student Admission
+    // Student Admission subModule
     @FindBy(xpath = "//a[normalize-space()='Student Admission']")
     public WebElement studentAdmission;
 
-    //Disabled Students
+    // Disabled Students subModule
     @FindBy(xpath = "//a[normalize-space()='Disabled Students']")
     public WebElement disabledStudents;
 
-    //Bulk Delete
+    // Bulk Delete subModule
     @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
     public WebElement bulkDelete;
 
-    //Student Categories
+    // Student Categories subModule
     @FindBy(xpath = "//a[normalize-space()='Student Categories']")
     public WebElement studentCategories;
 
-    //Student House
+    // Student House subModule
     @FindBy(xpath = "//a[normalize-space()='Student House']")
     public WebElement studentHouse;
 
-    //Disable Reason
+    // Disable Reason subModule
     @FindBy(xpath = "//a[normalize-space()='Disable Reason']")
     public WebElement disableReason;
 
-    // Human Resource Module
+    // Human Resource module
     @FindBy(xpath = "//span[normalize-space()='Human Resource']")
     public WebElement humanResourceModule;
 
-    //Human Resource Module Staff Directory
+    // Staff Directory subModule
     @FindBy(xpath = "(//a[@href='https://mexil.it/chroma/admin/staff'])[2]")
     public WebElement humanResourceModuleStaffDirectory;
 
-    //Human Resource Module Staff Attendance
+    // Staff Attendance subModule
     @FindBy(xpath = "(//a[normalize-space()='Staff Attendance'])[2]")
     public WebElement humanResourceModuleStaffAttendence;
 
-    //Human Resource Module Payroll
+    // Payroll subModule
     @FindBy(xpath = "//a[normalize-space()='Payroll']")
     public WebElement humanResourceModulePayroll;
 
-    //Human Resource Module Approve Leave Reques
+    // Approve Leave Reques subModule
     @FindBy(xpath = "//a[normalize-space()='Approve Leave Request']")
     public WebElement humanResourceModuleApproveLeaveRequest;
 
-    //Human Resource Module Apply Leave
+    // Apply Leave subModule
     @FindBy(xpath = "//a[normalize-space()='Apply Leave']")
     public WebElement humanResourceModuleApplyLeave;
 
-    //Human Resource Module Leave Type
+    // Leave Type subModule
     @FindBy(xpath = "//a[normalize-space()='Leave Type']")
     public WebElement humanResourceModuleLeaveType;
 
-    //Human Resource Module Teachers Rating
+    // Teachers Rating subModule
     @FindBy(xpath = "//a[normalize-space()='Teachers Rating']")
     public WebElement humanResourceModuleTeachersRating;
 
-    //Human Resource Module Department
+    // Department subModule
     @FindBy(xpath = "//a[normalize-space()='Department']")
     public WebElement humanResourceModuleDepartment;
 
-    //Human Resource Module Designation
+    // Designation subModule
     @FindBy(xpath = "//a[normalize-space()='Designation']")
     public WebElement humanResourceModuleDesignation;
 
