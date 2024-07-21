@@ -1,4 +1,4 @@
-Feature: AG1CP-9: HumanResourseModule
+Feature: AG1CP-9: HumanResourceModule
 
   @Regression @Dmytro @AG1CP-9
   Scenario: HumanResourceModule
