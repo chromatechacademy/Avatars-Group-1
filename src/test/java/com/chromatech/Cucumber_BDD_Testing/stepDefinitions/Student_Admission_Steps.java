@@ -78,6 +78,11 @@ public class Student_Admission_Steps {
         JavascriptMethods.selectDateByJS(studentAdmissionPage.admissionDateTextBox, date);
     }
 
+    @When("uploads Student Photo {string}")
+    public void uploads_student_photo(String filePath) {
+        CommonMethods.sendKeys(studentAdmissionPage.studentPhotoUpload, filePath);
+    }
+
     @When("selects {string} from blood group drop down")
     public void select_from_blood_group_drop_down(String text) {
         CommonMethods.selectDropDownValue(text, studentAdmissionPage.bloodGroupDropDown);
@@ -88,6 +93,57 @@ public class Student_Admission_Steps {
         JavascriptMethods.selectDateByJS(studentAdmissionPage.asOnDateTextBox, date);
     }
 
+    @When("clicks on the Add Sibling button")
+    public void clicks_on_the_add_sibling_button() {
+        CommonMethods.click(studentAdmissionPage.addSiblingButton);
+    }
+
+    @Then("the Sibling modal dialog {string} is displayed")
+    public void the_sibling_modal_dialog_is_displayed(String text) {
+        CommonMethods.assertTrue(studentAdmissionPage.siblingModalDialog.isDisplayed());
+        CommonMethods.assertEquals(studentAdmissionPage.siblingModalDialogHeader.getText(), text);
+    }
+
+    @Then("selects {string} for Class drop down in the Sibling modal dialog")
+    public void selects_for_class_drop_down_in_the_sibling_modal_dialog(String value) {
+        CommonMethods.selectDropDownValue(value, studentAdmissionPage.classDropDownInTheSiblingModalDialog);
+    }
+
+    @Then("selects {string} for Section drop down in the Sibling modal dialog")
+    public void selects_for_section_drop_down_in_the_sibling_modal_dialog(String value) {
+        CommonMethods.selectDropDownValue(value, studentAdmissionPage.sectionDropDownInTheSiblingModalDialog);
+    }
+
+    @Then("selects {string} for Student drop down in the Sibling modal dialog")
+    public void selects_for_student_drop_down_in_the_sibling_modal_dialog(String text) {
+        CommonMethods.selectDropDownValue(text, studentAdmissionPage.studentDropDownInTheSiblingModalDialog);
+    }
+
+    @Then("click on the Add button in the Sibling modal dialog")
+    public void click_on_the_add_button_in_the_sibling_modal_dialog() {
+        CommonMethods.click(studentAdmissionPage.addButtonInTheSiblingModalDialog);
+    }
+
+    @Then("{string} text is displayed")
+    public void text_is_displayed(String text) {
+        CommonMethods.assertTrue(studentAdmissionPage.siblingNameText.isDisplayed());
+        CommonMethods.assertEquals(studentAdmissionPage.siblingNameText.getText(), text);
+    }
+
+    @Then("selects {string} RTE radio button")
+    public void selects_rte_radio_button(String value) {
+        CommonMethods.click(studentAdmissionPage.rTERadioButton(value));
+    }
+
+    @Then("enters Previous School Details {string}")
+    public void enters_previous_school_details(String text) {
+        CommonMethods.sendKeys(studentAdmissionPage.previousSchoolDetailsTextBox, text);
+    }
+
+    @Then("enters Note {string}")
+    public void enters_note(String text) {
+        CommonMethods.sendKeys(studentAdmissionPage.noteTextBox, text);
+    }
 
     @When("enters mobile number {string}")
     public void enters_mobile_number(String number) {
@@ -118,6 +174,21 @@ public class Student_Admission_Steps {
     @When("enters father occupation {string}")
     public void enter_father_occupation(String text) {
         CommonMethods.sendKeys(studentAdmissionPage.fatherOccupationTextBox, text);
+    }
+
+    @When("uploads Father Photo {string}")
+    public void uploads_father_photo(String filePath) {
+        CommonMethods.sendKeys(studentAdmissionPage.fatherPhotoUpload, filePath);
+    }
+
+    @When("uploads Mother Photo {string}")
+    public void uploads_mother_photo(String filePath) {
+        CommonMethods.sendKeys(studentAdmissionPage.motherPhotoUpload, filePath);
+    }
+
+    @When("uploads Guardian Photo {string}")
+    public void uploads_guardian_photo(String filePath) {
+        CommonMethods.sendKeys(studentAdmissionPage.guardianPhotoUpload, filePath);
     }
 
     @When("enters mother name {string}")
@@ -173,6 +244,60 @@ public class Student_Admission_Steps {
     @When("enters guardian address {string}")
     public void enter_guardian_address(String text) {
         CommonMethods.sendKeys(studentAdmissionPage.guardianAddressTextBox, text);
+    }
+
+    @When("clicks on the Add More Details boxplus button")
+    public void clicks_add_more_details_boxplus_button() {
+        CommonMethods.click(studentAdmissionPage.addMoreBoxPlusButton);
+    }
+
+
+
+    @When("clicks on the If Guardian Address is Current Address checkbox")
+    public void clicks_on_the_if_guardian_address_is_current_address_checkbox() {
+        JavascriptMethods.scrollIntoView(studentAdmissionPage.addMoreBoxPlusButton);
+        CommonMethods.click(studentAdmissionPage.ifGuardianAddressIsCurrentAddressCheckbox);
+    }
+
+    @When("enters Current Address {string}")
+    public void enters_current_address(String address) {
+        CommonMethods.sendKeys(studentAdmissionPage.currentAddressTextBox, address);
+    }
+
+    @When("clicks on the If Permanent Address is Current Address checkbox")
+    public void clicks_on_the_if_permanent_address_is_current_address_checkbox() {
+        CommonMethods.click(studentAdmissionPage.ifPermanentAddressIsCurrentAddressCheckBox);
+    }
+
+    @When("enters Permanent Address {string}")
+    public void enters_permanent_address(String address) {
+        CommonMethods.sendKeys(studentAdmissionPage.permanentAddressTextBox, address);
+    }
+
+    @When("enters Bank Account Number {string}")
+    public void enters_bank_account_number(String number) {
+        JavascriptMethods.scrollIntoView(studentAdmissionPage.miscellaneousDetailsHeader);
+        CommonMethods.sendKeys(studentAdmissionPage.bankAccountNumberTextBox, number);
+    }
+
+    @When("enters Bank Name {string}")
+    public void enters_bank_name(String text) {
+        CommonMethods.sendKeys(studentAdmissionPage.bankNameTextBox, text);
+    }
+
+    @When("enters IFSC Code {string}")
+    public void enters_ifsc_code(String number) {
+        CommonMethods.sendKeys(studentAdmissionPage.iFSCCodetextBox, number);
+    }
+
+    @When("enters National Identification Number {string}")
+    public void enters_national_identification_number(String number) {
+        CommonMethods.sendKeys(studentAdmissionPage.nationalIdentificationNumberTextBox, number);
+    }
+
+    @When("enters Local Identification Number {string}")
+    public void enters_local_identification_number(String number) {
+        CommonMethods.sendKeys(studentAdmissionPage.localIdentificationNumberTextBox, number);
     }
 
     @When("saves submission")
