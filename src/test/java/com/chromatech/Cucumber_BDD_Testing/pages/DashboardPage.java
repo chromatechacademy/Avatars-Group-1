@@ -9,43 +9,43 @@ public class DashboardPage {
 
     // Student Homework module
     @FindBy(xpath = "//span[normalize-space()='Homework']")
-    public WebElement StudentHomeworkModule;
+    public WebElement studentHomeworkModule;
 
     // Add Homework subModule
     @FindBy(xpath = "//a[normalize-space()='Add Homework']")
-    public WebElement AddHomework;
+    public WebElement addHomework;
 
-    // Student Information Module
+    // Student Information module
     @FindBy(xpath = "//span[normalize-space()='Student Information']")
     public WebElement studentInformationModule;
 
     // Student Details subModule
     @FindBy(xpath = "//ul[@class='treeview-menu menu-open']//a[normalize-space()='Student Details']")
-    public WebElement studentDetails;
+    public WebElement studentDetailsSubModule;
 
     // Student Admission subModule
     @FindBy(xpath = "//a[normalize-space()='Student Admission']")
-    public WebElement studentAdmission;
+    public WebElement studentAdmissionSubModule;
 
     // Disabled Students subModule
     @FindBy(xpath = "//a[normalize-space()='Disabled Students']")
-    public WebElement disabledStudents;
+    public WebElement disabledStudentsSubModule;
 
     // Bulk Delete subModule
     @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
-    public WebElement bulkDelete;
+    public WebElement bulkDeleteSubModule;
 
     // Student Categories subModule
     @FindBy(xpath = "//a[normalize-space()='Student Categories']")
-    public WebElement studentCategories;
+    public WebElement studentCategoriesSubModule;
 
     // Student House subModule
     @FindBy(xpath = "//a[normalize-space()='Student House']")
-    public WebElement studentHouse;
+    public WebElement studentHouseSubModule;
 
     // Disable Reason subModule
     @FindBy(xpath = "//a[normalize-space()='Disable Reason']")
-    public WebElement disableReason;
+    public WebElement disableReasonSubModule;
 
     // Human Resource module
     @FindBy(xpath = "//span[normalize-space()='Human Resource']")
