@@ -13,39 +13,39 @@ public class DashboardPage {
 
     // Add Homework
     @FindBy(xpath = "//a[normalize-space()='Add Homework']")
-    public WebElement AddHomework;
-
+    public WebElement addHomeworkSubModule;
+  
     //Student Information Module
     @FindBy(xpath = "//span[normalize-space()='Student Information']")
     public WebElement studentInformationModule;
 
     //Student Details
     @FindBy(xpath = "//ul[@class='treeview-menu menu-open']//a[normalize-space()='Student Details']")
-    public WebElement studentDetails;
+    public WebElement studentDetailsSubModule;
 
     //Student Admission
     @FindBy(xpath = "//a[normalize-space()='Student Admission']")
-    public WebElement studentAdmission;
+    public WebElement studentAdmissionSubModule;
 
     //Disabled Students
     @FindBy(xpath = "//a[normalize-space()='Disabled Students']")
-    public WebElement disabledStudents;
+    public WebElement disabledStudentsSubModule;
 
     //Bulk Delete
     @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
-    public WebElement bulkDelete;
+    public WebElement bulkDeleteSubModule;
 
     //Student Categories
     @FindBy(xpath = "//a[normalize-space()='Student Categories']")
-    public WebElement studentCategories;
+    public WebElement studentCategoriesSubModule;
 
     //Student House
     @FindBy(xpath = "//a[normalize-space()='Student House']")
-    public WebElement studentHouse;
+    public WebElement studentHouseSubModule;
 
     //Disable Reason
     @FindBy(xpath = "//a[normalize-space()='Disable Reason']")
-    public WebElement disableReason;
+    public WebElement disableReasonSubModule;
 
     public DashboardPage() {
         PageFactory.initElements(WebDriverUtils.driver, this);}

@@ -7,24 +7,25 @@ import io.cucumber.java.en.When;
 
 public class Homework_Module_Page_steps {
 
-    DashboardPage dashboardPage = new DashboardPage();
+    DashboardPage DashboardPage = new DashboardPage();
 
     @When("the user clicks on the Homework module")
     public void the_user_clicks_on_the_Homework_module() {
-        CommonMethods.assertTrue(dashboardPage.StudentHomeworkModule.isDisplayed());
-        CommonMethods.click(dashboardPage.StudentHomeworkModule);
+        CommonMethods.assertTrue(DashboardPage.StudentHomeworkModule.isDisplayed());
+        CommonMethods.click(DashboardPage.StudentHomeworkModule);
     }
 
-    @Then("the following module displays:")
-    public void the_following_module_displays() {
-        CommonMethods.assertTrue(dashboardPage.StudentHomeworkModule.isDisplayed());
-        CommonMethods.click(dashboardPage.StudentHomeworkModule);
+    @When("the Homework module is displays")
+    public void the_homework_module_is_displays() {
+        CommonMethods.assertTrue(DashboardPage.StudentHomeworkModule.isDisplayed());
+        CommonMethods.click(DashboardPage.StudentHomeworkModule);
     }
 
-    @Then("Add homework")
-    public void add_homework() {
-        CommonMethods.assertTrue(dashboardPage.StudentHomeworkModule.isDisplayed());
-        CommonMethods.click(dashboardPage.StudentHomeworkModule);
+    @Then("the Add homework submodule is displays")
+    public void the_add_homework_submodule_is_displays() {
+        CommonMethods.assertTrue(DashboardPage.addHomeworkSubModule.isDisplayed());
+        CommonMethods.click(DashboardPage.addHomeworkSubModule);
     }
 }
+
 
