@@ -47,6 +47,63 @@ public class DashboardPage {
     @FindBy(xpath = "//a[normalize-space()='Disable Reason']")
     public WebElement disableReasonSubModule;
 
+    // Human Resource module
+    @FindBy(xpath = "//span[normalize-space()='Human Resource']")
+    public WebElement humanResourceModule;
+
+    // Staff Directory subModule
+    @FindBy(xpath = "(//a[@href='https://mexil.it/chroma/admin/staff'])[2]")
+    public WebElement humanResourceModuleStaffDirectory;
+
+    // Staff Attendance subModule
+    @FindBy(xpath = "(//a[normalize-space()='Staff Attendance'])[2]")
+    public WebElement humanResourceModuleStaffAttendence;
+
+    // Payroll subModule
+    @FindBy(xpath = "//a[normalize-space()='Payroll']")
+    public WebElement humanResourceModulePayroll;
+
+    // Approve Leave Reques subModule
+    @FindBy(xpath = "//a[normalize-space()='Approve Leave Request']")
+    public WebElement humanResourceModuleApproveLeaveRequest;
+
+    // Apply Leave subModule
+    @FindBy(xpath = "//a[normalize-space()='Apply Leave']")
+    public WebElement humanResourceModuleApplyLeave;
+
+    // Leave Type subModule
+    @FindBy(xpath = "//a[normalize-space()='Leave Type']")
+    public WebElement humanResourceModuleLeaveType;
+
+    // Teachers Rating subModule
+    @FindBy(xpath = "//a[normalize-space()='Teachers Rating']")
+    public WebElement humanResourceModuleTeachersRating;
+
+    // Department subModule
+    @FindBy(xpath = "//a[normalize-space()='Department']")
+    public WebElement humanResourceModuleDepartment;
+
+    // Designation subModule
+    @FindBy(xpath = "//a[normalize-space()='Designation']")
+    public WebElement humanResourceModuleDesignation;
+
+    // Income Module
+    @FindBy (xpath = "//span[normalize-space()='Income']")
+    public WebElement incomeModule;
+
+    // Add Income subModule
+    @FindBy (xpath = "(//a[@href='https://mexil.it/chroma/admin/income'])[2]")
+    public WebElement addIncomeSubModule;
+
+    // Search Income subModule
+    @FindBy (xpath = "//a[normalize-space()='Search Income']")
+    public WebElement searchIncomeSubModule;
+
+    // Income Head subModule
+    @FindBy (xpath ="//a[normalize-space()='Income Head']")
+    public WebElement incomeHeadSubModule;
+
     public DashboardPage() {
-        PageFactory.initElements(WebDriverUtils.driver, this);}
+        PageFactory.initElements(WebDriverUtils.driver, this);
+    }
 }
