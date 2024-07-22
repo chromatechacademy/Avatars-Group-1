@@ -294,9 +294,9 @@ public class Ability_To_Edit_Student_Records_Steps {
     @Then("user selects {string} student admission number and deletes it")
     public void user_selects_student_admission_number_and_deletes_it(String admissionNumber) {
         CommonMethods.sleep(10000);
-        CommonMethods.waitForClickability(EditPage.dynamicRecordLocateDeleter(admissionNumber));
-        JavascriptMethods.scrollIntoView(EditPage.dynamicRecordLocateDeleter(admissionNumber));
-        EditPage.dynamicRecordLocateDeleter(admissionNumber).click();
+        CommonMethods.waitForClickability(EditPage.dynamicRecordLocateDelete(admissionNumber));
+        JavascriptMethods.scrollIntoView(EditPage.dynamicRecordLocateDelete(admissionNumber));
+        EditPage.dynamicRecordLocateDelete(admissionNumber).click();
         CommonMethods.click(editPage.deleteButton);
         CommonMethods.acceptAlert();
         CommonMethods.sleep(5000);
