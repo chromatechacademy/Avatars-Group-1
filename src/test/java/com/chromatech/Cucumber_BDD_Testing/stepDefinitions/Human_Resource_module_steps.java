@@ -10,14 +10,14 @@ public class Human_Resource_module_steps {
     DashboardPage DashboardPage = new DashboardPage();
 
     @When("the user clicks on the {string} module Human Resource")
-    public void the_user_clicks_on_the_human_resource_module(String text) {
+    public void the_user_clicks_on_the_human_resource_module(String humanResource) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModule.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModule.getText(), text);
         CommonMethods.click(DashboardPage.humanResourceModule);
     }
 
     @Then("the first {string} is displayed")
-    public void the_first_is_displayed(String string) {
+    public void the_first_is_displayed(String staffDirectory) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModuleStaffDirectory.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModuleStaffDirectory.getText(), "Staff Directory");
     }
@@ -29,7 +29,7 @@ public class Human_Resource_module_steps {
     }
 
     @Then("the third {string} is displayed")
-    public void the_third_is_displayed(String Payroll) {
+    public void the_third_is_displayed(String payroll) {
         CommonMethods.assertTrue(DashboardPage.humanResourceModulePayroll.isDisplayed());
         CommonMethods.assertEquals(DashboardPage.humanResourceModulePayroll.getText(), Payroll);
     }
