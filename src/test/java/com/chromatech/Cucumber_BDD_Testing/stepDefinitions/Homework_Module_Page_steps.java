@@ -24,4 +24,3 @@ public class Homework_Module_Page_steps {
         CommonMethods.assertTrue(dashboardPage.addHomework.isDisplayed());
     }
 }
-

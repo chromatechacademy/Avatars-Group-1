@@ -5,16 +5,17 @@ import com.chromatech.utils.WebDriverUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class LoginPage {
 
-    public LoginPage() {PageFactory.initElements(WebDriverUtils.driver, this);}
+    public LoginPage() {
+        PageFactory.initElements(WebDriverUtils.driver, this);
+    }
 
     /* USERNAME TEXT BOX*/
     @FindBy(xpath = "//input[@placeholder='Username']")
-    public  WebElement usernameTextBox;
+    public WebElement usernameTextBox;
 
     /* PASSWORD TEXT BOX */
     @FindBy(xpath = "//input[@placeholder='Password']")
@@ -22,7 +23,7 @@ public class LoginPage {
 
     /* SIGN IN BUTTON*/
     @FindBy(xpath = " //button[normalize-space()='Sign In']")
-    public  WebElement signInButton;
+    public WebElement signInButton;
 
     /*ERROR MESSAGE*/
     @FindBy(xpath = "//div[@class='alert alert-danger']")
@@ -40,6 +41,4 @@ public class LoginPage {
         CommonMethods.click(signInButton);
         CommonMethods.assertEquals(driver.getCurrentUrl(), url);
     }
-
-
 }

@@ -33,25 +33,25 @@ public class Student_Information_Module_Steps {
         CommonMethods.assertTrue(dashboardPage.disabledStudentsSubModule.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.disabledStudentsSubModule.getText(), disabledStudents);
     }
-    
+
     @And("the fourth submodule {string} is displayed")
     public void the_fourth_submodule_is_displayed(String bulkDelete) {
         CommonMethods.assertTrue(dashboardPage.bulkDeleteSubModule.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.bulkDeleteSubModule.getText(), bulkDelete);
     }
-    
+
     @And("the fifth submodule {string} displays")
     public void the_fifth_submodule_is_displays(String studentCategories) {
         CommonMethods.assertTrue(dashboardPage.studentCategoriesSubModule.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.studentCategoriesSubModule.getText(), studentCategories);
     }
-    
+
     @And("the sixth submodule {string} is displayed")
     public void the_sixth_submodule_is_displayed(String studentHouse) {
         CommonMethods.assertTrue(dashboardPage.studentHouseSubModule.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.studentHouseSubModule.getText(), studentHouse);
     }
-    
+
     @And("the last submodule {string} is displayed")
     public void the_last_submodule_is_displayed(String disableReason) {
         CommonMethods.assertTrue(dashboardPage.disableReasonSubModule.isDisplayed());

@@ -7,11 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class SearchPage {
@@ -41,15 +39,6 @@ public class SearchPage {
     // Table Locator by Text
     public static WebElement tableLocatorByText(String text) {
         return driver.findElement(By.xpath("//td[text()='" + text + "']"));
-    }
-
-    // Bulk Delete subModule
-    @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
-    public WebElement bulkDeleteSubModule;
-
-    // Dynamic xpath: Find module by text
-    public WebElement findModuleByText(String text) {
-        return driver.findElement(By.xpath("//span[text()='" + text + "']"));
     }
 
     /**
@@ -107,5 +96,4 @@ public class SearchPage {
         }
         Assert.assertEquals(studentDataFromTable, studentDataFromList);
     }
-
 }

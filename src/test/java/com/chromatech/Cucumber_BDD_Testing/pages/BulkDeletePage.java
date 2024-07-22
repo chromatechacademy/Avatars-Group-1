@@ -7,10 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import java.util.List;
 import java.util.Map;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class BulkDeletePage {
@@ -33,11 +31,6 @@ public class BulkDeletePage {
     @FindBy(xpath = "//button[normalize-space()='Search']//i[@class='fa fa-search']")
     public WebElement searchButton;
 
-    // Dynamic XPATH Find a Record
-    public static WebElement dynamicXpathFindARecord(String admissionNumber) {
-        return driver.findElement(By.xpath("//td[text()='" + admissionNumber + "']"));
-    }
-
     // Dynamic XPATH for checkBoxes
     public static WebElement dynamicXpathForCheckboxes(String admissionNumber) {
         return driver.findElement(By.xpath("//td[text()='" + admissionNumber + "']//parent::tr/td[1]/input[@type='checkbox']"));
@@ -50,8 +43,7 @@ public class BulkDeletePage {
     /**
      * If a student record already exists, the user deletes it.
      *
-     * @param dataTable
-     *        The data table containing the record details to be deleted.
+     * @param dataTable The data table containing the record details to be deleted.
      */
     public void if_a_student_record_already_exists_the_user_deletes_it(DataTable dataTable) {
         List<Map<String, String>> dataList = dataTable.asMaps(String.class, String.class);

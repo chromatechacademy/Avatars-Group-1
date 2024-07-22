@@ -10,7 +10,6 @@ public class Student_Admission_Steps {
 
     LoginPage loginPage = new LoginPage();
     StudentAdmissionPage studentAdmissionPage = new StudentAdmissionPage();
-    DashboardPage dashboardPage = new DashboardPage();
     SearchPage searchPage = new SearchPage();
     BulkDeletePage bulkDeletePage = new BulkDeletePage();
 
@@ -42,7 +41,7 @@ public class Student_Admission_Steps {
 
     @When("user adds mothers's information:")
     public void user_adds_mothers_s_information(DataTable dataTable) {
-        studentAdmissionPage.user_adds_mothers_s_information( dataTable);
+        studentAdmissionPage.user_adds_mothers_s_information(dataTable);
     }
 
     @When("user adds guardian's information:")
