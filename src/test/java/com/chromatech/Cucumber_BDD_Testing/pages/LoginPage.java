@@ -19,6 +19,9 @@ public class LoginPage {
     @FindBy(xpath = " //button[normalize-space()='Sign In']")
     public  WebElement signInButton;
 
+    /*ERROR MESSAGE*/
+    @FindBy(xpath = "//div[@class='alert alert-danger']")
+    public WebElement errorMessage;
+
     public LoginPage() {PageFactory.initElements(WebDriverUtils.driver, this);}
 }
-
