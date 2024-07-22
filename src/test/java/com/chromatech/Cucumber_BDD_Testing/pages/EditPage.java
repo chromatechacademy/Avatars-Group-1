@@ -1,5 +1,6 @@
 package com.chromatech.Cucumber_BDD_Testing.pages;
 
+import com.chromatech.utils.WebDriverUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,11 +8,15 @@ import org.openqa.selenium.support.PageFactory;
 
 import static com.chromatech.utils.WebDriverUtils.driver;
 
-public class Edit_Page {
+public class EditPage {
 
-    public Edit_Page() {
+    public EditPage() {
         PageFactory.initElements(driver, this);
     }
+
+    //STUDENT ADMISSION
+    @FindBy(xpath = "//a[normalize-space()='Student Admission']")
+    public WebElement studentAdmissionTab;
 
     //Edit Student Header
     @FindBy(xpath = "//h3[normalize-space()='Edit Student']")
@@ -117,10 +122,9 @@ public class Edit_Page {
     @FindBy(xpath = "//input[@name='mother_pic']")
     public WebElement MotherPhoto;
 
-    // Dynamic If Guardian Is radioButton
-    public static WebElement dynamicIfGuardianRadioButton(String text) {
-        return driver.findElement(By.xpath("//input[@value='" + text + "']"));
-    }
+    //Father Radio Button
+    @FindBy(xpath = "//input[@value='father']")
+    public WebElement fatherRadioButton;
 
     //Guardian Name Text Box
     @FindBy(xpath = "//input[@id='guardian_name']")
@@ -150,6 +154,48 @@ public class Edit_Page {
     @FindBy(xpath = "//textarea[@id='guardian_address']")
     public WebElement guardianAddressTextBox;
 
+    //Save Button
+    @FindBy(xpath = "//button[@type='submit'][normalize-space()='Save']")
+    public WebElement saveButton;
+
+    //Student details tab
+    @FindBy(xpath = "(//a[normalize-space()='Student Details'])[2]")
+    public WebElement studentDetailsTab;
+
+    //Bulk Delete
+    @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
+    public WebElement bulkDeleteTab;
+
+    //Search button
+    @FindBy(xpath = "//button[normalize-space()='Search']//i[@class='fa fa-search']")
+    public WebElement searchButtonBulkDelete;
+
+    //Delete student checkbox
+    @FindBy(xpath = "//input[@value='33325']/ancestor::tr")
+    public WebElement deleteStudentCheckBox;
+
+    //Delete buttons
+    @FindBy(xpath = "//button[@id='load']")
+    public WebElement deleteButton;
 
 
+    /**
+     * Locates and returns the WebElement of a dynamic record based on the given text.
+     *
+     * @param text the text to search for in the record
+     * @return the WebElement representing the dynamic record
+     */
+    public static WebElement dynamicRecordLocateDeleter(String text) {
+        return WebDriverUtils.driver.findElement(By.xpath("//*[contains(text(),'" + text + "')]//ancestor::tr/td/input"));
+    }
+
+    /**
+     * Locates and returns the WebElement of a dynamic record name based on the given text.
+     *
+     * @param text the text to search for in the record
+     * @return the WebElement representing the dynamic record name
+     */
+    public static WebElement dynamicRecordNameLocator(String text) {
+        return WebDriverUtils.driver.findElement(By.xpath("//*[contains(text(),'" + text + "')]/ancestor::tr/td[2]"));
+    }
 }
