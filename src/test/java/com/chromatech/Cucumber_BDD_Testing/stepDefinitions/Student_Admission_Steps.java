@@ -34,7 +34,7 @@ public class Student_Admission_Steps {
     }
 
     @When("selects {string} for class drop down")
-    public void selects_sdet_for_class_drop_down(String text) {
+    public void selects_SDET_for_class_drop_down(String text) {
         CommonMethods.selectDropDownValue(text, studentAdmissionPage.classDropDown);
     }
 
