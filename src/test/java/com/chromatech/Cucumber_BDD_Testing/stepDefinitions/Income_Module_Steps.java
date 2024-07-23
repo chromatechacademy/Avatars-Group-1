@@ -15,20 +15,20 @@ public class Income_Module_Steps {
     }
 
     @Then("the following submodule {string} is displayed")
-    public void the_following_submodule_is_displayed(String text) {
+    public void the_following_submodule_is_displayed(String expectedText) {
         CommonMethods.assertTrue(dashboardPage.addIncomeSubModule.isDisplayed());
-        CommonMethods.assertEquals(dashboardPage.addIncomeSubModule.getText(), text);
+        CommonMethods.assertEquals(dashboardPage.addIncomeSubModule.getText(), expectedText);
     }
 
     @Then("the submodule {string} is displayed")
-    public void the_submodule_is_displayed(String searchIncome) {
+    public void the_submodule_is_displayed(String expectedSearchIncome) {
         CommonMethods.assertTrue(dashboardPage.searchIncomeSubModule.isDisplayed());
-        CommonMethods.assertEquals(dashboardPage.searchIncomeSubModule.getText(), searchIncome);
+        CommonMethods.assertEquals(dashboardPage.searchIncomeSubModule.getText(), expectedSearchIncome);
     }
 
     @Then("the following Income Head submodule {string} is displayed")
-    public void the_following_income_head_submodule_is_displayed(String incomeHead) {
+    public void the_following_income_head_submodule_is_displayed(String expectedIncomeHead) {
         CommonMethods.assertTrue(dashboardPage.incomeHeadSubModule.isDisplayed());
-        CommonMethods.assertEquals(dashboardPage.incomeHeadSubModule.getText(), incomeHead);
+        CommonMethods.assertEquals(dashboardPage.incomeHeadSubModule.getText(), expectedIncomeHead);
     }
 }

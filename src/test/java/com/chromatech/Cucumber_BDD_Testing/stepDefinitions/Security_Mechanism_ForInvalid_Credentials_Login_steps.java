@@ -14,8 +14,8 @@ public class Security_Mechanism_ForInvalid_Credentials_Login_steps {
     }
 
     @Then("an error message is displayed {string}")
-    public void an_error_message_is_displayed(String errorText) {
+    public void an_error_message_is_displayed(String expectedErrorText) {
         CommonMethods.assertTrue(loginPage.errorMessage.isDisplayed());
-        CommonMethods.assertEquals(loginPage.errorMessage.getText(), errorText);
+        CommonMethods.assertEquals(loginPage.errorMessage.getText(), expectedErrorText);
     }
 }
