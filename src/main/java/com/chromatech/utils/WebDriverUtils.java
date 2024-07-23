@@ -20,10 +20,10 @@ public class WebDriverUtils {
      * If the browser is "edge", it creates an EdgeDriver instance.
      * If the browser is "firefox", it creates a FirefoxDriver instance.
      * If none of the above, it throws a RuntimeException with the message "INVALID BROWSER NAME".
-     *
+     * <p>
      * If the "headless" property is set to "true", it creates a headless ChromeDriver.
      * If the "chris" property is set to "true", it positions the browser window at the center of the screen.
-     *
+     * <p>
      * The driver window is maximized, all cookies are deleted, and the implicit wait timeout is set to 10 seconds.
      */
     public static void setUp() {
