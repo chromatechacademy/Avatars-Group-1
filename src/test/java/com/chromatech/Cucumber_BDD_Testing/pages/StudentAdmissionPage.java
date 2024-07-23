@@ -347,6 +347,7 @@ public class StudentAdmissionPage {
         for (Map<String, String> data : dataList) {
             CommonMethods.assertEquals(addSiblingButton.getText(), text);
             CommonMethods.click(addSiblingButton);
+            CommonMethods.waitForClickability(classDropDownInTheSiblingModalDialog);
             CommonMethods.selectDropDownValue(data.get("Sibling Class"), classDropDownInTheSiblingModalDialog);
             CommonMethods.selectDropDownValue(data.get("Sibling Section"), sectionDropDownInTheSiblingModalDialog);
             CommonMethods.selectDropDownValue(creatingSiblingName(data.get("Sibling First Name"), data.get("Sibling Last Name"), data.get("Sibling Roll Number")), studentDropDownInTheSiblingModalDialog);
