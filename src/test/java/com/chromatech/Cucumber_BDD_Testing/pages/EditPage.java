@@ -14,7 +14,7 @@ public class EditPage {
         PageFactory.initElements(driver, this);
     }
 
-    // Student Admission
+    // Student Admission Module
     @FindBy(xpath = "//a[normalize-space()='Student Admission']")
     public WebElement studentAdmissionTab;
 
