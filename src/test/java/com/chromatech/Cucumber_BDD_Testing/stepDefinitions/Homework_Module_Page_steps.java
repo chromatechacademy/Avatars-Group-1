@@ -15,17 +15,18 @@ public class Homework_Module_Page_steps {
         CommonMethods.click(DashboardPage.StudentHomeworkModule);
     }
 
-    @When("the Homework module is displays")
-    public void the_homework_module_is_displays() {
+    @When("the {string} module is displays")
+    public void the_module_is_displays(String HomeworkModuleText) {
         CommonMethods.assertTrue(DashboardPage.StudentHomeworkModule.isDisplayed());
-        CommonMethods.click(DashboardPage.StudentHomeworkModule);
+        CommonMethods.assertEquals(DashboardPage.StudentHomeworkModule.getText(), HomeworkModuleText);
     }
 
-    @Then("the Add homework submodule is displays")
-    public void the_add_homework_submodule_is_displays() {
+    @Then("the {string} submodule is displays")
+    public void the_submodule_is_displays(String AddHomework) {
         CommonMethods.assertTrue(DashboardPage.addHomeworkSubModule.isDisplayed());
-        CommonMethods.click(DashboardPage.addHomeworkSubModule);
+        CommonMethods.assertEquals(DashboardPage.addHomeworkSubModule.getText(), AddHomework);
     }
 }
+
 
 

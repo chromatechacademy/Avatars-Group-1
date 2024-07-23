@@ -8,5 +8,5 @@ Feature: AG1CP-10: HomeworkModule
     And clicks on Sign In button
     Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
     When the user clicks on the Homework module
-    And the Homework module is displays
-    Then the Add homework submodule is displays
+    And the "Homework" module is displays
+    Then the "Add Homework" submodule is displays
