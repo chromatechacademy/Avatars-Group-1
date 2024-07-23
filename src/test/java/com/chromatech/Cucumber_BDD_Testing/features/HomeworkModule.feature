@@ -7,6 +7,6 @@ Feature: AG1CP-10: HomeworkModule
     When the user enters password "123456" in password text box
     And clicks on Sign In button
     Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
-    When the user clicks on the Homework module
     And the "Homework" module is displays
+    When the user clicks on the Homework module
     Then the "Add Homework" submodule is displays
