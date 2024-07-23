@@ -1,6 +1,5 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
-import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.EditPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
 import com.chromatech.utils.CommonMethods;
@@ -8,6 +7,7 @@ import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.testng.Assert;
 
 import static com.chromatech.utils.WebDriverUtils.driver;
 
@@ -296,6 +296,7 @@ public class Ability_To_Edit_Student_Records_Steps {
         CommonMethods.sleep(10000);
         CommonMethods.waitForClickability(EditPage.dynamicRecordLocateDelete(admissionNumber));
         JavascriptMethods.scrollIntoView(EditPage.dynamicRecordLocateDelete(admissionNumber));
+        Assert.assertEquals(editPage.admissionNumber.getText(), editPage.admissionNumber.getText());
         EditPage.dynamicRecordLocateDelete(admissionNumber).click();
         CommonMethods.click(editPage.deleteButton);
         CommonMethods.acceptAlert();

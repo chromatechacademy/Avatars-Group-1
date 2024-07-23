@@ -171,8 +171,8 @@ public class EditPage {
     public WebElement searchButtonBulkDelete;
 
     //Delete student checkbox
-    @FindBy(xpath = "//input[@value='33325']/ancestor::tr")
-    public WebElement deleteStudentCheckBox;
+    @FindBy(xpath = "//*[contains(text(), '42990')]")
+    public WebElement admissionNumber;
 
     //Delete buttons
     @FindBy(xpath = "//button[@id='load']")
