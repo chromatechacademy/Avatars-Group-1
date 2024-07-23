@@ -7,4 +7,4 @@ Feature: AG1CP-2: Security mechanism to prevent invalid credentials login
     When the user enters password "202030" in password text box
     And clicks on Sign In button
     Then the user remains on the login page "https://mexil.it/chroma/site/login"
-    Then an error message is displayed
+    Then an error message is displayed "Invalid Username or Password"
