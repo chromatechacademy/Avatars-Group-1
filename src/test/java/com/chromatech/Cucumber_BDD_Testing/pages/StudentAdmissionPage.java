@@ -181,7 +181,7 @@ public class StudentAdmissionPage {
     public WebElement addButtonInTheSiblingModalDialog;
 
     // Sibling Name text
-    @FindBy(xpath = "//span[@class='label label-success ']")
+    @FindBy(xpath = "//span[@id='sibling_name']")
     public WebElement siblingNameText;
 
     // Previous School Details textBox
@@ -347,11 +347,12 @@ public class StudentAdmissionPage {
         for (Map<String, String> data : dataList) {
             CommonMethods.assertEquals(addSiblingButton.getText(), text);
             CommonMethods.click(addSiblingButton);
+            CommonMethods.waitForClickability(classDropDownInTheSiblingModalDialog);
             CommonMethods.selectDropDownValue(data.get("Sibling Class"), classDropDownInTheSiblingModalDialog);
             CommonMethods.selectDropDownValue(data.get("Sibling Section"), sectionDropDownInTheSiblingModalDialog);
             CommonMethods.selectDropDownValue(creatingSiblingName(data.get("Sibling First Name"), data.get("Sibling Last Name"), data.get("Sibling Roll Number")), studentDropDownInTheSiblingModalDialog);
             CommonMethods.click(addButtonInTheSiblingModalDialog);
-            CommonMethods.waitForInvisibility(siblingNameText);
+            CommonMethods.waitForVisibility(siblingNameText);
             JavascriptMethods.scrollIntoView(siblingNameText);
             System.out.println(siblingNameText.getText());
             CommonMethods.assertEquals(siblingNameText.getText(), "Sibling: " + data.get("Sibling First Name") + " " + data.get("Sibling Last Name"));

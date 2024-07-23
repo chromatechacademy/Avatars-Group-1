@@ -32,14 +32,27 @@ public class SearchPage {
     @FindBy(xpath = "//select[@id='class_id']")
     public WebElement classDropDown;
 
-    // Section dropDown
-    @FindBy(xpath = "//select[@id='section_id']")
+    // Section Drop Down
+    @FindBy(xpath = "//select[@name='section_id']")
     public WebElement sectionDropDown;
 
     // Table Locator by Text
     public static WebElement tableLocatorByText(String text) {
         return driver.findElement(By.xpath("//td[text()='" + text + "']"));
     }
+
+    // Edit Icon Button
+    @FindBy(xpath="//i[@class='fa fa-pencil']")
+    public WebElement editIconButton;
+
+    // Dynamic Table Locator
+    public static WebElement dynamicTableLocator(String text) {
+        return driver.findElement(By.xpath("//td[contains(text(),'" + text + "')]//parent::tr/td[2]"));
+    }
+
+    // Bulk Delete subModule
+    @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
+    public WebElement bulkDeleteSubModule;
 
     /**
      * Searches for a student record based on the provided parameters.
