@@ -11,7 +11,7 @@ Feature: AG1CP-4: Student Information Module
     Then the first submodule "Student Details" is displayed
     And the second submodule is displayed "Student Admission"
     And the third submodule displays "Disabled Students"
-    And thgie fourth submodule "Bulk Delete" is displayed
+    And the fourth submodule "Bulk Delete" is displayed
     And the fifth submodule "Student Categories" displays
     And the sixth submodule "Student House" is displayed
     And the last submodule "Disable Reason" is displayed
