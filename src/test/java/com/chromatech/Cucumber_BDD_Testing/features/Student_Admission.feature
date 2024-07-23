@@ -21,10 +21,10 @@ Feature: AG1CP-12: StudentAdmission
     And user adds guardian's information:
       | If Guardian Is | Guardian Name | Guardian Relation | Guardian Email              | Guardian Photo     | Guardian Phone | Guardian Occupation | Guardian Address                                       |
       | Mother         | Chroma        | Tech              | charomatechacademy@the.best | Guardian_Photo.png | 6028801020     | Academy             | Monsters Street 3587, East Worcester, Guernsey, 497905 |
-    And user addis information in the "Student Address Details" block:
+    And user adds information in the "Student Address Details" block:
       | If Guardian Address is Current Address | Current Address                                      | If Permanent Address is Current Address | Permanent Address                                        |
       | true                                   | Accountability Street 6348, Vader, Lithuania, 076645 | true                                    | Terms Street 6744, Siletz, Saint Kitts And Nevis, 459138 |
-    And user addins information in the "Miscellaneous Details" section:
+    And user adds information in the "Miscellaneous Details" section:
       | Bank Account Number | Bank Name   | IFSC Code | National Identification Number | Local Identification Number | RTE | Previous School Details             | Note                                        |
       | 1301822             | GraphicBank | 395       | 122101706                      | 121000358                   | Yes | https://jurisdictionkooif9oevxks.qp | At least here, can we not make up the text? |
     And fills out all text fields and uploads files in the "Upload Documents" section:
@@ -37,6 +37,6 @@ Feature: AG1CP-12: StudentAdmission
     Then make sure the entry "42001abc" is in the list:
       | Admission Number | Student Name | Class(Section)              | Father Name  | Date of Birth | Gender | Category | Mobile Number | Height | Weight | Add Fees |
       | 42001abc         | Vlad Islav   | SDET(Cucumber Fundamentals) | Leaha Petrov | 01/02/1991    | Male   | new      | 6028808888    | 6'3    | 9999   | $        |
-    When if a student record already exists, the user deletes it:
+    Then if a student record already exists, the user deletes it:
       | Module              | SubModule   | Class | Section               | Admission Number | Alert Text                            | URL                                        |
       | Student Information | Bulk Delete | SDET  | Cucumber Fundamentals | 42001abc         | Are you sure you want to delete this? | https://mexil.it/chroma/student/bulkdelete |

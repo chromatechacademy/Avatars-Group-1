@@ -48,13 +48,13 @@ public class Student_Admission_Steps {
         studentAdmissionPage.user_adds_guardian_s_information(dataTable);
     }
 
-    @When("user addis information in the {string} block:")
-    public void user_addis_information_in_the_block(String headerText, DataTable dataTable) {
+    @When("user adds information in the {string} block:")
+    public void user_adds_information_in_the_block(String headerText, DataTable dataTable) {
         studentAdmissionPage.user_addis_information_in_the_block(headerText, dataTable);
     }
 
-    @When("user addins information in the {string} section:")
-    public void user_addins_information_in_the_section(String headerText, DataTable dataTable) {
+    @When("user adds information in the {string} section:")
+    public void user_adds_information_in_the_section(String headerText, DataTable dataTable) {
         studentAdmissionPage.user_addins_information_in_the_section(headerText, dataTable);
     }
 

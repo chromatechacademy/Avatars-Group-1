@@ -21,10 +21,10 @@ Feature: AG1CP-19: Admitting multiple students
     And user adds guardian's information:
       | If Guardian Is   | Guardian Name   | Guardian Relation   | Guardian Email   | Guardian Photo   | Guardian Phone   | Guardian Occupation   | Guardian Address   |
       | <If Guardian Is> | <Guardian Name> | <Guardian Relation> | <Guardian Email> | <Guardian Photo> | <Guardian Phone> | <Guardian Occupation> | <Guardian Address> |
-    And user addis information in the "Student Address Details" block:
+    And user adds information in the "Student Address Details" block:
       | If Guardian Address is Current Address   | Current Address   | If Permanent Address is Current Address   | Permanent Address   |
       | <If Guardian Address is Current Address> | <Current Address> | <If Permanent Address is Current Address> | <Permanent Address> |
-    And user addins information in the "Miscellaneous Details" section:
+    And user adds information in the "Miscellaneous Details" section:
       | Bank Account Number   | Bank Name   | IFSC Code   | National Identification Number   | Local Identification Number   | RTE   | Previous School Details   | Note   |
       | <Bank Account Number> | <Bank Name> | <IFSC Code> | <National Identification Number> | <Local Identification Number> | <RTE> | <Previous School Details> | <Note> |
     And fills out all text fields and uploads files in the "Upload Documents" section:
@@ -37,7 +37,7 @@ Feature: AG1CP-19: Admitting multiple students
     Then make sure the entry "<Admission Number>" is in the list:
       | Admission Number   | Student Name   | Class(Section)   | Father Name   | Date of Birth   | Gender   | Category   | Mobile Number   | Height   | Weight   | Add Fees |
       | <Admission Number> | <Student Name> | <Class(Section)> | <Father Name> | <Date of Birth> | <Gender> | <Category> | <Mobile Number> | <Height> | <Weight> | $        |
-    When if a student record already exists, the user deletes it:
+    Then if a student record already exists, the user deletes it:
       | Module              | SubModule   | Class   | Section   | Admission Number   | Alert Text                            | URL                                        |
       | Student Information | Bulk Delete | <Class> | <Section> | <Admission Number> | Are you sure you want to delete this? | https://mexil.it/chroma/student/bulkdelete |
     Examples:
