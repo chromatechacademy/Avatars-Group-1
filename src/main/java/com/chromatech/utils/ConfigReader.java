@@ -14,7 +14,7 @@ public class ConfigReader {
     static Properties prop;
 
     // STEP 1 - READ THE FILE OF LocalTestSettings.properties from Config/resources
-    public static Properties readProperties(String filePath){
+    public static Properties readProperties(String filePath) {
         try {
             FileInputStream fis = new FileInputStream(filePath);
             prop = new Properties();
@@ -28,8 +28,7 @@ public class ConfigReader {
     }
 
     // STEP 2: RETRIEVE VALUES FROM PROPERTIES FILE OF LocalTestSettings.properties from Config/resources - key is browser
-    public static String getPropertyValue(String key){
+    public static String getPropertyValue(String key) {
         return prop.getProperty(key);
     }
-    
 }

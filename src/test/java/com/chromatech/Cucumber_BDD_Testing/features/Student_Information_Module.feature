@@ -7,7 +7,7 @@ Feature: AG1CP-4: Student Information Module
     And the user enters password "123456" in password text box
     And clicks on Sign In button
     Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
-    When the user clicks on Student Information module
+    When the user clicks on "Student Information" module
     Then the first submodule "Student Details" is displayed
     And the second submodule is displayed "Student Admission"
     And the third submodule displays "Disabled Students"
