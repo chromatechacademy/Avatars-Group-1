@@ -1,6 +1,6 @@
 Feature: AG1CP-9: HumanResourceModule
 
-  @Regression @Dmytro @AG1CP-9
+  @Progression @Dmytro @AG1CP-9
   Scenario: HumanResourceModule
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box

@@ -6,14 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-<<<<<<< HEAD
-
-=======
 import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
->>>>>>> 694cc312f526189e1ccfdf79122f337c6a54918a
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class SearchPage {
@@ -45,7 +41,6 @@ public class SearchPage {
         return driver.findElement(By.xpath("//td[text()='" + text + "']"));
     }
 
-<<<<<<< HEAD
     // Edit Icon Button
     @FindBy(xpath="//i[@class='fa fa-pencil']")
     public WebElement editIconButton;
@@ -58,7 +53,7 @@ public class SearchPage {
     // Bulk Delete subModule
     @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
     public WebElement bulkDeleteSubModule;
-=======
+
     /**
      * Searches for a student record based on the provided parameters.
      *
@@ -78,7 +73,6 @@ public class SearchPage {
             CommonMethods.click(searchButton);
         }
     }
->>>>>>> 694cc312f526189e1ccfdf79122f337c6a54918a
 
     /**
      * Makes sure that the entry corresponding to the provided admission number is present in the list.

@@ -14,170 +14,169 @@ public class EditPage {
         PageFactory.initElements(driver, this);
     }
 
-    //STUDENT ADMISSION
+    // STUDENT ADMISSION
     @FindBy(xpath = "//a[normalize-space()='Student Admission']")
     public WebElement studentAdmissionTab;
 
-    //Edit Student Header
+    // Edit Student Header
     @FindBy(xpath = "//h3[normalize-space()='Edit Student']")
     public WebElement editStudentHeader;
 
-    //Admission No Text Box
+    // Admission No Text Box
     @FindBy(xpath = "//input[@id='admission_no']")
     public WebElement admissionNoTextBox;
 
-    //Roll Number Text Box
+    // Roll Number Text Box
     @FindBy(xpath = "//input[@id='roll_no']")
     public WebElement rollNumberTextBox;
 
-    //Class Drop Down
+    // Class Drop Down
     @FindBy(xpath = "//select[@id='class_id']")
     public WebElement classDropDown;
 
-    //Section Drop Down
+    // Section Drop Down
     @FindBy(xpath = "//select[@id='section_id']")
     public WebElement sectionDropDown;
 
-    //First Name Text Box
+    // First Name Text Box
     @FindBy(xpath = "//input[@id='firstname']")
     public WebElement firstNameTextBox;
 
-    //Last Name Text Box
+    // Last Name Text Box
     @FindBy(xpath = "//input[@id='lastname']")
     public WebElement lastNameTextBox;
 
-    //Gender Drop Down
+    // Gender Drop Down
     @FindBy(xpath = "//select[@name='gender']")
     public WebElement genderDropDown;
 
-    //Date of Birth Text Box
+    // Date of Birth Text Box
     @FindBy(xpath = "//input[@id='dob']")
     public WebElement dateOfBirthTextBox;
 
-    //Category Drop Down
+    // Category Drop Down
     @FindBy(xpath = "//select[@id='category_id']")
     public WebElement categoryDropDown;
 
-    //Email Text Box
+    // Email Text Box
     @FindBy(xpath = "//input[@id='email']")
     public WebElement emailTextBox;
 
-    //Admission Date Text Box
+    // Admission Date Text Box
     @FindBy(xpath = "//input[@id='admission_date']")
     public WebElement admissionDateTextBox;
 
-    //Student Photo
+    // Student Photo Text Box
     @FindBy(xpath = "(//input[@id='file'])[1]")
-    public WebElement studentPhoto;
+    public WebElement studentPhotoTextBox;
 
-    //Blood Group Drop Down
+    // Blood Group Drop Down
     @FindBy(xpath = "//select[@name='blood_group']")
     public WebElement bloodGroupDropDown;
 
-    //As On Date Text Box
+    // As On Date Text Box
     @FindBy(xpath = "//input[@id='measure_date']")
     public WebElement asOnDateTextBox;
 
-    //Mobile Number Text Box
+    // Mobile Number Text Box
     @FindBy(css = "input[id='custom_fields[students][1]']")
     public WebElement mobileNumberTextBox;
 
-    //Height Text Box
+    // Height Text Box
     @FindBy(css = "input[id='custom_fields[students][2]']")
     public WebElement heightTextBox;
 
-    //Weight Text Box
+    // Weight Text Box
     @FindBy(xpath = "//div[5]//div[3]//div[1]//input[1]")
     public WebElement weightTextBox;
 
-    //Father Name Text Box
+    // Father Name Text Box
     @FindBy(xpath = "//input[@id='father_name']")
     public WebElement fatherNameTextBox;
 
-    //Phone No Text Box
+    // Phone No Text Box
     @FindBy(xpath = "//input[@id='father_phone']")
     public WebElement phoneNoTextBox;
 
-    //Father Occupation Text Box
+    // Father Occupation Text Box
     @FindBy(xpath = "//input[@id='father_occupation']")
     public WebElement fatherOccupationTextBox;
 
-    //Father Photo
+    // Father Photo Text Box
     @FindBy(xpath = "//input[@name='father_pic']")
-    public WebElement fatherPhoto;
+    public WebElement fatherPhotoTextBox;
 
-    //Mother Name Text Box
+    // Mother Name Text Box
     @FindBy(xpath = "//input[@id='mother_name']")
     public WebElement motherNameTextBox;
 
-    //Mother Phone Text Box
+    // Mother Phone Text Box
     @FindBy(xpath = "//input[@id='mother_phone']")
     public WebElement motherNoTextBox;
 
-    //Mother Occupation Text Box
+    // Mother Occupation Text Box
     @FindBy(xpath = "//input[@id='mother_occupation']")
     public WebElement motherOccupationTextBox;
 
-    //Mother Photo
+    // Mother Photo Text Box
     @FindBy(xpath = "//input[@name='mother_pic']")
-    public WebElement MotherPhoto;
+    public WebElement motherPhotoTextBox;
 
-    //Father Radio Button
+    // Father Radio Button
     @FindBy(xpath = "//input[@value='father']")
     public WebElement fatherRadioButton;
 
-    //Guardian Name Text Box
+    // Guardian Name Text Box
     @FindBy(xpath = "//input[@id='guardian_name']")
     public WebElement guardianNameTextBox;
 
-    //Guardian Relation Text Box
+    // Guardian Relation Text Box
     @FindBy(xpath = "//input[@id='guardian_relation']")
     public WebElement guardianRelationTextBox;
 
-    //Guardian Email Text Box
+    // Guardian Email Text Box
     @FindBy(xpath = "//input[@id='guardian_email']")
     public WebElement guardianEmailTextBox;
 
-    //Guardian Photo
+    // Guardian Photo Text Box
     @FindBy(xpath = "//input[@name='guardian_pic']")
-    public WebElement guardianPhoto;
+    public WebElement guardianPhotoTextBox;
 
-    //Guardian Phone Text Box
+    // Guardian Phone Text Box
     @FindBy(xpath = "//input[@id='guardian_phone']")
     public  WebElement guardianPhoneTextBox;
 
-    //Guardian Occupation Text Box
+    // Guardian Occupation Text Box
     @FindBy(xpath = "//input[@id='guardian_occupation']")
     public WebElement guardianOccupationTextBox;
 
-    //Guardian Address Text Box
+    // Guardian Address Text Box
     @FindBy(xpath = "//textarea[@id='guardian_address']")
     public WebElement guardianAddressTextBox;
 
-    //Save Button
+    // Save Button
     @FindBy(xpath = "//button[@type='submit'][normalize-space()='Save']")
     public WebElement saveButton;
 
-    //Student details tab
+    // Student details tab
     @FindBy(xpath = "(//a[normalize-space()='Student Details'])[2]")
     public WebElement studentDetailsTab;
 
-    //Bulk Delete
+    // Bulk Delete
     @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
     public WebElement bulkDeleteTab;
 
-    //Search button
+    // Search button
     @FindBy(xpath = "//button[normalize-space()='Search']//i[@class='fa fa-search']")
     public WebElement searchButtonBulkDelete;
 
-    //Delete student checkbox
+    // Delete student checkbox
     @FindBy(xpath = "//*[contains(text(), '42990')]")
     public WebElement admissionNumber;
 
-    //Delete buttons
+    // Delete buttons
     @FindBy(xpath = "//button[@id='load']")
     public WebElement deleteButton;
-
 
     /**
      * Locates and returns the WebElement of a dynamic record based on the given text.

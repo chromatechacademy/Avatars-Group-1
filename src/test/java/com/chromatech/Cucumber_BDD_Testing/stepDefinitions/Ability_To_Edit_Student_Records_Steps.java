@@ -1,5 +1,6 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
+import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.EditPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
 import com.chromatech.utils.CommonMethods;
@@ -15,6 +16,13 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     SearchPage searchPage = new SearchPage();
     EditPage editPage = new EditPage();
+    DashboardPage dashboardPage = new DashboardPage();
+
+
+    @When("the user clicks on Student Information module")
+    public void the_user_clicks_on_student_information_module() {
+        CommonMethods.click(dashboardPage.studentInformationModule);
+    }
 
     @When("user clicks on Student Admission")
     public void user_clicks_on_student_admission() {
@@ -71,8 +79,8 @@ public class Ability_To_Edit_Student_Records_Steps {
     }
 
     @When("clicks on the student details")
-    public void clicks_on_the_student_details() throws InterruptedException {
-        Thread.sleep(10000);
+    public void clicks_on_the_student_details() {
+        CommonMethods.sleep(10000);
         editPage.studentDetailsTab.click();
     }
 
@@ -158,7 +166,7 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("user edits Student Photo field to {string}")
     public void user_edits_student_photo_field_to(String path) {
-        CommonMethods.sendKeys(editPage.studentPhoto, CommonMethods.readLocalFile(path));
+        CommonMethods.sendKeys(editPage.studentPhotoTextBox, CommonMethods.readLocalFile(path));
     }
 
     @When("user edits Blood Group field to {string}")
@@ -203,7 +211,7 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("user edits Father Photo field to {string}")
     public void user_edits_father_photo_field_to(String path) {
-        CommonMethods.sendKeys(editPage.fatherPhoto, CommonMethods.readLocalFile(path));
+        CommonMethods.sendKeys(editPage.fatherPhotoTextBox, CommonMethods.readLocalFile(path));
     }
 
     @When("user edits Mother Name field to {string}")
@@ -223,7 +231,7 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("user edits Mother Photo field to {string}")
     public void user_edits_mother_photo_field_to(String path) {
-        CommonMethods.sendKeys(editPage.fatherPhoto, CommonMethods.readLocalFile(path));
+        CommonMethods.sendKeys(editPage.motherPhotoTextBox, CommonMethods.readLocalFile(path));
     }
 
     @When("user selects on {string} radio button on edit page")
@@ -248,7 +256,7 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("user edits Guardian Photo to {string}")
     public void user_edits_guardian_photo_to(String path) {
-        CommonMethods.sendKeys(editPage.guardianPhoto, CommonMethods.readLocalFile(path));
+        CommonMethods.sendKeys(editPage.guardianPhotoTextBox, CommonMethods.readLocalFile(path));
     }
 
     @When("user edits Guardian Phone to {string}")
