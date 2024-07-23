@@ -13,7 +13,6 @@ public class Student_Admission_Steps {
     SearchPage searchPage = new SearchPage();
     BulkDeletePage bulkDeletePage = new BulkDeletePage();
 
-
     @Given("a CTSMS user is logged in to the main page {string}")
     public void a_ctsms_user_is_logged_in_to_the_main_page(String url) {
         loginPage.a_ctsms_user_is_logged_in_to_the_main_page(url);
