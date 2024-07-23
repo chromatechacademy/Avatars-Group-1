@@ -17,7 +17,7 @@ public class Hooks {
         PageInitializer.initializeAllPages();
     }
 
-    //add the screen shots
+    //add the screenshots
     @AfterStep
     public void each(Scenario scenario) {
         CucumberLogUtils.logScreenShot();

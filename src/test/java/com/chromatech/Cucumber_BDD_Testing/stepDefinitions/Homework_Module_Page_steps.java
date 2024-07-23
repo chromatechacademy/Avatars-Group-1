@@ -9,9 +9,10 @@ public class Homework_Module_Page_steps {
 
     DashboardPage dashboardPage = new DashboardPage();
 
-    @Then("the Homework module is displays")
-    public void the_homework_module_is_displays() {
+    @Then("the {string} module is displays")
+    public void the_module_is_displays(String expectedHomeworkModuleText) {
         CommonMethods.assertTrue(dashboardPage.studentHomeworkModule.isDisplayed());
+        CommonMethods.assertEquals(dashboardPage.studentHomeworkModule.getText(), expectedHomeworkModuleText);
     }
 
     @When("the user clicks on the Homework module")
@@ -19,9 +20,9 @@ public class Homework_Module_Page_steps {
         CommonMethods.click(dashboardPage.studentHomeworkModule);
     }
 
-    @Then("the Add homework submodule is displays")
-    public void add_homework() {
+    @Then("the {string} submodule is displays")
+    public void the_submodule_is_displays(String expectedAddHomeworkSubmoduleText) {
         CommonMethods.assertTrue(dashboardPage.addHomework.isDisplayed());
+        CommonMethods.assertEquals(dashboardPage.addHomework.getText().trim(), expectedAddHomeworkSubmoduleText);
     }
 }
-
