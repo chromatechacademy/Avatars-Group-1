@@ -35,7 +35,7 @@ Feature: AG1CP-12: StudentAdmission
       | Module              | SubModule       | Class | Section               | Admission Number | URL                                    |
       | Student Information | Student Details | SDET  | Cucumber Fundamentals | 42001abc         | https://mexil.it/chroma/student/search |
     Then make sure the entry "42001abc" is in the list:
-      | Admission Number | Student Name | Class(Section)                       | Father Name  | Date of Birth | Gender | Category | Mobile Number | Height | Weight | Add Fees |
+      | Admission Number | Student Name | Class(Section)              | Father Name  | Date of Birth | Gender | Category | Mobile Number | Height | Weight | Add Fees |
       | 42001abc         | Vlad Islav   | SDET(Cucumber Fundamentals) | Leaha Petrov | 01/02/1991    | Male   | new      | 6028808888    | 6'3    | 9999   | $        |
     When if a student record already exists, the user deletes it:
       | Module              | SubModule   | Class | Section               | Admission Number | Alert Text                            | URL                                        |
