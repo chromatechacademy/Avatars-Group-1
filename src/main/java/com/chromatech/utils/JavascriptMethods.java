@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class JavascriptMethods {
-    
+
     /**
      * Use this method in need of clicking on a WebElement internally. This is used
      * when WebDriver is failed to click on a WebElement UI.
-     * 
+     *
      * @param web Element
      */
     public static void clickByJS(WebElement element) {
@@ -20,7 +20,7 @@ public class JavascriptMethods {
     /**
      * Use this method in need of clearing WebElement internally. This is used when
      * WebDriver is failed to clear a text box value.
-     * 
+     *
      * @param web Element.
      */
     public static void clearByJS(WebElement element) {
@@ -30,7 +30,7 @@ public class JavascriptMethods {
 
     /**
      * Use this method in need of scrolling to the very bottom of the page.
-     * 
+     *
      * @param driver Pass the object of the WebDriver here.
      */
     public static void scrollDown(int pixels) {
@@ -40,7 +40,7 @@ public class JavascriptMethods {
 
     /**
      * This method will scroll page up by the given pixel
-     * 
+     *
      * @param pixel
      */
     public static void scrollUp(int pixel) {
@@ -50,7 +50,7 @@ public class JavascriptMethods {
 
     /**
      * Use this method in need of scrolling the page to a specific element.
-     * 
+     *
      * @param wbe element to which you want to bring in to view.
      */
     public static void scrollIntoView(WebElement element) {
@@ -60,7 +60,7 @@ public class JavascriptMethods {
 
     /**
      * Use this method in need of surrounding an element with blue border.
-     * 
+     *
      * @param web element.
      */
     public static void drawBlueBorder(WebElement element) {
@@ -70,7 +70,7 @@ public class JavascriptMethods {
 
     /**
      * Use this method in need of surrounding an element with Red border.
-     * 
+     *
      * @param element Pass the web element.
      */
     public static void drawRedBorder(WebElement element) {
@@ -80,7 +80,7 @@ public class JavascriptMethods {
 
     /**
      * Use this method in need of generating alert in runtime while an issue raises.
-     * 
+     *
      * @param object  of WebDriver.
      * @param message Pass the message you want to generate.
      */
@@ -92,7 +92,7 @@ public class JavascriptMethods {
     /**
      * Use this method in need of refreshing browser instance which is opened by
      * selenium WebDriver.
-     * 
+     *
      * @param driver Pass the object of WebDriver here.
      */
     public static void refreshBrowserByJS(WebDriver driver) {
@@ -102,7 +102,7 @@ public class JavascriptMethods {
 
     /**
      * Use this method in need of retrieving the page title.
-     * 
+     *
      * @param driver pass the object of WebDriver here.
      * @return string object.
      */
@@ -114,7 +114,7 @@ public class JavascriptMethods {
 
     /**
      * Use this method in need of retrieving the whole page text.
-     * 
+     *
      * @param driver Pass the object of the WebDriver here.
      * @return string object.
      */
@@ -126,7 +126,7 @@ public class JavascriptMethods {
 
     /**
      * Use this method in need of sending text to a web element.
-     * 
+     *
      * @param element
      * @param value
      */
@@ -138,7 +138,7 @@ public class JavascriptMethods {
     /**
      * This method is to select values from bootstrap drop downs Pass the element
      * and date desired in String format as arguments
-     * 
+     *
      * @param element
      * @param date    to be selected
      */
@@ -149,7 +149,7 @@ public class JavascriptMethods {
 
     /**
      * This method will scroll text up by the given pixel
-     * 
+     *
      * @param pixel
      * @param element
      */
@@ -160,7 +160,7 @@ public class JavascriptMethods {
 
     /**
      * This method will scroll screen by the given pixel
-     * 
+     *
      * @param pixel
      * @param pixel
      */
