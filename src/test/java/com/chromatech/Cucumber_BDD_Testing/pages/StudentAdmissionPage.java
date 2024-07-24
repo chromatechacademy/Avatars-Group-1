@@ -289,6 +289,40 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "(//input[contains(@name,'doc')])[4]")
     public WebElement documentFourTextBox;
 
+    // Student Details Tab
+    @FindBy (xpath = "//li[@class='treeview active']//li[1]")
+    public WebElement studentDetailsTab;
+
+
+
+
+    //Selects Class dropdown
+    @FindBy (xpath = "//select[@name='class_id']")
+    public WebElement classDropDownTab;
+
+    //Selects Section dropdown
+    @FindBy (xpath = "//select[@name='section_id']")
+    public WebElement sectionDropDownTab;
+
+    // Search button
+    @FindBy (xpath ="//button[@value='search_filter']")
+    public WebElement searchButton;
+
+    //Selects Search By Keyword
+    @FindBy (xpath ="//input[@class='form-control']")
+    public WebElement searchByKeywordDropDownTab;
+
+    //Search button tab
+    @FindBy (xpath ="//button[@value='search_full']")
+    public WebElement searchButtonTab;
+
+
+
+
+
+
+
+
     /**
      * Concatenates the first name and last name with the roll number to create a sibling name.
      *

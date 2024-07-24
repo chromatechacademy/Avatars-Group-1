@@ -117,4 +117,36 @@ public class DashboardPage {
     // Income Head subModule
     @FindBy(xpath = "//a[normalize-space()='Income Head']")
     public WebElement incomeHeadSubModule;
+
+    // Fees Collection Module
+    @FindBy (xpath ="//span[normalize-space()='Fees Collection']")
+    public WebElement feesCollectionModule;
+    // Collect Fees subModule
+    @FindBy (xpath ="//li[@class='active']//a[normalize-space()='Collect Fees']")
+    public WebElement collectFeesSubModule;
+    // Search Fees Payment subModule
+    @FindBy (xpath ="//a[normalize-space()='Search Fees Payment']")
+    public WebElement searchFeesPaymentSubModule;
+    // Search Due Fees subModule
+    @FindBy (xpath ="//a[normalize-space()='Search Due Fees']")
+    public WebElement searchDueFeesSubModule;
+    // Fees Master subModule
+    @FindBy (xpath ="//a[normalize-space()='Fees Master']")
+    public WebElement feesMasterSubModule;
+    // Fees Group subModule
+    @FindBy (xpath ="//a[normalize-space()='Fees Group']")
+    public WebElement feesGroupSubModule;
+    // Fees Type subModule
+    @FindBy (xpath ="//a[normalize-space()='Fees Type']")
+    public WebElement feesTypeSubModule;
+    // Fees Discount subModule
+    @FindBy (xpath ="//a[normalize-space()='Fees Discount']")
+    public WebElement feesDiscountSubModule;
+    // Fees Carry Forward subModule
+    @FindBy (xpath ="//a[normalize-space()='Fees Carry Forward']")
+    public WebElement feesCarryForwardSubModule;
+    // Fees Reminder subModule
+    @FindBy (xpath ="//a[normalize-space()='Fees Reminder']")
+    public WebElement feesReminderSubModule;
+
 }
