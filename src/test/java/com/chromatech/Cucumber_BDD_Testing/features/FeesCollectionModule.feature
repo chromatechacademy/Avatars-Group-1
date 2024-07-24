@@ -1,4 +1,4 @@
-Feature: AG1CP-5: Feed Collection Module
+Feature: AG1CP-5: Fees Collection Module
 
   @Vannia
   Scenario: CTSMS Fees Collection Module
@@ -7,13 +7,13 @@ Feature: AG1CP-5: Feed Collection Module
     When the user enters password "123456" in password text box
     And clicks on Sign In button
     When user clicks on Fees Collection
-    Then the first submodule "Collect Fees" is displayed
-    And the second submodule Search Fees Payment is displayed
-    And the third submodule displays Search Due Fees
-    And the fourth submodule Fees Master is displayed
-    And the fifth submodule Fees Group displays
-    And the sixth submodule Fees Type is displayed
-    And the seven Fees Discount is displayed
-    And the eight Fees Carry Forward is displayed
-    And the last submodule Fees Reminder is displayed
+    Then the Collect Fees submodule "Collect Fees" is displayed
+    And the Search Fees Payment submodule "Search Fee Payment" is displayed
+    And the Search Due Fees submodule "Search Due Fees" is displayed
+    And the Fees Master submodule "Fees Master" is displayed
+    And the Fees Group submodule "Fees Group" is displayed
+    And the Fees Type submodule "Fees Type" is displayed
+    And the Fees Discount submodule "Fees Discount" is displayed
+    And the Fees Carry Forward submodule "Fees Carry Forward" is displayed
+    And the Fees Reminder submodule "Fees Reminder" is displayed
     
