@@ -11,6 +11,7 @@ public class Valid_Credentials_Login_steps {
 
     LoginPage loginPage = new LoginPage();
 
+
     @Given("a Chroma Tech Academy teacher or admin is on the login page {string}")
     public void a_chroma_tech_academy_teacher_or_admin_is_on_the_login_page(String url) {
         driver.get(url);
@@ -35,4 +36,6 @@ public class Valid_Credentials_Login_steps {
     public void the_user_is_successfully_directed_to_the_dashboard_page(String expectedUrl) {
         CommonMethods.assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
+
+
 }
