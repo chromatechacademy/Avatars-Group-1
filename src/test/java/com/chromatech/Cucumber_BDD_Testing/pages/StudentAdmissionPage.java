@@ -145,6 +145,7 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//textarea[@id='guardian_address']")
     public WebElement guardianAddressTextBox;
 
+
     public StudentAdmissionPage() {
         PageFactory.initElements(driver, this);
     }

@@ -1,6 +1,6 @@
 Feature: AG1CP-17: AcademicModuleSections
 
-  @Regression @Dmytro @AG1CP-17
+  @Regression @Dm @AG1CP-17
   Scenario: In Academic Module shoes next Submodule - Sections And adds a section
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box
