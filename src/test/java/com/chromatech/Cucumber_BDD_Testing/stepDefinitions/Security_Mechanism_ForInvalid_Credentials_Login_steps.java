@@ -3,8 +3,6 @@ package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 import com.chromatech.Cucumber_BDD_Testing.pages.LoginPage;
 import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Then;
-import org.testng.Assert;
-import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class Security_Mechanism_ForInvalid_Credentials_Login_steps {
 
