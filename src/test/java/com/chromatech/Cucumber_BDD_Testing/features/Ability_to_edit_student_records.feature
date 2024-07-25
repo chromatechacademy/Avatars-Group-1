@@ -12,11 +12,11 @@ Feature: Ability to edit student records
     When user enters admission number field to the "42990"
     When the user selects "SDET" in the Class dropdown
     And selects "Cucumber Fundamentals" in the Section dropdown
-    And user enters first name field to "Bo$$"
+    And user enters first name field to "8ill"
     And user selects gender field drop down to "Female"
     And user selects date of birth field to "05/05/2005"
     And user selects on "Father" radio button
-    And And user enters Guardian Name to "$uper D@d"
+    And And user enters Guardian Name to "$uper"
     And user user Guardian Phone to "777989898989898989"
     Then user clicks on the save button
     And clicks on the student details
@@ -29,7 +29,7 @@ Feature: Ability to edit student records
     When user clicks on the name of student record with admission number "42990"
     And clicks on edit button located near top right pencil icon
     And user edits roll number field to "42222"
-    And user edits first name field to "Mr.Bo$$"
+    And user edits first name field to "Mr.$am"
     And user edits last name field to "R@dio Head"
     And user edits gender field drop down to "Male"
     And user edits DOB field to "05/05/2005"
@@ -42,22 +42,22 @@ Feature: Ability to edit student records
     And user edits Mobile Number field to "1234567890"
     And user edits Height field to "23'6"
     And user edits Weight field to "562300"
-    And user edits Father Name field to "B!G DAWG"
+    And user edits Father Name field to "J!m"
     And user edits Phone No field to "0987654321"
     And user edits Father Occupation field to "Nail and Hair Specialist"
     And user edits Father Photo field to "src/main/resources/files/clearbeach.jpg"
-    And user edits Mother Name field to "B!G MOMMA"
+    And user edits Mother Name field to "Ph!l"
     And user edits Mother Phone field to "703&703$55"
     And user edits Mother Occupation field to "FBI"
     And user edits Mother Photo field to "src/main/resources/files/clearbeach.jpg"
     And user selects on "Father" radio button on edit page
-    And user edits Guardian Name to "$uper D@d"
+    And user edits Guardian Name to "D@d"
     And user edits Guardian Relation to "Mother"
-    And user edits Guardian Email to "YoMomma@email.com"
+    And user edits Guardian Email to "seaturtle@email.com"
     And user edits Guardian Photo to "src/main/resources/files/clearbeach.jpg"
     And user edits Guardian Phone to "777989898989898989"
-    And user edits Guardian Occupation to "Noneya"
-    And user edits Guardian Address "4431 Homies Only Ave, Gangster, VA 777777"
+    And user edits Guardian Occupation to "QA"
+    And user edits Guardian Address "4431 Soup Only Ave, Walgreen, VA 777777"
     Then user clicks on the save button on edit page
     And user clicks on the bulk delete button
     And user selects the class drop down "SDET"
