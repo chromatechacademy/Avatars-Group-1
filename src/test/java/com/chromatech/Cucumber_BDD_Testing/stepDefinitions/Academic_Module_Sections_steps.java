@@ -8,12 +8,12 @@ public class Academic_Module_Sections_steps {
 
     DashboardPage DashboardPage = new DashboardPage();
 
-    @Given("a Chroma Tech faculty member navigates to the Academics module")
-    public void a_chroma_tech_faculty_member_navigates_to_the_academics_module(String Academics) {
+    @Given("a Chroma Tech faculty member clicks the {string} module")
+    public void a_chroma_tech_faculty_member_clicks_the_module(String Academics)  {
         CommonMethods.assertTrue(DashboardPage.academicModuleSections.isDisplayed());
-        CommonMethods.assertEquals(DashboardPage.academicModuleSections.getText(), Academics);
+        CommonMethods.assertEquals(DashboardPage.academicModuleSections.getText(), "Academics");
         CommonMethods.click(DashboardPage.academicModuleSections);
-
+        CommonMethods.sleep(4000);
 
 
     }
