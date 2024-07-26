@@ -15,7 +15,7 @@ Feature: Ability to edit student records
     And user enters first name field to "Bo$$"
     And user selects gender field drop down to "Female"
     And user selects date of birth field to "05/05/2005"
-    And user selects on "Father" radio button
+    And user selects on the father radio button
     And And user enters Guardian Name to "$uper D@d"
     And user user Guardian Phone to "777989898989898989"
     Then user clicks on the save button
@@ -36,7 +36,7 @@ Feature: Ability to edit student records
     And user edits category field to "Selenium"
     And user edits email field to "wh@atsup<3"
     And user edits Admission Date field to "06/06/2024"
-    And user edits Student Photo field to "src/main/resources/files/clearbeach.jpg"
+    And user edits Student Photo field to
     And user edits Blood Group field to "B-"
     And user edits As On Date field to "04/21/2024"
     And user edits Mobile Number field to "1234567890"
@@ -45,12 +45,12 @@ Feature: Ability to edit student records
     And user edits Father Name field to "B!G DAWG"
     And user edits Phone No field to "0987654321"
     And user edits Father Occupation field to "Nail and Hair Specialist"
-    And user edits Father Photo field to "src/main/resources/files/clearbeach.jpg"
+    And user edits Father Photo field to
     And user edits Mother Name field to "B!G MOMMA"
     And user edits Mother Phone field to "703&703$55"
     And user edits Mother Occupation field to "FBI"
-    And user edits Mother Photo field to "src/main/resources/files/clearbeach.jpg"
-    And user selects on "Father" radio button on edit page
+    And user edits Mother Photo field to
+    And user selects on the father radio button on edit page
     And user edits Guardian Name to "$uper D@d"
     And user edits Guardian Relation to "Mother"
     And user edits Guardian Email to "YoMomma@email.com"

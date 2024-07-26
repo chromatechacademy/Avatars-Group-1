@@ -35,7 +35,7 @@ public class DashboardPage {
 
     // Dynamic submodule by name
     public WebElement findSubModuleByText(String subModuleName) {
-        return driver.findElement(By.xpath("//a[text()=' " + subModuleName + "']"));
+        return driver.findElement(By.xpath("//ul[@class='treeview-menu']/li/a[contains(text(), '" + subModuleName + "')]"));
     }
 
     // Student Admission subModule

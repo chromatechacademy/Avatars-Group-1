@@ -1,5 +1,7 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.Constants;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.StepsImplementation;
 import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.EditPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
@@ -8,8 +10,6 @@ import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class Ability_To_Edit_Student_Records_Steps {
@@ -17,7 +17,7 @@ public class Ability_To_Edit_Student_Records_Steps {
     SearchPage searchPage = new SearchPage();
     EditPage editPage = new EditPage();
     DashboardPage dashboardPage = new DashboardPage();
-
+    StepsImplementation stepsImplementation = new StepsImplementation();
 
     @When("the user clicks on Student Information module")
     public void the_user_clicks_on_student_information_module() {
@@ -59,8 +59,8 @@ public class Ability_To_Edit_Student_Records_Steps {
         JavascriptMethods.selectDateByJS(editPage.dateOfBirthTextBox, dateOfBirth);
     }
 
-    @When("user selects on {string} radio button")
-    public void user_selects_on_radio_button(String string) {
+    @When("user selects on the father radio button")
+    public void user_selects_on_the_father_radio_button() {
         editPage.fatherRadioButton.click();
     }
 
@@ -68,9 +68,10 @@ public class Ability_To_Edit_Student_Records_Steps {
     public void and_user_enters_guardian_name_to(String text) {
         CommonMethods.sendKeys(editPage.guardianNameTextBox, text);
     }
+
     @When("user user Guardian Phone to {string}")
     public void user_user_guardian_phone_to(String text) {
-       editPage.guardianPhoneTextBox.sendKeys(text);
+        editPage.guardianPhoneTextBox.sendKeys(text);
     }
 
     @Then("user clicks on the save button")
@@ -80,7 +81,6 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("clicks on the student details")
     public void clicks_on_the_student_details() {
-        CommonMethods.sleep(10000);
         editPage.studentDetailsTab.click();
     }
 
@@ -136,7 +136,7 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("user edits last name field to {string}")
     public void user_edits_last_name_field_to(String text) {
-        CommonMethods.sendKeys(editPage.lastNameTextBox,text);
+        CommonMethods.sendKeys(editPage.lastNameTextBox, text);
     }
 
     @When("user edits gender field drop down to {string}")
@@ -164,9 +164,9 @@ public class Ability_To_Edit_Student_Records_Steps {
         JavascriptMethods.selectDateByJS(editPage.admissionDateTextBox, text);
     }
 
-    @When("user edits Student Photo field to {string}")
-    public void user_edits_student_photo_field_to(String path) {
-        CommonMethods.sendKeys(editPage.studentPhotoTextBox, CommonMethods.readLocalFile(path));
+    @When("user edits Student Photo field to")
+    public void user_edits_student_photo_field_to() {
+        CommonMethods.sendKeys(editPage.studentPhotoTextBox, Constants.FILE);
     }
 
     @When("user edits Blood Group field to {string}")
@@ -209,9 +209,9 @@ public class Ability_To_Edit_Student_Records_Steps {
         CommonMethods.sendKeys(editPage.fatherOccupationTextBox, text);
     }
 
-    @When("user edits Father Photo field to {string}")
-    public void user_edits_father_photo_field_to(String path) {
-        CommonMethods.sendKeys(editPage.fatherPhotoTextBox, CommonMethods.readLocalFile(path));
+    @When("user edits Father Photo field to")
+    public void user_edits_father_photo_field_to() {
+        CommonMethods.sendKeys(editPage.fatherPhotoTextBox, Constants.FILE);
     }
 
     @When("user edits Mother Name field to {string}")
@@ -229,13 +229,13 @@ public class Ability_To_Edit_Student_Records_Steps {
         CommonMethods.sendKeys(editPage.motherOccupationTextBox, text);
     }
 
-    @When("user edits Mother Photo field to {string}")
-    public void user_edits_mother_photo_field_to(String path) {
-        CommonMethods.sendKeys(editPage.motherPhotoTextBox, CommonMethods.readLocalFile(path));
+    @When("user edits Mother Photo field to")
+    public void user_edits_mother_photo_field_to() {
+        CommonMethods.sendKeys(editPage.motherPhotoTextBox, Constants.FILE);
     }
 
-    @When("user selects on {string} radio button on edit page")
-    public void user_selects_on_radio_button_on_edit_page(String string) {
+    @When("user selects on the father radio button on edit page")
+    public void user_selects_on_the_father_radio_button_on_edit_page() {
         editPage.fatherRadioButton.click();
     }
 
@@ -255,8 +255,8 @@ public class Ability_To_Edit_Student_Records_Steps {
     }
 
     @When("user edits Guardian Photo to {string}")
-    public void user_edits_guardian_photo_to(String path) {
-        CommonMethods.sendKeys(editPage.guardianPhotoTextBox, CommonMethods.readLocalFile(path));
+    public void user_edits_guardian_photo_to() {
+        CommonMethods.sendKeys(editPage.guardianPhotoTextBox, Constants.FILE);
     }
 
     @When("user edits Guardian Phone to {string}")
@@ -281,8 +281,9 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @And("user clicks on the bulk delete button")
     public void user_clicks_on_the_bulk_delete_button() {
-       editPage.bulkDeleteTab.click();
+        editPage.bulkDeleteTab.click();
     }
+
     @Then("user selects the class drop down {string}")
     public void user_selects_the_class_drop_down(String text) {
         CommonMethods.selectDropDownValue(text, searchPage.classDropDown);
@@ -294,20 +295,12 @@ public class Ability_To_Edit_Student_Records_Steps {
     }
 
     @Then("user clicks on search button")
-    public void user_clicks_on_search_button() throws InterruptedException {
-        Thread.sleep(7000);
+    public void user_clicks_on_search_button() {
         CommonMethods.click(editPage.searchButtonBulkDelete);
     }
 
     @Then("user selects {string} student admission number and deletes it")
     public void user_selects_student_admission_number_and_deletes_it(String admissionNumber) {
-        CommonMethods.sleep(10000);
-        CommonMethods.waitForClickability(EditPage.dynamicRecordLocateDelete(admissionNumber));
-        JavascriptMethods.scrollIntoView(EditPage.dynamicRecordLocateDelete(admissionNumber));
-        Assert.assertEquals(editPage.admissionNumber.getText(), editPage.admissionNumber.getText());
-        EditPage.dynamicRecordLocateDelete(admissionNumber).click();
-        CommonMethods.click(editPage.deleteButton);
-        CommonMethods.acceptAlert();
-        CommonMethods.sleep(5000);
+        stepsImplementation.user_selects_student_admission_number_and_deletes_it(admissionNumber);
     }
 }

@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class EditPage {
@@ -187,5 +186,4 @@ public class EditPage {
     public static WebElement dynamicRecordLocateDelete(String text) {
         return WebDriverUtils.driver.findElement(By.xpath("//*[contains(text(),'" + text + "')]//ancestor::tr/td/input"));
     }
-
 }

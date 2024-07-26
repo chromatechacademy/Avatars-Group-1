@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -556,32 +557,12 @@ public class CommonMethods extends WebDriverUtils {
 
     public static String readJson(String fileName) {
 
-		String jsonFile = null;
-		try {
-			jsonFile = new String(Files.readAllBytes(Paths.get(fileName)));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return jsonFile;
-	}
-
-	/**
-	 * Returns the absolute path of a local file.
-	 *
-	 * @param file The name of the file.
-	 * @return The absolute path of the file.
-	 */
-	public static String readLocalFile(String file) {
-		return System.getProperty("user.dir") + "/" + file;
-	}
-
-    /**
-     * Returns the absolute path of a local file.
-     *
-     * @param file The name of the file.
-     * @return The absolute path of the file.
-     */
-    public static String findFile(String file) {
-        return System.getProperty("user.dir") + "/src/main/resources/files/" + file;
+        String jsonFile = null;
+        try {
+            jsonFile = new String(Files.readAllBytes(Paths.get(fileName)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return jsonFile;
     }
 }
