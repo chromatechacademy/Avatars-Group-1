@@ -164,8 +164,8 @@ public class Ability_To_Edit_Student_Records_Steps {
         JavascriptMethods.selectDateByJS(editPage.admissionDateTextBox, text);
     }
 
-    @When("user edits Student Photo field to")
-    public void user_edits_student_photo_field_to() {
+    @When("user edits Student Photo field")
+    public void user_edits_student_photo_field() {
         CommonMethods.sendKeys(editPage.studentPhotoTextBox, Constants.FILE);
     }
 
@@ -209,8 +209,8 @@ public class Ability_To_Edit_Student_Records_Steps {
         CommonMethods.sendKeys(editPage.fatherOccupationTextBox, text);
     }
 
-    @When("user edits Father Photo field to")
-    public void user_edits_father_photo_field_to() {
+    @When("user edits Father Photo field")
+    public void user_edits_father_photo_field() {
         CommonMethods.sendKeys(editPage.fatherPhotoTextBox, Constants.FILE);
     }
 
@@ -229,8 +229,8 @@ public class Ability_To_Edit_Student_Records_Steps {
         CommonMethods.sendKeys(editPage.motherOccupationTextBox, text);
     }
 
-    @When("user edits Mother Photo field to")
-    public void user_edits_mother_photo_field_to() {
+    @When("user edits Mother Photo field")
+    public void user_edits_mother_photo_field() {
         CommonMethods.sendKeys(editPage.motherPhotoTextBox, Constants.FILE);
     }
 
@@ -254,8 +254,8 @@ public class Ability_To_Edit_Student_Records_Steps {
         CommonMethods.sendKeys(editPage.guardianEmailTextBox, text);
     }
 
-    @When("user edits Guardian Photo to {string}")
-    public void user_edits_guardian_photo_to() {
+    @When("user edits Guardian Photo")
+    public void user_edits_guardian_photo() {
         CommonMethods.sendKeys(editPage.guardianPhotoTextBox, Constants.FILE);
     }
 

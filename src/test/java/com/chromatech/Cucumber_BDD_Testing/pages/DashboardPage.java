@@ -117,4 +117,12 @@ public class DashboardPage {
     // Income Head subModule
     @FindBy(xpath = "//a[normalize-space()='Income Head']")
     public WebElement incomeHeadSubModule;
+
+    //Expenses Module
+    @FindBy(xpath = "//span[normalize-space()='Expenses']")
+    public WebElement expenseModule;
+
+    //Add expense Submodule
+    @FindBy(xpath = "//ul[@class='treeview-menu menu-open']//a[normalize-space()='Add Expense']")
+    public WebElement addExpenseSubmodule;
 }

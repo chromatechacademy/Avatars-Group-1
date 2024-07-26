@@ -10,4 +10,5 @@ public class Constants {
     public static final String VICTOR_PHOTO = System.getProperty("user.dir") + "/src/test/java/com/chromatech/Cucumber_BDD_Testing/appsCommon/files/Victor.png";
     public static final String JAYCE_PHOTO = System.getProperty("user.dir") + "/src/test/java/com/chromatech/Cucumber_BDD_Testing/appsCommon/files/Jayce.png";
     public static final String FILE = System.getProperty("user.dir") + "/src/test/java/com/chromatech/Cucumber_BDD_Testing/appsCommon/files/clearbeach.jpg";
+    public static final String INVOICE_FILE_PATH = System.getProperty("user.dir") + "/src/test/java/com/chromatech/Cucumber_BDD_Testing/appsCommon/Add-Expence-Invoice.png";
 }
