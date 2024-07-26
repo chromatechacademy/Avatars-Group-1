@@ -107,6 +107,10 @@ public class DashboardPage {
     @FindBy(xpath = "(//span[normalize-space()='Academics'])[1]")
     public WebElement academicModuleSections;
 
+    //Sections Module clik
+    @FindBy(xpath = "//a[normalize-space()='Sections']")
+    public WebElement academicSections;
+
     public DashboardPage() {
         PageFactory.initElements(WebDriverUtils.driver, this);
     }
