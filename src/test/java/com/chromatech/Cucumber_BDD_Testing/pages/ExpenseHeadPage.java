@@ -41,7 +41,7 @@ public class ExpenseHeadPage {
     public WebElement expenseHeadBill;
 
     //Expense Head X Button
-    @FindBy(xpath = "//tbody/tr[2]/td[2]/a[1]")
+    @FindBy(xpath = "//a[contains(text(), 'Bill')]//parent::td//parent::tr/td[2]/a[2]/i")
     public WebElement expenseHeadXBtn;
 
 

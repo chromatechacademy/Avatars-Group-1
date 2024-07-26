@@ -6,7 +6,6 @@ import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openqa.selenium.JavascriptExecutor;
 
 public class Ability_To_Add_And_Remove_Expense_Heads_Steps {
 
@@ -17,7 +16,7 @@ public class Ability_To_Add_And_Remove_Expense_Heads_Steps {
         expenseHeadPage.expenseModuleTab.click();
     }
 
-    @When("the user clicks on Expense Head")
+    @And("the user clicks on Expense Head")
     public void the_user_clicks_on_expense_head() {
         expenseHeadPage.expenseHeadTab.click();
     }
@@ -46,11 +45,12 @@ public class Ability_To_Add_And_Remove_Expense_Heads_Steps {
     public void the_user_clicks_on_the_x_button_to_delete() {
         JavascriptMethods.scrollIntoView(expenseHeadPage.expenseHeadBill);
         expenseHeadPage.expenseHeadXBtn.click();
+        CommonMethods.acceptAlert();
     }
 
     @And("clicks OK on the alert message")
     public void clicks_ok_on_the_alert_message() {
-        CommonMethods.sleep(2000);
+        CommonMethods.sleep(3000);
         CommonMethods.acceptAlert();
     }
 }
