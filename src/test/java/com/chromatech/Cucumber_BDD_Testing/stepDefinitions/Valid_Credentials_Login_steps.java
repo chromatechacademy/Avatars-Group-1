@@ -1,15 +1,13 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
-import com.chromatech.Cucumber_BDD_Testing.pages.LoginPage;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.chromatech.utils.WebDriverUtils.driver;
 
-public class Valid_Credentials_Login_steps {
-
-    LoginPage loginPage = new LoginPage();
+public class Valid_Credentials_Login_steps extends PageInitializer {
 
     @Given("a Chroma Tech Academy teacher or admin is on the login page {string}")
     public void a_chroma_tech_academy_teacher_or_admin_is_on_the_login_page(String url) {

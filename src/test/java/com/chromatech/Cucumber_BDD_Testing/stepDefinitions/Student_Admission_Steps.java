@@ -1,17 +1,12 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
-import com.chromatech.Cucumber_BDD_Testing.pages.*;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Student_Admission_Steps {
-
-    LoginPage loginPage = new LoginPage();
-    StudentAdmissionPage studentAdmissionPage = new StudentAdmissionPage();
-    SearchPage searchPage = new SearchPage();
-    BulkDeletePage bulkDeletePage = new BulkDeletePage();
+public class Student_Admission_Steps extends PageInitializer {
 
     @Given("a CTSMS user is logged in to the main page {string}")
     public void a_ctsms_user_is_logged_in_to_the_main_page(String url) {
