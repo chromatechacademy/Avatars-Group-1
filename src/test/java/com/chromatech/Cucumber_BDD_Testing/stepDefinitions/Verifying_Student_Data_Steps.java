@@ -21,10 +21,7 @@ public class Verifying_Student_Data_Steps {
     public void an_user_navigates_to_the_student_details_tab_and_selects_class_criteria() {
 
     }
-    @When("when user selects section dropdown")
-    public void when_user_selects_section_dropdown() {
 
-    }
     @When("user enters {string} in Search by Keyword")
     public void user_enters_in_search_by_keyword(String string) {
 

@@ -1,6 +1,6 @@
 Feature: AG1CP-5: Fees Collection Module
 
-  @Vannia
+@AG1CP-5 @Vannia @Regression
   Scenario: CTSMS Fees Collection Module
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box

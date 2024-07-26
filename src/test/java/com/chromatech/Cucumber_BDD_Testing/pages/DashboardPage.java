@@ -158,4 +158,65 @@ public class DashboardPage {
     @FindBy (xpath ="//a[normalize-space()='Fees Reminder']")
     public WebElement feesReminderSubModule;
 
+    // Expenses Module
+    @FindBy (xpath = "//span[normalize-space()='Expenses']")
+    public WebElement expensesModule;
+
+    // Add Expense subModule
+    @FindBy (xpath = "//ul[@class='treeview-menu menu-open']//a[normalize-space()='Add Expense']")
+    public WebElement addExpenseSubModule;
+
+    // Search Expense subModule
+    @FindBy (xpath = "//a[normalize-space()='Search Expense']")
+    public WebElement searchExpenseSubModule;
+
+    // Expense Head subModule
+    @FindBy (xpath = "//a[normalize-space()='Expense Head']")
+    public WebElement expenseHeadSubModule;
+
+    // Academics Module
+    @FindBy (xpath = "//span[normalize-space()='Academics']")
+    public WebElement academicsModule;
+
+    // Class Timetable subModule
+    @FindBy (xpath = "//a[@href='https://mexil.it/chroma/admin/timetable/classreport']")
+    public WebElement classTimetableSubModule;
+
+    // Teachers Timetable subModule
+    @FindBy (xpath = "//a[normalize-space()='Teachers Timetable']")
+    public WebElement teachersTimetableSubModule;
+
+    // Assign Class Teacher subModule
+    @FindBy (xpath = "//a[normalize-space()='Assign Class Teacher']")
+    public WebElement assignClassTeacherSubModule;
+
+    // Promote Students subModule
+    @FindBy (xpath = "//a[normalize-space()='Promote Students']")
+    public WebElement promoteStudentsSubModule;
+
+    // Subject Group subModule
+    @FindBy (xpath = "//a[normalize-space()='Subject Group']")
+    public WebElement subjectGroupSubModule;
+
+    // Subjects subModule
+    @FindBy (xpath = "//a[normalize-space()='Subjects']")
+    public WebElement subjectsSubModule;
+
+    // Class subModule
+    @FindBy (xpath = "//a[normalize-space()='Class']")
+    public WebElement classSubModule;
+
+    // Sections subModule
+    @FindBy (xpath = "//a[normalize-space()='Sections']")
+    public WebElement sectionsSubModule;
+
+    // Homework Module
+    @FindBy(xpath = "//span[normalize-space()='Homework']")
+    public WebElement homeworkModule;
+    // Reports Module
+    @FindBy (xpath = "//span[normalize-space()='Reports']")
+    public WebElement reportsModule;
+
+
+
 }
