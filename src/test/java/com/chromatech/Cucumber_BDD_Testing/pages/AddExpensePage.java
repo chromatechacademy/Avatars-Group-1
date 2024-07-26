@@ -52,6 +52,12 @@ public class AddExpensePage {
     @FindBy(xpath = "//tbody/tr[1]/td[6]/a[2]")
     public WebElement deleteButton;
 
+    /**
+     * This method returns the WebElement for dynamically locating the delete record button based on the given text.
+     *
+     * @param text the text used for locating the delete record button
+     * @return the WebElement representing the delete record button
+     */
     public static WebElement dynamicDeleteRecordLocator (String text){
         return  WebDriverUtils.driver.findElement(By.xpath("//a[(text()='"+ text +"')]//parent::td//parent::tr/td[6]/a[2]/i"));
     }

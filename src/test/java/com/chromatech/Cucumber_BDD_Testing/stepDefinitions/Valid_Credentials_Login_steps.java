@@ -11,12 +11,10 @@ public class Valid_Credentials_Login_steps {
 
     LoginPage loginPage = new LoginPage();
 
-
     @Given("a Chroma Tech Academy teacher or admin is on the login page {string}")
     public void a_chroma_tech_academy_teacher_or_admin_is_on_the_login_page(String url) {
         driver.get(url);
     }
-
 
     @When("the user enters username {string} in username text box")
     public void the_user_enters_username_in_username_text_box(String username) {

@@ -33,7 +33,6 @@ public class Add_Expense_Steps {
     @When("the user  selects {string} for Expense Head drop down")
     public void the_user_selects_for_expense_head_drop_down(String expenseHeadDropDown) {
         CommonMethods.selectDropDownValue(expenseHeadDropDown,addExpensePage.selectHeadDropDown);
-        //CommonMethods.selectDropDownValue(expenseHeadDropDown, addExpensePage.selectHeadDropDown);
     }
 
     @When("enters {string} in Name text box")
@@ -58,9 +57,7 @@ public class Add_Expense_Steps {
 
     @When("attach file in Attach Document file")
     public void attach_file_in_attach_document_file() {
-        //CommonMethods.waitForClickability(addExpensePage.attachFile);
         CommonMethods.sendKeys(addExpensePage.attachFile, Constants.INVOICE_FILE_PATH);
-        CommonMethods.sleep(3000);
     }
 
     @When("add {string} in Description text box")

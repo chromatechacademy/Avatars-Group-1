@@ -125,5 +125,4 @@ public class DashboardPage {
     //Add expense Submodule
     @FindBy(xpath = "//ul[@class='treeview-menu menu-open']//a[normalize-space()='Add Expense']")
     public WebElement addExpenseSubmodule;
-
 }
