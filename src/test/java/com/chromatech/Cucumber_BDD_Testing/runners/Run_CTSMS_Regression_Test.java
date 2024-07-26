@@ -8,8 +8,8 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/com/chromatech/Cucumber_BDD_Testing/features",
         glue = {"com.chromatech.Cucumber_BDD_Testing.stepDefinitions", "Hooks"},
-        tags = "@AG1CP-28",
-        dryRun = true
+        tags = "@Regression",
+        dryRun = false
 )
 
 public class Run_CTSMS_Regression_Test extends AbstractTestNGCucumberTests {

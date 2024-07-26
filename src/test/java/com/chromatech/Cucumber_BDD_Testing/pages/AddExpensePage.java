@@ -1,6 +1,7 @@
 package com.chromatech.Cucumber_BDD_Testing.pages;
 
 import com.chromatech.utils.WebDriverUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -28,11 +29,31 @@ public class AddExpensePage {
     public WebElement expenseAmount;
 
     //Attach Expense File
-    @FindBy(xpath = "//p[normalize-space()='Drag and drop a file here or click']")
+    @FindBy(xpath = "//input[@name='documents']")
     public WebElement attachFile;
 
+    //Description Text Box
+    @FindBy(xpath = "//textarea[@name='description']")
+    public WebElement descriptionTextBox;
 
+    //Save Button
+    @FindBy(xpath = "//button[@type='submit'][normalize-space()='Save']")
+    public WebElement saveButton;
 
+    //SearchButon
+    @FindBy(xpath = "//input[@placeholder='Search...']")
+    public WebElement searchButton;
+
+    //Expense is displayed
+    @FindBy(xpath = "//tbody/tr[1]/td[1]")
+    public WebElement enteredExpense;
+
+    @FindBy(xpath = "//tbody/tr[1]/td[6]/a[2]")
+    public WebElement deleteButton;
+
+    public static WebElement dynamicDeleteRecordLocator (String text){
+        return  WebDriverUtils.driver.findElement(By.xpath("//a[(text()='"+ text +"')]//parent::td//parent::tr/td[6]/a[2]/i"));
+    }
 
     public AddExpensePage() {
         PageFactory.initElements(WebDriverUtils.driver, this);
