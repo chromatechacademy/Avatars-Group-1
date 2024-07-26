@@ -9,6 +9,7 @@ Feature: AG1CP-17: AcademicModuleSections
     Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
     Given a Chroma Tech faculty member clicks the "Academics" module
     When the user navigates to the "Sections" submodule
-    And adds a section
-    And the section is added
-    And the user can also delete the section
+    And check the section "DMY" not exist
+    Then adds a section key "DMY"
+    And the section "DMY" is added
+    And the user can also delete the section "DMY"
