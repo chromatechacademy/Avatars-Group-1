@@ -16,7 +16,7 @@ public class AddExpensePage {
     @FindBy(xpath = "//input[@name='name']")
     public WebElement expenseNameTextBox;
 
-    //InvoiceNumber TextBox
+    //Invoice Number TextBox
     @FindBy(xpath = "//input[@name='invoice_no']")
     public WebElement invoiceNumberTextBox;
 
@@ -40,7 +40,7 @@ public class AddExpensePage {
     @FindBy(xpath = "//button[@type='submit'][normalize-space()='Save']")
     public WebElement saveButton;
 
-    //SearchButon
+    //Search Button
     @FindBy(xpath = "//input[@placeholder='Search...']")
     public WebElement searchButton;
 
@@ -48,6 +48,7 @@ public class AddExpensePage {
     @FindBy(xpath = "//tbody/tr[1]/td[1]")
     public WebElement enteredExpense;
 
+    // Delete Button
     @FindBy(xpath = "//tbody/tr[1]/td[6]/a[2]")
     public WebElement deleteButton;
 

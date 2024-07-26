@@ -17,6 +17,7 @@ public class Valid_Credentials_Login_steps {
         driver.get(url);
     }
 
+
     @When("the user enters username {string} in username text box")
     public void the_user_enters_username_in_username_text_box(String username) {
         CommonMethods.sendKeys(loginPage.usernameTextBox, username);
@@ -36,6 +37,4 @@ public class Valid_Credentials_Login_steps {
     public void the_user_is_successfully_directed_to_the_dashboard_page(String expectedUrl) {
         CommonMethods.assertEquals(driver.getCurrentUrl(), expectedUrl);
     }
-
-
 }
