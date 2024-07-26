@@ -1,13 +1,11 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
-import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Homework_Module_Page_steps {
-
-    DashboardPage dashboardPage = new DashboardPage();
+public class Homework_Module_Page_steps extends PageInitializer {
 
     @Then("the {string} module is displays")
     public void the_module_is_displays(String expectedHomeworkModuleText) {

@@ -1,22 +1,16 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
-import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.Cucumber_BDD_Testing.pages.EditPage;
-import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
 import com.chromatech.utils.CommonMethods;
 import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
 
-public class Ability_To_Edit_Student_Records_Steps {
-
-    SearchPage searchPage = new SearchPage();
-    EditPage editPage = new EditPage();
-    DashboardPage dashboardPage = new DashboardPage();
+public class Ability_To_Edit_Student_Records_Steps extends PageInitializer {
 
 
     @When("the user clicks on Student Information module")
@@ -80,7 +74,6 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @When("clicks on the student details")
     public void clicks_on_the_student_details() {
-        CommonMethods.sleep(10000);
         editPage.studentDetailsTab.click();
     }
 
