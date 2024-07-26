@@ -24,6 +24,14 @@ public class DashboardPage {
     @FindBy(xpath = "//span[normalize-space()='Student Information']")
     public WebElement studentInformationModule;
 
+    //Academics module
+    @FindBy(xpath = "//span[normalize-space()='Academics']")
+    public WebElement academicsModule;
+
+    //Class Submodule
+    @FindBy(xpath = "//a[normalize-space()='Class']")
+    public WebElement classSubmodule;
+
     // Dynamic xpath: Find module by text
     public WebElement findModuleByText(String text) {
         return driver.findElement(By.xpath("//span[text()='" + text + "']"));
@@ -78,7 +86,7 @@ public class DashboardPage {
     @FindBy(xpath = "//a[normalize-space()='Payroll']")
     public WebElement humanResourceModulePayroll;
 
-    // Approve Leave Reques subModule
+    // Approve Leave Request subModule
     @FindBy(xpath = "//a[normalize-space()='Approve Leave Request']")
     public WebElement humanResourceModuleApproveLeaveRequest;
 
