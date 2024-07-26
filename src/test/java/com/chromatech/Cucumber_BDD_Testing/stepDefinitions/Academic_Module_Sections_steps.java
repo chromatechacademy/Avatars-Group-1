@@ -22,4 +22,8 @@ public class Academic_Module_Sections_steps {
         CommonMethods.assertEquals(DashboardPage.academicSections.getText(), "Sections");
         CommonMethods.click(DashboardPage.academicSections);
     }
+    @When("check the section {string} not exist")
+    public void check_the_section_not_exist(String dmy) {
+
+    }
 }
