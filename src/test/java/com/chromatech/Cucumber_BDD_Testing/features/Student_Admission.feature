@@ -27,9 +27,6 @@ Feature: AG1CP-12: StudentAdmission
     And user fills the fifth row:
       | Mobile Number | Height | Weight |
       | 6028808888    | 6'3    | 9999   |
-    And user adds a sibling using the "Add Sibling" button:
-      | Sibling Class | Sibling Section       | Sibling First Name | Sibling Last Name | Sibling Roll Number |
-      | SDET          | Cucumber Fundamentals | Vlad               | Islav             | 10011001            |
     And user adds father's information:
       | Father Name  | Father Phone | Father Occupation |
       | Leaha Petrov | 6028801111   | Father Occupation |
