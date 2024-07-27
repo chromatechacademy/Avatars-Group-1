@@ -12,10 +12,6 @@ public class ExpenseHeadPage {
         PageFactory.initElements(driver, this);
     }
 
-    //Expense Module Tab
-    @FindBy(xpath = "//span[normalize-space()='Expenses']")
-    public WebElement expenseModuleTab;
-
     //Expense Head Tab
     @FindBy(xpath = "//a[normalize-space()='Expense Head']")
     public WebElement expenseHeadTab;
@@ -43,7 +39,4 @@ public class ExpenseHeadPage {
     //Expense Head X Button
     @FindBy(xpath = "//a[contains(text(), 'Bill')]//parent::td//parent::tr/td[2]/a[2]/i")
     public WebElement expenseHeadXBtn;
-
-
-
 }

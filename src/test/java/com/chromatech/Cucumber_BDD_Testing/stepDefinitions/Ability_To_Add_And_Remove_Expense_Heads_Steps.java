@@ -1,5 +1,6 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
+import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.ExpenseHeadPage;
 import com.chromatech.utils.CommonMethods;
 import com.chromatech.utils.JavascriptMethods;
@@ -10,10 +11,11 @@ import io.cucumber.java.en.When;
 public class Ability_To_Add_And_Remove_Expense_Heads_Steps {
 
     ExpenseHeadPage expenseHeadPage = new ExpenseHeadPage();
+    DashboardPage dashboardPage = new DashboardPage();
 
     @When("the user clicks on the Expenses Module")
     public void the_user_clicks_on_the_expenses_module() {
-        expenseHeadPage.expenseModuleTab.click();
+        dashboardPage.expenseModule.click();
     }
 
     @And("the user clicks on Expense Head")

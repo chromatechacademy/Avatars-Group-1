@@ -11,5 +11,5 @@ Feature: Class and Section
     When the user navigates to the Class submodule
     Then there are two classes, SDET and Cyber Security displayed with the following sections:
     | Class           | Section
-    | Cyber Security  | Penetration Testing/Ethical Hacking, Database Testing, SDLC Methodologies, Selenium Test Automation, API Testing, Git/GitHub, Java 11 for Cool People, Mobile Test Automation, Accessibly Testing, Networking Fundamentals, Linux Fundamentals, CIA Triad
-    | SDET            | Cucumber Fundamentals
+    | SDET            | Cucumber Fundamentals, API Testing,  Git/GitHub, Java 11 for Cool People, Mobile Test Automation, Accessibly Testing, Database Testing, Selenium Test Automation, SDLC Methodologies, Testing Fundamentals
+    | Cyber Security  | Penetration Testing/Ethical Hacking, Networking Fundamentals, Linux Fundamentals, CIA Triad

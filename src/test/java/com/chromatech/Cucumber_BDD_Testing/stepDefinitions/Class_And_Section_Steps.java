@@ -2,6 +2,7 @@ package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
 import com.chromatech.Cucumber_BDD_Testing.pages.ClassAndSectionPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
+import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
 import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -27,9 +28,9 @@ public class Class_And_Section_Steps {
     @Then("there are two classes, SDET and Cyber Security displayed with the following sections:")
     public void there_are_two_classes_sdet_and_cyber_security_displayed_with_the_following_sections() {
         CommonMethods.assertTrue(classAndSectionPage.sdetClass.isDisplayed());
-        CommonMethods.assertTrue(classAndSectionPage.sdetClass.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.cyberSecurityClass.isDisplayed());
+        CommonMethods.assertTrue(SearchPage.tableLocatorByText());
+
     }
-
-
 
 }

@@ -28,7 +28,7 @@ public class ClassAndSectionPage {
 
     //Cyber Security Class
     @FindBy(xpath = "//td[normalize-space()='Cyber Security']")
-    public WebElement cyberSecurity;
+    public WebElement cyberSecurityClass;
 
 
 }
