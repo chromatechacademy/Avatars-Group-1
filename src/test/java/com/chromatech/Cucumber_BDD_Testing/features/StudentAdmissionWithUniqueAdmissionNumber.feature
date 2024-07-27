@@ -66,7 +66,7 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
       | Admission Number | 33001                 |
-    Then make sure the entry "33001" is in the list:
+    Then make sure the entry "33001" is in the list and verify data
       | Admission Number | 33001                       |
       | Student Name     | Vlad Islav                  |
       | Class(Section)   | SDET(Cucumber Fundamentals) |
@@ -134,7 +134,7 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
       | Admission Number | 33001                 |
-    Then make sure the entry "33001" is in the list:
+    Then make sure the entry "33001" is in the list and verify data
       | Admission Number | 33001                       |
       | Student Name     | Vlad Islav                  |
       | Class(Section)   | SDET(Cucumber Fundamentals) |

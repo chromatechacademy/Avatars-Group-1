@@ -66,7 +66,7 @@ Feature: AG1CP-19: Admitting multiple students
       | Class            | <Class>            |
       | Section          | <Section>          |
       | Admission Number | <Admission Number> |
-    Then make sure the entry "<Admission Number>" is in the list:
+    Then make sure the entry "<Admission Number>" is in the list and verify data
       | Admission Number | <Admission Number> |
       | Student Name     | <Student Name>     |
       | Class(Section)   | <Class(Section)>   |
