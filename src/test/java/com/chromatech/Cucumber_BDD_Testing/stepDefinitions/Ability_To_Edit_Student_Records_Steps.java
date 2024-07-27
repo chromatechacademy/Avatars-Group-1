@@ -1,13 +1,13 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
-import com.chromatech.Cucumber_BDD_Testing.pages.EditPage;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.StepsImplementation;
+import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
 import com.chromatech.utils.CommonMethods;
 import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.testng.Assert;
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class Ability_To_Edit_Student_Records_Steps extends PageInitializer {
@@ -104,12 +104,12 @@ public class Ability_To_Edit_Student_Records_Steps extends PageInitializer {
 
     @Then("make sure the entry {string} is in the list")
     public void student_s_record_is_displayed(String number) {
-        CommonMethods.assertTrue(searchPage.tableLocatorByText(number).isDisplayed());
+        CommonMethods.assertTrue(SearchPage.tableLocatorByText(number).isDisplayed());
     }
 
     @When("user clicks on the name of student record with admission number {string}")
     public void user_clicks_on_the_name_of_student_record_with_admission_number(String number) {
-        CommonMethods.click(searchPage.dynamicTableLocator(number));
+        CommonMethods.click(SearchPage.dynamicTableLocator(number));
     }
 
     @When("clicks on edit button located near top right pencil icon")
@@ -276,6 +276,7 @@ public class Ability_To_Edit_Student_Records_Steps extends PageInitializer {
     public void user_clicks_on_the_bulk_delete_button() {
        editPage.bulkDeleteTab.click();
     }
+
     @Then("user selects the class drop down {string}")
     public void user_selects_the_class_drop_down(String text) {
         CommonMethods.selectDropDownValue(text, searchPage.classDropDown);
@@ -287,20 +288,12 @@ public class Ability_To_Edit_Student_Records_Steps extends PageInitializer {
     }
 
     @Then("user clicks on search button")
-    public void user_clicks_on_search_button() throws InterruptedException {
-        Thread.sleep(7000);
+    public void user_clicks_on_search_button() {
         CommonMethods.click(editPage.searchButtonBulkDelete);
     }
 
     @Then("user selects {string} student admission number and deletes it")
     public void user_selects_student_admission_number_and_deletes_it(String admissionNumber) {
-        CommonMethods.sleep(10000);
-        CommonMethods.waitForClickability(EditPage.dynamicRecordLocateDelete(admissionNumber));
-        JavascriptMethods.scrollIntoView(EditPage.dynamicRecordLocateDelete(admissionNumber));
-        Assert.assertEquals(editPage.admissionNumber.getText(), editPage.admissionNumber.getText());
-        EditPage.dynamicRecordLocateDelete(admissionNumber).click();
-        CommonMethods.click(editPage.deleteButton);
-        CommonMethods.acceptAlert();
-        CommonMethods.sleep(5000);
+        StepsImplementation.user_selects_student_admission_number_and_deletes_it(admissionNumber);
     }
 }
