@@ -1,7 +1,6 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
-import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
