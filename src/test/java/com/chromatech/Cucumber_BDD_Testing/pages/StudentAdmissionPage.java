@@ -242,7 +242,7 @@ public class StudentAdmissionPage {
     public WebElement localIdentificationNumberTextBox;
 
     // Dynamic RTE radioButtons
-    public static WebElement rteRadioButton(String text) {
+    public WebElement rteRadioButton(String text) {
         return driver.findElement(By.xpath("//input[@value='" + text + "']"));
     }
 

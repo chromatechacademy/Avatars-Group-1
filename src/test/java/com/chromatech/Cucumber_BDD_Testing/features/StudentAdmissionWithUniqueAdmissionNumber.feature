@@ -1,6 +1,6 @@
 Feature: AG1CP-13: Student Admission with Unique Admission Number
 
-  @Regression @AG1CP-13 @Vlad @StudentAdmissionWithUniqueAdmissionNumber
+  @Regression @AG1CP-13 @Vlad @StudentAdmissionWithUniqueAdmissionNumber @Progression
   Scenario: Student Admission with Unique Admission Number
     Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
     When user goes to the "Bulk Delete" page:
@@ -8,13 +8,13 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 42001abc         | Are you sure you want to delete this? |
+      | SDET  | Cucumber Fundamentals | 33001            | Are you sure you want to delete this? |
     When user goes to the "Student Admission" page:
       | Module              | SubModule         | URL                                    |
       | Student Information | Student Admission | https://mexil.it/chroma/student/create |
     And user fills the first row:
       | Admission No | Roll Number | Class | Section               |
-      | 42001abc     | 1001        | SDET  | Cucumber Fundamentals |
+      | 33001        | 10013333    | SDET  | Cucumber Fundamentals |
     And user fills the second row:
       | First Name | Last Name | Gender | Date of Birth |
       | Vlad       | Islav     | Male   | 01/02/1991    |
@@ -58,15 +58,16 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
       | Title #1 | Title #2 | Title #3 | Title #4 |
       | Vander   | Medarda  | Victor   | Jayce    |
     And saves submission
+    Then user receives a message of success "Record Saved Successfully"
     When user goes to the "Student Details" page:
       | Module              | SubModule       | URL                                    |
       | Student Information | Student Details | https://mexil.it/chroma/student/search |
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 42001abc              |
-    Then make sure the entry "42001abc" is in the list:
-      | Admission Number | 42001abc                    |
+      | Admission Number | 33001                 |
+    Then make sure the entry "33001" is in the list:
+      | Admission Number | 33001                       |
       | Student Name     | Vlad Islav                  |
       | Class(Section)   | SDET(Cucumber Fundamentals) |
       | Father Name      | Leaha Petrov                |
@@ -81,7 +82,7 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
       | Student Information | Student Admission | https://mexil.it/chroma/student/create |
     And user fills the first row:
       | Admission No | Roll Number | Class | Section               |
-      | 42001abc     | 1001        | SDET  | Cucumber Fundamentals |
+      | 33001        | 10013333    | SDET  | Cucumber Fundamentals |
     And user fills the second row:
       | First Name | Last Name | Gender | Date of Birth |
       | Vlad       | Islav     | Male   | 01/02/1991    |
@@ -94,9 +95,6 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
     And user fills the fifth row:
       | Mobile Number | Height | Weight |
       | 6028808888    | 6'3    | 9999   |
-    And user adds a sibling using the "Add Sibling" button:
-      | Sibling Class | Sibling Section       | Sibling Student | Sibling Last Name | Sibling Roll Number |
-      | SDET          | Cucumber Fundamentals | Vlad            | Islav             | 10012002            |
     And user adds father's information:
       | Father Name  | Father Phone | Father Occupation |
       | Leaha Petrov | 6028801111   | Father Occupation |
@@ -128,15 +126,16 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
       | Title #1 | Title #2 | Title #3 | Title #4 |
       | Vander   | Medarda  | Victor   | Jayce    |
     And saves submission
+    Then user receives an error message "The Admission No field must contain a unique value."
     When user goes to the "Student Details" page:
       | Module              | SubModule       | URL                                    |
       | Student Information | Student Details | https://mexil.it/chroma/student/search |
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 42001abc              |
-    Then make sure the entry "42001abc" is in the list:
-      | Admission Number | 42001abc                    |
+      | Admission Number | 33001                 |
+    Then make sure the entry "33001" is in the list:
+      | Admission Number | 33001                       |
       | Student Name     | Vlad Islav                  |
       | Class(Section)   | SDET(Cucumber Fundamentals) |
       | Father Name      | Leaha Petrov                |
@@ -151,4 +150,4 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 42001abc         | Are you sure you want to delete this? |
+      | SDET  | Cucumber Fundamentals | 33001            | Are you sure you want to delete this? |

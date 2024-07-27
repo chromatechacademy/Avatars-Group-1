@@ -5,11 +5,10 @@ import com.chromatech.Cucumber_BDD_Testing.pages.EditPage;
 import com.chromatech.utils.CommonMethods;
 import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.datatable.DataTable;
-import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import java.util.ArrayList;
-import java.util.List;
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class StepsImplementation extends PageInitializer {
@@ -19,7 +18,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param url The expected URL of the main page after logging in
      */
-    public void a_ctsms_user_is_logged_in_to_the_main_page(String url) {
+    public static void a_ctsms_user_is_logged_in_to_the_main_page(String url) {
         driver.get("https://mexil.it/chroma/admin/admin/dashboard");
         CommonMethods.sendKeys(loginPage.usernameTextBox, "general@teacher.com");
         CommonMethods.sendKeys(loginPage.passwordTextBox, "123456");
@@ -34,10 +33,10 @@ public class StepsImplementation extends PageInitializer {
      * @param dataTable     The DataTable object containing the page details.
      */
     public static void user_goes_to_the_page(String subModuleName, DataTable dataTable) {
-        if (!(dashboardPage.findSubModuleByText(subModuleName).isDisplayed())) {
+        if (!(DashboardPage.findSubModuleByText(subModuleName).isDisplayed())) {
             CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(1, 0))); // Module
         }
-        CommonMethods.click(dashboardPage.findSubModuleByText(dataTable.cell(1, 1))); // SubModule
+        CommonMethods.click(DashboardPage.findSubModuleByText(dataTable.cell(1, 1))); // SubModule
         CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
     }
 
@@ -50,23 +49,18 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.selectDropDownValue((dataTable.cell(1, 0)), bulkDeletePage.classDropdown); //Class
         CommonMethods.selectDropDownValue((dataTable.cell(1, 1)), bulkDeletePage.sectionDropDown); // Section
         CommonMethods.click(bulkDeletePage.searchButton);
-
-        List<WebElement> rows = driver.findElements(By.xpath("//tbody/tr"));
-        for (WebElement row : rows) {
-            List<WebElement> cols = row.findElements(By.tagName("td"));
-            for (WebElement col : cols) {
-                if (col.getText().equals((dataTable.cell(1, 2)))) { // Admission Number
-                    JavascriptMethods.scrollIntoView(BulkDeletePage.dynamicXpathForCheckboxes((dataTable.cell(1, 2)))); // Admission Number
-                    CommonMethods.click(BulkDeletePage.dynamicXpathForCheckboxes((dataTable.cell(1, 2)))); // Admission Number
-                    JavascriptMethods.scrollIntoView(bulkDeletePage.deleteButton);
-                    CommonMethods.click(bulkDeletePage.deleteButton);
-                    CommonMethods.assertEquals(CommonMethods.getAlertText(), ((dataTable.cell(1, 3)))); // Alert Text
-                    CommonMethods.acceptAlert();
-                    return;
-                }
+        try {
+            if(BulkDeletePage.dynamicXpathFindByAdmissionNumber(dataTable.cell(1, 2)).isDisplayed()){
+                JavascriptMethods.scrollIntoView(BulkDeletePage.dynamicXpathForCheckboxes((dataTable.cell(1, 2)))); // Admission Number
+                CommonMethods.click(BulkDeletePage.dynamicXpathForCheckboxes((dataTable.cell(1, 2)))); // Admission Number
+                JavascriptMethods.scrollIntoView(bulkDeletePage.deleteButton);
+                CommonMethods.click(bulkDeletePage.deleteButton);
+                CommonMethods.assertEquals(CommonMethods.getAlertText(), ((dataTable.cell(1, 3)))); // Alert Text
+                CommonMethods.acceptAlert();
             }
+        } catch (NoSuchElementException e) {
+            System.out.println("Record number " + (dataTable.cell(1, 2)) + " does not exist");
         }
-        System.out.println("Record number " + (dataTable.cell(1, 2)) + " does not exist");
     }
 
     /**
@@ -74,7 +68,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the data to be filled in the first row.
      */
-    public void user_fills_the_first_row(DataTable dataTable) {
+    public static void user_fills_the_first_row(DataTable dataTable) {
         CommonMethods.sendKeys(studentAdmissionPage.admissionNumberTextBox, (dataTable.cell(1, 0))); // Admission Number
         CommonMethods.sendKeys(studentAdmissionPage.rollNumberTextBox, (dataTable.cell(1, 1))); // Roll Number
         CommonMethods.selectDropDownValue((dataTable.cell(1, 2)), studentAdmissionPage.classDropDown); // Class
@@ -86,7 +80,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the data to be filled in the second row.
      */
-    public void user_fills_the_second_row(DataTable dataTable) {
+    public static void user_fills_the_second_row(DataTable dataTable) {
         CommonMethods.sendKeys(studentAdmissionPage.firstNameTextBox, (dataTable.cell(1, 0))); // First Name
         CommonMethods.sendKeys(studentAdmissionPage.lastNameTextBox, (dataTable.cell(1, 1))); // Last Name
         CommonMethods.selectDropDownValue((dataTable.cell(1, 2)), studentAdmissionPage.genderDropDown); // Gender
@@ -98,7 +92,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the data to be filled in the third row.
      */
-    public void user_fills_the_third_row(DataTable dataTable) {
+    public static void user_fills_the_third_row(DataTable dataTable) {
         CommonMethods.selectDropDownValue((dataTable.cell(1, 0)), studentAdmissionPage.categoryDropDown); // Category
         CommonMethods.sendKeys(studentAdmissionPage.emailTextBox, (dataTable.cell(1, 1))); // Email
     }
@@ -108,7 +102,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the data to be filled in the fourth row.
      */
-    public void user_fills_the_fourth_row(DataTable dataTable) {
+    public static void user_fills_the_fourth_row(DataTable dataTable) {
         JavascriptMethods.selectDateByJS(studentAdmissionPage.admissionDateTextBox, (dataTable.cell(1, 0))); // Admission Date
         CommonMethods.sendKeys(studentAdmissionPage.studentPhotoUpload, Constants.STUDENT_PHOTO); // Student Photo
         CommonMethods.selectDropDownValue((dataTable.cell(1, 1)), studentAdmissionPage.bloodGroupDropDown); // Blood Group
@@ -120,7 +114,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the data to be filled in the fifth row.
      */
-    public void user_fills_the_fifth_row(DataTable dataTable) {
+    public static void user_fills_the_fifth_row(DataTable dataTable) {
         CommonMethods.sendKeys(studentAdmissionPage.mobileNumberTextBox, (dataTable.cell(1, 0))); // Mobile Number
         CommonMethods.sendKeys(studentAdmissionPage.heightTextBox, (dataTable.cell(1, 1))); // Height
         CommonMethods.sendKeys(studentAdmissionPage.weightTextBox, (dataTable.cell(1, 2))); // Weight
@@ -132,7 +126,7 @@ public class StepsImplementation extends PageInitializer {
      * @param text      The expected text on the add sibling button.
      * @param dataTable The DataTable object containing the sibling details.
      */
-    public void user_adds_a_sibling_using_the_button(String text, DataTable dataTable) {
+    public static void user_adds_a_sibling_using_the_button(String text, DataTable dataTable) {
         CommonMethods.assertEquals(studentAdmissionPage.addSiblingButton.getText(), text); // Add Sibling text
         CommonMethods.click(studentAdmissionPage.addSiblingButton); // Add Sibling button
         CommonMethods.waitForClickability(studentAdmissionPage.classDropDownInTheSiblingModalDialog);
@@ -151,7 +145,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the father's information.
      */
-    public void user_adds_father_s_information(DataTable dataTable) {
+    public static void user_adds_father_s_information(DataTable dataTable) {
         JavascriptMethods.scrollIntoView(studentAdmissionPage.fatherNameTextBox);
         CommonMethods.sendKeys(studentAdmissionPage.fatherNameTextBox, dataTable.cell(1, 0)); // Father Name
         CommonMethods.sendKeys(studentAdmissionPage.fatherPhoneTextBox, dataTable.cell(1, 1)); // Father Phone
@@ -164,7 +158,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the mother's information.
      */
-    public void user_adds_mothers_s_information(DataTable dataTable) {
+    public static void user_adds_mothers_s_information(DataTable dataTable) {
         CommonMethods.sendKeys(studentAdmissionPage.motherNameTextBox, dataTable.cell(1, 0)); // Mother Name
         CommonMethods.sendKeys(studentAdmissionPage.motherPhoneTextBox, dataTable.cell(1, 1)); // Mother Phone
         CommonMethods.sendKeys(studentAdmissionPage.motherOccupationTextBox, dataTable.cell(1, 2)); // Mother Occupation
@@ -176,7 +170,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param value The value to be selected in the radio buttons.
      */
-    public void user_selects_in_the_if_guardian_is_radiobuttons(String value) {
+    public static void user_selects_in_the_if_guardian_is_radiobuttons(String value) {
         CommonMethods.click(StudentAdmissionPage.dynamicIfGuardianRadioButton(value));
     }
 
@@ -185,7 +179,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the guardian's information.
      */
-    public void user_adds_the_first_row_of_guardian_s_information(DataTable dataTable) {
+    public static void user_adds_the_first_row_of_guardian_s_information(DataTable dataTable) {
         CommonMethods.sendKeys(studentAdmissionPage.guardianNameTextBox, dataTable.cell(1, 0)); // Guardian Name
         CommonMethods.sendKeys(studentAdmissionPage.guardianRelationTextBox, dataTable.cell(1, 1)); // Guardian Relation
         CommonMethods.sendKeys(studentAdmissionPage.guardianEmailTextBox, dataTable.cell(1, 2)); // Guardian Email
@@ -197,7 +191,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the guardian's information.
      */
-    public void user_adds_the_second_row_of_guardian_s_information(DataTable dataTable) {
+    public static void user_adds_the_second_row_of_guardian_s_information(DataTable dataTable) {
         CommonMethods.sendKeys(studentAdmissionPage.guardianPhoneTextBox, (dataTable.cell(1, 0))); // Guardian Phone
         CommonMethods.sendKeys(studentAdmissionPage.guardianOccupationTextBox, (dataTable.cell(1, 1))); // Guardian Occupation
         CommonMethods.sendKeys(studentAdmissionPage.guardianAddressTextBox, (dataTable.cell(1, 2))); // Guardian Address
@@ -209,7 +203,7 @@ public class StepsImplementation extends PageInitializer {
      * @param headerText The header text of the section.
      * @param dataTable  The DataTable containing the information to be added.
      */
-    public void user_adds_information_in_the_first_row_of_the_section(String headerText, DataTable dataTable) {
+    public static void user_adds_information_in_the_first_row_of_the_section(String headerText, DataTable dataTable) {
         CommonMethods.assertEquals(studentAdmissionPage.miscellaneousDetailsHeader.getText(), headerText);
         JavascriptMethods.scrollIntoView(studentAdmissionPage.miscellaneousDetailsHeader);
         CommonMethods.sendKeys(studentAdmissionPage.bankAccountNumberTextBox, dataTable.cell(1, 0)); // Bank Account Number
@@ -223,11 +217,11 @@ public class StepsImplementation extends PageInitializer {
      * @param headerText The header text of the section.
      * @param dataTable  The DataTable containing the information to be added.
      */
-    public void user_adds_information_in_the_second_row_of_the_section(String headerText, DataTable dataTable) {
+    public static void user_adds_information_in_the_second_row_of_the_section(String headerText, DataTable dataTable) {
         CommonMethods.assertEquals(studentAdmissionPage.miscellaneousDetailsHeader.getText(), headerText);
         CommonMethods.sendKeys(studentAdmissionPage.nationalIdentificationNumberTextBox, dataTable.cell(1, 0)); // National Identification Number
         CommonMethods.sendKeys(studentAdmissionPage.localIdentificationNumberTextBox, dataTable.cell(1, 1)); // Local Identification Number
-        CommonMethods.click(StudentAdmissionPage.rteRadioButton(dataTable.cell(1, 2))); // RTE
+        CommonMethods.click(studentAdmissionPage.rteRadioButton(dataTable.cell(1, 2))); // RTE
     }
 
     /**
@@ -236,7 +230,7 @@ public class StepsImplementation extends PageInitializer {
      * @param headerText The header text of the block.
      * @param dataTable  The DataTable containing the information to be added.
      */
-    public void user_adds_information_in_the_block(String headerText, DataTable dataTable) {
+    public static void user_adds_information_in_the_block(String headerText, DataTable dataTable) {
         CommonMethods.click(studentAdmissionPage.addMoreBoxPlusButton);
         JavascriptMethods.scrollIntoView(studentAdmissionPage.addMoreBoxPlusButton);
         CommonMethods.assertTrue(studentAdmissionPage.studentAdmissionHeader.isDisplayed());
@@ -257,7 +251,7 @@ public class StepsImplementation extends PageInitializer {
      * @param headerText The header text of the section.
      * @param dataTable  The DataTable containing the information to be added.
      */
-    public void user_adds_information_in_the_third_row_of_the_section(String headerText, DataTable dataTable) {
+    public static void user_adds_information_in_the_third_row_of_the_section(String headerText, DataTable dataTable) {
         CommonMethods.assertEquals(studentAdmissionPage.miscellaneousDetailsHeader.getText(), headerText);
         CommonMethods.sendKeys(studentAdmissionPage.previousSchoolDetailsTextBox, dataTable.cell(1, 0)); // Previous School Details
         CommonMethods.sendKeys(studentAdmissionPage.noteTextBox, dataTable.cell(1, 1)); // Note
@@ -269,7 +263,7 @@ public class StepsImplementation extends PageInitializer {
      * @param sectionName The name of the section to fill out.
      * @param dataTable   The DataTable containing the data to be filled in the section.
      */
-    public void fills_out_all_text_fields_and_uploads_files_in_the_section(String sectionName, DataTable dataTable) {
+    public static void fills_out_all_text_fields_and_uploads_files_in_the_section(String sectionName, DataTable dataTable) {
         CommonMethods.assertTrue(studentAdmissionPage.uploadDocumentsHeaderText.isDisplayed());
         CommonMethods.assertEquals(studentAdmissionPage.uploadDocumentsHeaderText.getText(), sectionName);
         CommonMethods.sendKeys(studentAdmissionPage.titleOneTextBox, (dataTable.cell(1, 0))); // Title #1
@@ -283,24 +277,11 @@ public class StepsImplementation extends PageInitializer {
     }
 
     /**
-     * Saves the submission and verifies the success message or error message displayed.
-     */
-    public void saves_submission() {
-        CommonMethods.click(studentAdmissionPage.saveButton);
-        if (CommonMethods.isElementDisplayed(studentAdmissionPage.textOfSuccess)) {
-            CommonMethods.assertEquals(studentAdmissionPage.textOfSuccess.getText(), "Record Saved Successfully");
-
-        } else if (CommonMethods.isElementDisplayed(studentAdmissionPage.errorText)) {
-            CommonMethods.assertEquals(studentAdmissionPage.errorText.getText(), "The Admission No field must contain a unique value.");
-        }
-    }
-
-    /**
      * User is searching for a student record based on parameters.
      *
      * @param dataTable The data table containing the parameters for the search.
      */
-    public void user_is_searching_for_a_student_record_based_on_parameters(DataTable dataTable) {
+    public static void user_is_searching_for_a_student_record_based_on_parameters(DataTable dataTable) {
         CommonMethods.selectDropDownValue((dataTable.cell(0, 1)), searchPage.classDropDown); // Class
         CommonMethods.selectDropDownValue(dataTable.cell(1, 1), searchPage.sectionDropDown); // Section
         CommonMethods.sendKeys(searchPage.searchByKeywordTextBox, dataTable.cell(2, 1)); // Admission Number
@@ -313,13 +294,11 @@ public class StepsImplementation extends PageInitializer {
      * @param admissionNumber The admission number of the entry to be checked.
      * @param dataTable       A DataTable object containing the entry details in the form of key-value pairs.
      */
-    public void make_sure_the_entry_is_in_the_list(String admissionNumber, DataTable dataTable) {
+    public static void make_sure_the_entry_is_in_the_list(String admissionNumber, DataTable dataTable) {
         CommonMethods.assertTrue(SearchPage.tableLocatorByText(admissionNumber).isDisplayed());
         // Expected Data
-        ArrayList<String> expectedData = new ArrayList<>();
-        for (String data : dataTable.column(1)) {
-            expectedData.add(data);
-        }
+        ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
+
         // Actual Data
         ArrayList<String> actualData = new ArrayList<>();
         for (int i = 1; i <= dataTable.height(); i++) {
@@ -336,18 +315,13 @@ public class StepsImplementation extends PageInitializer {
      */
     public static void verifies_the_information_in_the_student_name_block(DataTable dataTable) {
         // Expected Data
-        ArrayList<String> expectedData = new ArrayList<>();
-        for (String data : dataTable.column(1)) {
-            expectedData.add(data);
-        }
+        ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
         // Actual Data
         ArrayList<String> actualData = new ArrayList<>();
         actualData.add(StudentDetailsPage.studentNametext.getText());
         for (int i = 0; i < (dataTable.height() - 1); i++) {
-            WebElement element = driver.findElement(By.xpath("//h3[text()='" + expectedData.get(0) + "']/following-sibling::ul/li[" + (i + 1) + "]/a"));
-            actualData.add(element.getText());
+            actualData.add(StudentDetailsPage.dynamicXpathForTheStudentNameBlock(expectedData.get(0), i).getText());
         }
-
         Assert.assertEquals(actualData, expectedData);
     }
 
@@ -357,23 +331,22 @@ public class StepsImplementation extends PageInitializer {
      * @param expectedSiblingBlockName The expected name of the sibling block.
      * @param dataTable                The DataTable object containing the expected data.
      */
-    public void if_the_block_is_displayed_verifies_the_data_from_that_block(String expectedSiblingBlockName, DataTable dataTable) {
-        List<WebElement> siblingBlockHeaderList = driver.findElements(By.xpath("//h3[text()='" + expectedSiblingBlockName + "']"));
-        if (!siblingBlockHeaderList.isEmpty()) {
-            CommonMethods.assertEquals(siblingBlockHeaderList.get(0).getText(), expectedSiblingBlockName);
-            // Expected Data
-            ArrayList<String> expectedData = new ArrayList<>();
-            for (String data : dataTable.column(1)) {
-                expectedData.add(data);
+    public static void if_the_block_is_displayed_verifies_the_data_from_that_block(String expectedSiblingBlockName, DataTable dataTable) {
+        try {
+            if (studentDetailsPage.siblingHeaderText.isDisplayed()) {
+                CommonMethods.assertEquals(studentDetailsPage.siblingHeaderText.getText(), expectedSiblingBlockName);
+                // Expected Data
+                ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
+                // Actual Data
+                ArrayList<String> actualData = new ArrayList<>();
+                actualData.add(StudentDetailsPage.siblungNameText.getText());
+                for (int i = 0; i < (dataTable.height() - 1); i++) {
+                    actualData.add(StudentDetailsPage.dynamicXpathForTheSiblingBlock(i).getText());
+                }
+                Assert.assertEquals(actualData, expectedData);
             }
-            // Actual Data
-            ArrayList<String> actualData = new ArrayList<>();
-            actualData.add(StudentDetailsPage.siblungNameText.getText());
-            for (int i = 0; i < (dataTable.height() - 1); i++) {
-                WebElement element = driver.findElement(By.xpath("//div[@class='box box-widget widget-user-2']/div[2]/ul/li[" + (i + 1) + "]/a"));
-                actualData.add(element.getText());
-            }
-            Assert.assertEquals(actualData, expectedData);
+        } catch (NoSuchElementException e) {
+            System.out.println("expectedSiblingBlockName not found");
         }
     }
 
@@ -383,41 +356,15 @@ public class StepsImplementation extends PageInitializer {
      * @param expectedText The expected text of the profile tab.
      * @param dataTable    The DataTable containing the expected data of the first block.
      */
-    public void checks_the_data_from_the_first_block_under_the_tab(String expectedText, DataTable dataTable) {
+    public static void checks_the_data_from_the_first_block_under_the_tab(String expectedText, DataTable dataTable) {
         CommonMethods.assertEquals(StudentDetailsPage.profileTab.getText(), expectedText);
         CommonMethods.click(StudentDetailsPage.profileTab);
         // Expected Data
-        ArrayList<String> expectedData = new ArrayList<>();
-        for (String data : dataTable.column(1)) {
-            expectedData.add(data);
-        }
+        ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
         // Actual Data
         ArrayList<String> actualData = new ArrayList<>();
         for (int i = 0; i < dataTable.height(); i++) {
-            WebElement element = driver.findElement(By.xpath("//tbody/tr[" + (i + 1) + "]/td[2]"));
-            actualData.add(element.getText());
-        }
-        Assert.assertEquals(actualData, expectedData);
-    }
-
-    /**
-     * Checks the data from the fourth block.
-     *
-     * @param expectedHeaderText The expected header text of the block.
-     * @param dataTable          The DataTable containing the expected data.
-     */
-    public static void checks_the_data_from_the_fourth_block(String expectedHeaderText, DataTable dataTable) {
-        CommonMethods.assertEquals(StudentDetailsPage.miscallaneousDetailsBlockHeafer.getText(), expectedHeaderText);
-        // Expected Data
-        ArrayList<String> expectedData = new ArrayList<>();
-        for (String data : dataTable.column(1)) {
-            expectedData.add(data);
-        }
-        // Actual Data
-        ArrayList<String> actualData = new ArrayList<>();
-        for (int i = 1; i <= dataTable.height(); i++) {
-            WebElement element = driver.findElement(By.xpath("//h3[contains(text(), '" + expectedHeaderText + "')]/following-sibling::div/table/tbody/tr[" + i + "]/td[2]"));
-            actualData.add(element.getText());
+            actualData.add(studentDetailsPage.dynamicXpathFirstBlockProfile(i).getText());
         }
         Assert.assertEquals(actualData, expectedData);
     }
@@ -425,21 +372,17 @@ public class StepsImplementation extends PageInitializer {
     /**
      * Checks the data from the seconds block.
      *
-     * @param expectedHeaderText The expected header text of the block.
+     * @param expectedBlockName The expected header text of the block.
      * @param dataTable          The DataTable containing the expected data.
      */
-    public void checks_the_data_from_the_seconds_block(String expectedHeaderText, DataTable dataTable) {
-        CommonMethods.assertEquals(StudentDetailsPage.addressBlockHeader.getText(), expectedHeaderText);
+    public static void checks_the_data_from_the_seconds_block(String expectedBlockName, DataTable dataTable) {
+        CommonMethods.assertEquals(StudentDetailsPage.addressBlockHeader.getText(), expectedBlockName);
         // Expected Data
-        ArrayList<String> expectedData = new ArrayList<>();
-        for (String data : dataTable.column(1)) {
-            expectedData.add(data);
-        }
+        ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
         // Actual Data
         ArrayList<String> actualData = new ArrayList<>();
         for (int i = 1; i <= dataTable.height(); i++) {
-            WebElement element = driver.findElement(By.xpath("//h3[contains(text(), '" + expectedHeaderText + "')]/following-sibling::div/table/tbody/tr[" + i + "]/td[2]"));
-            actualData.add(element.getText());
+            actualData.add(StudentDetailsPage.dynamicXpathSecondBlockProfile(expectedBlockName, i).getText());
         }
         Assert.assertEquals(actualData, expectedData);
     }
@@ -447,21 +390,35 @@ public class StepsImplementation extends PageInitializer {
     /**
      * Checks the data from the third block.
      *
-     * @param expectedHeaderText The expected header text of the block.
+     * @param expectedBlockName The expected header text of the block.
      * @param dataTable          The DataTable containing the expected data.
      */
-    public void checks_the_data_from_the_third_block(String expectedHeaderText, DataTable dataTable) {
-        CommonMethods.assertEquals(StudentDetailsPage.parentOrGuardianBlockHeader.getText(), expectedHeaderText);
+    public static void checks_the_data_from_the_third_block(String expectedBlockName, DataTable dataTable) {
+        CommonMethods.assertEquals(StudentDetailsPage.parentOrGuardianBlockHeader.getText(), expectedBlockName);
         // Expected Data
-        ArrayList<String> expectedData = new ArrayList<>();
-        for (String data : dataTable.column(1)) {
-            expectedData.add(data);
-        }
+        ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
         // Actual Data
         ArrayList<String> actualData = new ArrayList<>();
         for (int i = 1; i <= dataTable.height(); i++) {
-            WebElement element = driver.findElement(By.xpath("//h3[contains(text(), '" + expectedHeaderText + "')]/following-sibling::div/table/tbody/tr[" + i + "]/td[2]"));
-            actualData.add(element.getText());
+            actualData.add(StudentDetailsPage.dynamicXpathThirdBlockProfile(expectedBlockName, i).getText());
+        }
+        Assert.assertEquals(actualData, expectedData);
+    }
+
+    /**
+     * Checks the data from the fourth block.
+     *
+     * @param expectedBlockName The expected header text of the block.
+     * @param dataTable          The DataTable containing the expected data.
+     */
+    public static void checks_the_data_from_the_fourth_block(String expectedBlockName, DataTable dataTable) {
+        CommonMethods.assertEquals(StudentDetailsPage.miscallaneousDetailsBlockHeafer.getText(), expectedBlockName);
+        // Expected Data
+        ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
+        // Actual Data
+        ArrayList<String> actualData = new ArrayList<>();
+        for (int i = 1; i <= dataTable.height(); i++) {
+            actualData.add(studentDetailsPage.dynamicXpathFourthBlockProfile(expectedBlockName, i).getText());
         }
         Assert.assertEquals(actualData, expectedData);
     }
@@ -471,9 +428,9 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param adminssionNumber The admission number of the student.
      */
-    public void the_user_navigates_to_the_detailed_student_information_page(String adminssionNumber) {
+    public static void the_user_navigates_to_the_detailed_student_information_page(String adminssionNumber, String url) {
         CommonMethods.click(SearchPage.studentNameByAdmissionNumber(adminssionNumber));
-        CommonMethods.assertTrue(driver.getCurrentUrl().contains("https://mexil.it/chroma/student/view"));
+        CommonMethods.assertTrue(driver.getCurrentUrl().contains(url));
     }
 
     /**

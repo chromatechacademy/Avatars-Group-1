@@ -32,4 +32,10 @@ public class BulkDeletePage {
     // Delete button
     @FindBy(xpath = "//button[@id='load']")
     public WebElement deleteButton;
+
+    // Dynamic xpath to find a record by Admission Number
+    public static WebElement dynamicXpathFindByAdmissionNumber(String number) {
+        return driver.findElement(By.xpath("//td[text()='" + number + "']"));
+    }
+
 }
