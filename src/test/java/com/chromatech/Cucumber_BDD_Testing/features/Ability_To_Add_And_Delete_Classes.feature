@@ -1,6 +1,6 @@
 Feature: Ability to add and delete classes
 
-  @Regression @AG1CP-18 @Vero @AbilityToAddAndDeleteClasses @Progression
+  @Regression @AG1CP-18 @Vero @AbilityToAddAndDeleteClasses
   Scenario: Ability to add and delete classes
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box

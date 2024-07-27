@@ -22,6 +22,4 @@ public class ClassPage {
     //Click on Save Button
     @FindBy(xpath = "//button[@type='submit'][normalize-space()='Save']")
     public WebElement saveButton;
-
 }
-
