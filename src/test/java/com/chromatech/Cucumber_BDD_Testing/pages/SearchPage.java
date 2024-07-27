@@ -46,4 +46,9 @@ public class SearchPage {
     public static WebElement studentNameByAdmissionNumber(String number) {
         return driver.findElement(By.xpath("//td[text()='" + number + "']/following-sibling::td[1]/a"));
     }
+
+    // Dynamic Xpath to grab data from a record on the search page
+    public static WebElement informationAboutTheStudentOnTheSearchPage(String admissionNumber, int i) {
+        return driver.findElement(By.xpath("//td[text()='" + admissionNumber + "']//parent::tr/td[" + i + "]"));
+    }
 }

@@ -13,29 +13,25 @@ public class StudentDetailsPage {
 
     // Student Name text
     @FindBy(xpath = "//h3[@class='profile-username text-center']")
-    public WebElement studentNametext;
-
-    // Sibling block header
-    @FindBy(xpath = "//h3[text()='Sibling']")
-    public WebElement siblingBlockHeader;
+    public static WebElement studentNametext;
 
     // Sibling Name text
     @FindBy(xpath = "//div[@class='box box-widget widget-user-2']/div[1]/h4/a")
-    public WebElement siblungNameText;
+    public static WebElement siblungNameText;
 
     // Profile Tab
     @FindBy(xpath = "(//a[text()='Profile'])[2]")
-    public WebElement profileTab;
+    public static WebElement profileTab;
 
     // Address block header
     @FindBy(xpath = "//h3[contains(text(), 'Address')]")
-    public WebElement addressBlockHeader;
+    public static WebElement addressBlockHeader;
 
     // Parent / Guardian Details block header
     @FindBy(xpath = "//h3[contains(text(), 'Parent / Guardian Details')]")
-    public WebElement parentOrGuardianBlockHeader;
+    public static WebElement parentOrGuardianBlockHeader;
 
     // Miscellaneous Details block header
     @FindBy(xpath = "//h3[contains(text(), 'Miscellaneous Details')]")
-    public WebElement miscallaneousDetailsBlockHeafer;
+    public static WebElement miscallaneousDetailsBlockHeafer;
 }

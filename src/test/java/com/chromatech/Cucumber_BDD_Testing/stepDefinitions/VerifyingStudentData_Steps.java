@@ -15,7 +15,7 @@ public class VerifyingStudentData_Steps {
 
     @When("verifies the information in the student name block:")
     public void verifies_the_information_in_the_student_name_block(DataTable dataTable) {
-        stepsImplementation.verifies_the_information_in_the_student_name_block(dataTable);
+        StepsImplementation.verifies_the_information_in_the_student_name_block(dataTable);
     }
 
     @When("if the {string} block is displayed, verifies the data from that block:")

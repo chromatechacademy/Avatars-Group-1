@@ -29,14 +29,6 @@ public class EditPage {
     @FindBy(xpath = "//input[@id='roll_no']")
     public WebElement rollNumberTextBox;
 
-    // Class Drop Down
-    @FindBy(xpath = "//select[@id='class_id']")
-    public WebElement classDropDown;
-
-    // Section Drop Down
-    @FindBy(xpath = "//select[@id='section_id']")
-    public WebElement sectionDropDown;
-
     // First Name Text Box
     @FindBy(xpath = "//input[@id='firstname']")
     public WebElement firstNameTextBox;

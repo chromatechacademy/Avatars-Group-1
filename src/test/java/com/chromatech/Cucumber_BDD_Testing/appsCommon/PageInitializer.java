@@ -7,8 +7,6 @@ public class PageInitializer {
      * PAGE OBJECTS
      */
 
-
     public static void initializeAllPages() {
-
     }
 }

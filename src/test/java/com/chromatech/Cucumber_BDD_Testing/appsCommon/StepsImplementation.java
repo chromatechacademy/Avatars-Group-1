@@ -320,8 +320,8 @@ public class StepsImplementation {
      * @param admissionNumber The admission number of the entry to be checked.
      * @param dataTable       A DataTable object containing the entry details in the form of key-value pairs.
      */
-    public void make_sure_the_entry_is_in_the_list(String admissionNumber, DataTable dataTable) {
-        CommonMethods.assertTrue(searchPage.tableLocatorByText(admissionNumber).isDisplayed());
+    public static void make_sure_the_entry_is_in_the_list(String admissionNumber, DataTable dataTable) {
+        CommonMethods.assertTrue(SearchPage.tableLocatorByText(admissionNumber).isDisplayed());
         // Expected Data
         ArrayList<String> expectedData = new ArrayList<>();
         for (String data : dataTable.column(1)) {
@@ -330,8 +330,7 @@ public class StepsImplementation {
         // Actual Data
         ArrayList<String> actualData = new ArrayList<>();
         for (int i = 1; i <= dataTable.height(); i++) {
-            String xpath = "//td[text()='" + admissionNumber + "']//parent::tr/td[" + i + "]";
-            WebElement element = driver.findElement(By.xpath(xpath));
+            WebElement element = SearchPage.informationAboutTheStudentOnTheSearchPage(admissionNumber, i);
             actualData.add(element.getText().trim());
         }
         Assert.assertEquals(actualData, expectedData);
@@ -342,7 +341,7 @@ public class StepsImplementation {
      *
      * @param dataTable The data table containing the expected student name data.
      */
-    public void verifies_the_information_in_the_student_name_block(DataTable dataTable) {
+    public static void verifies_the_information_in_the_student_name_block(DataTable dataTable) {
         // Expected Data
         ArrayList<String> expectedData = new ArrayList<>();
         for (String data : dataTable.column(1)) {
@@ -350,7 +349,7 @@ public class StepsImplementation {
         }
         // Actual Data
         ArrayList<String> actualData = new ArrayList<>();
-        actualData.add(studentDetailsPage.studentNametext.getText());
+        actualData.add(StudentDetailsPage.studentNametext.getText());
         for (int i = 0; i < (dataTable.height() - 1); i++) {
             WebElement element = driver.findElement(By.xpath("//h3[text()='" + expectedData.get(0) + "']/following-sibling::ul/li[" + (i + 1) + "]/a"));
             actualData.add(element.getText());
