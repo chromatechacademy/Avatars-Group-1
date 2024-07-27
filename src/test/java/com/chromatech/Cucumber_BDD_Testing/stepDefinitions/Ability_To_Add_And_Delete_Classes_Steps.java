@@ -1,17 +1,13 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.StepsImplementation;
-import com.chromatech.Cucumber_BDD_Testing.pages.ClassPage;
-import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Ability_To_Add_And_Delete_Classes_Steps {
-
-    StepsImplementation stepsImplementation = new StepsImplementation();
-    DashboardPage dashboardPage = new DashboardPage();
-    ClassPage classPage = new ClassPage();
+public class Ability_To_Add_And_Delete_Classes_Steps extends
+        PageInitializer {
 
     @When("user navigates to the Academics module")
     public void user_navigates_to_the_academics_module() {
@@ -30,7 +26,7 @@ public class Ability_To_Add_And_Delete_Classes_Steps {
 
     @Then("selects section {string}")
     public void selects_section(String text) {
-        stepsImplementation.selects_section(text);
+        StepsImplementation.selects_section(text);
     }
 
     @Then("saves submission on the class page")
@@ -40,11 +36,11 @@ public class Ability_To_Add_And_Delete_Classes_Steps {
 
     @Then("user clicks on delete button to remove class {string} and confirms")
     public void user_clicks_on_delete_button_to_remove_class_and_confirms(String classText) {
-        stepsImplementation.user_clicks_on_delete_button_to_remove_class_and_confirms(classText);
+        StepsImplementation.user_clicks_on_delete_button_to_remove_class_and_confirms(classText);
     }
 
     @Then("make sure {string} does not exist, if yes remove it")
     public void make_sure_does_not_exist_if_yes_remove_it(String classText) {
-        stepsImplementation.make_sure_does_not_exist_if_yes_remove_it(classText);
+        StepsImplementation.make_sure_does_not_exist_if_yes_remove_it(classText);
     }
 }
