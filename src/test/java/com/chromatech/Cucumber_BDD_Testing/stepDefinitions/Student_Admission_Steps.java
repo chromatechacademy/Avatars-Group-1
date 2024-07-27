@@ -125,8 +125,8 @@ public class Student_Admission_Steps extends PageInitializer {
         StepsImplementation.user_is_searching_for_a_student_record_based_on_parameters(dataTable);
     }
 
-    @Then("make sure the entry {string} is in the list:")
-    public void make_sure_the_entry_is_in_the_list(String admissionNumber, DataTable dataTable) {
-        StepsImplementation.make_sure_the_entry_is_in_the_list(admissionNumber, dataTable);
+    @Then("make sure the entry {string} is in the list and verify data")
+    public void student_s_record_is_displayed_and_verify_data(String number, DataTable dataTable) {
+        StepsImplementation.make_sure_the_entry_is_in_the_list_and_verify_data(number, dataTable);
     }
 }

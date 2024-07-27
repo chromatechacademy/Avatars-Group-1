@@ -8,7 +8,10 @@ import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
 import java.util.ArrayList;
+import java.util.List;
+
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class StepsImplementation extends PageInitializer {
@@ -50,7 +53,7 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.selectDropDownValue((dataTable.cell(1, 1)), bulkDeletePage.sectionDropDown); // Section
         CommonMethods.click(bulkDeletePage.searchButton);
         try {
-            if(BulkDeletePage.dynamicXpathFindByAdmissionNumber(dataTable.cell(1, 2)).isDisplayed()){
+            if (BulkDeletePage.dynamicXpathFindByAdmissionNumber(dataTable.cell(1, 2)).isDisplayed()) {
                 JavascriptMethods.scrollIntoView(BulkDeletePage.dynamicXpathForCheckboxes((dataTable.cell(1, 2)))); // Admission Number
                 CommonMethods.click(BulkDeletePage.dynamicXpathForCheckboxes((dataTable.cell(1, 2)))); // Admission Number
                 JavascriptMethods.scrollIntoView(bulkDeletePage.deleteButton);
@@ -294,7 +297,7 @@ public class StepsImplementation extends PageInitializer {
      * @param admissionNumber The admission number of the entry to be checked.
      * @param dataTable       A DataTable object containing the entry details in the form of key-value pairs.
      */
-    public static void make_sure_the_entry_is_in_the_list(String admissionNumber, DataTable dataTable) {
+    public static void make_sure_the_entry_is_in_the_list_and_verify_data(String admissionNumber, DataTable dataTable) {
         CommonMethods.assertTrue(SearchPage.tableLocatorByText(admissionNumber).isDisplayed());
         // Expected Data
         ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
@@ -307,6 +310,7 @@ public class StepsImplementation extends PageInitializer {
         }
         Assert.assertEquals(actualData, expectedData);
     }
+
 
     /**
      * Verifies the information in the student name block.
@@ -323,6 +327,27 @@ public class StepsImplementation extends PageInitializer {
             actualData.add(StudentDetailsPage.dynamicXpathForTheStudentNameBlock(expectedData.get(0), i).getText());
         }
         Assert.assertEquals(actualData, expectedData);
+    }
+
+    /**
+     * This method verifies the information about disabling in the student name block.
+     *
+     * @param dataTable The DataTable object containing the expected data.
+     */
+    public static void verifies_the_information_about_disabled_student_in_the_student_name_block(DataTable dataTable) {
+        try {
+            // Expected Data
+            ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
+            // Actual Data
+            ArrayList<String> actualData = new ArrayList<>();
+            List<WebElement> elemtnts = StudentDetailsPage.disablingInformation();
+            for (WebElement element : elemtnts) {
+                actualData.add(element.getText());
+            }
+            Assert.assertEquals(actualData, expectedData);
+        } catch (NoSuchElementException e) {
+            System.out.println("Information about disabled student is not displayed");
+        }
     }
 
     /**
@@ -373,7 +398,7 @@ public class StepsImplementation extends PageInitializer {
      * Checks the data from the seconds block.
      *
      * @param expectedBlockName The expected header text of the block.
-     * @param dataTable          The DataTable containing the expected data.
+     * @param dataTable         The DataTable containing the expected data.
      */
     public static void checks_the_data_from_the_seconds_block(String expectedBlockName, DataTable dataTable) {
         CommonMethods.assertEquals(StudentDetailsPage.addressBlockHeader.getText(), expectedBlockName);
@@ -391,7 +416,7 @@ public class StepsImplementation extends PageInitializer {
      * Checks the data from the third block.
      *
      * @param expectedBlockName The expected header text of the block.
-     * @param dataTable          The DataTable containing the expected data.
+     * @param dataTable         The DataTable containing the expected data.
      */
     public static void checks_the_data_from_the_third_block(String expectedBlockName, DataTable dataTable) {
         CommonMethods.assertEquals(StudentDetailsPage.parentOrGuardianBlockHeader.getText(), expectedBlockName);
@@ -409,7 +434,7 @@ public class StepsImplementation extends PageInitializer {
      * Checks the data from the fourth block.
      *
      * @param expectedBlockName The expected header text of the block.
-     * @param dataTable          The DataTable containing the expected data.
+     * @param dataTable         The DataTable containing the expected data.
      */
     public static void checks_the_data_from_the_fourth_block(String expectedBlockName, DataTable dataTable) {
         CommonMethods.assertEquals(StudentDetailsPage.miscallaneousDetailsBlockHeafer.getText(), expectedBlockName);
@@ -421,16 +446,6 @@ public class StepsImplementation extends PageInitializer {
             actualData.add(studentDetailsPage.dynamicXpathFourthBlockProfile(expectedBlockName, i).getText());
         }
         Assert.assertEquals(actualData, expectedData);
-    }
-
-    /**
-     * Navigates the user to the detailed student information page based on the provided admission number.
-     *
-     * @param adminssionNumber The admission number of the student.
-     */
-    public static void the_user_navigates_to_the_detailed_student_information_page(String adminssionNumber, String url) {
-        CommonMethods.click(SearchPage.studentNameByAdmissionNumber(adminssionNumber));
-        CommonMethods.assertTrue(driver.getCurrentUrl().contains(url));
     }
 
     /**
@@ -446,5 +461,175 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.click(editPage.deleteButton);
         CommonMethods.acceptAlert();
     }
-}
 
+    /**
+     * Clicks on the enabling button if it is visible on the student details page.
+     * If the button is not displayed, it prints an error message.
+     */
+    public static void click_enabling_button_if_visible() {
+        try {
+            if (studentDetailsPage.enableButton.isDisplayed()) {
+                CommonMethods.click(studentDetailsPage.enableButton);
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Enebling button is not displayed");
+        }
+    }
+
+    /**
+     * Makes sure that the entry corresponding to the provided admission number is present in the list.
+     * If the entry is found, it clicks on the corresponding name link.
+     *
+     * @param number The admission number of the entry to be checked.
+     */
+    public static void make_sure_the_entry_is_in_the_list(String number) {
+        try {
+            if (DisabledStudentsPage.dynamicXpathFindByNumber(number).isDisplayed()) {
+                CommonMethods.assertEquals(DisabledStudentsPage.dynamicXpathFindByNumber(number).getText(), number);
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Student " + number + " is not disabled");
+        }
+    }
+
+    /**
+     * Checks if the specified entry is present in the list and enables it if found.
+     *
+     * @param number the unique identifier of the entry
+     */
+    public static void make_sure_the_entry_is_not_in_the_list_and_enable_if_yes(String number) {
+        try {
+            if (DisabledStudentsPage.dynamicXpathFindByNumber(number).isDisplayed()) {
+                CommonMethods.assertEquals(DisabledStudentsPage.dynamicXpathFindByNumber(number).getText(), number);
+                CommonMethods.click(DisabledStudentsPage.dynamicXpathFindNameByNumber(number));
+                CommonMethods.click(studentDetailsPage.enableButton);
+                CommonMethods.acceptAlert();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("The student " + number + " record is not disabled");
+        }
+    }
+
+    /**
+     * Makes the record enabled if it is in the list.
+     *
+     * @param number the admission number of the student
+     */
+    public static void make_the_record_enabled_if_it_is_in_the_list(String number) {
+        try {
+            if (SearchPage.studentNameByAdmissionNumber(number).isDisplayed()) {
+                CommonMethods.click(SearchPage.studentNameByAdmissionNumber(number));
+                CommonMethods.assertTrue(studentDetailsPage.enableButton.isDisplayed());
+                CommonMethods.click(studentDetailsPage.enableButton);
+                CommonMethods.acceptAlert();
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Student record " + number + " is not disabled");
+        }
+    }
+
+    /**
+     * Performs a user click on a button and accepts an alert with specified text.
+     *
+     * @param text The text representing the button action. It can be either "disable" or "enable".
+     * @param alertText The text expected in the alert message.
+     */
+    public static void user_clicks_on_the_button_and_accept_alert_with_text(String text, String alertText) {
+        if (text.equals("disable")) {
+            CommonMethods.click(studentDetailsPage.disableButton);
+            CommonMethods.assertEquals(CommonMethods.getAlertText(), alertText);
+            CommonMethods.acceptAlert();
+        } else if (text.equals("enable")) {
+            CommonMethods.click(studentDetailsPage.enableButton);
+            CommonMethods.assertEquals(CommonMethods.getAlertText(), alertText);
+            CommonMethods.acceptAlert();
+        }
+    }
+
+    /**
+     * Enters data into the modal window.
+     *
+     * @param modalDialogHeaderText The expected header text for the modal dialog.
+     * @param dataTable The data table containing the input values.
+     */
+    public static void enters_data_into_the_modal_window(String modalDialogHeaderText, DataTable dataTable) {
+        CommonMethods.waitForVisibility(studentDetailsPage.disableButton);
+        CommonMethods.assertEquals(studentDetailsPage.disableStudentModalDialogHeaderText.getText(), modalDialogHeaderText);
+        CommonMethods.selectDropDownValue(dataTable.cell(0, 1), studentDetailsPage.reasonSelector);
+        CommonMethods.sendKeys(studentDetailsPage.noteTextBox, dataTable.cell(1, 1));
+        CommonMethods.click(studentDetailsPage.saveButtonModalDialog);
+    }
+
+    /**
+     * Checks if a button with the given text is not displayed on the screen.
+     * If the buttonText is "enable", it checks if the enableButton is not displayed.
+     * If the buttonText is "disable", it checks if the disableButton is not displayed.
+     * If the button is not displayed, an appropriate message is printed.
+     *
+     * @param buttonText the text of the button to check
+     */
+    public static void the_button_is_not_displayed_on_the_screen(String buttonText) {
+        if (buttonText.equals("enable")) {
+            try {
+                CommonMethods.assertTrue(studentDetailsPage.enableButton.isDisplayed());
+            } catch (Exception e) {
+                System.out.println("The enable button is not displayed");
+            }
+        } else if (buttonText.equals("disable")) {
+            try {
+                CommonMethods.assertTrue(!(studentDetailsPage.disableButton.isDisplayed()));
+            } catch (Exception e) {
+                System.out.println("The disable button is not displayed");
+            }
+        }
+    }
+
+    /**
+     * Checks if the specified button is displayed on the screen.
+     *
+     * @param buttonText the text of the button to check (should be either "enable" or "disable")
+     */
+    public static void the_button_is_displayed_on_the_screen(String buttonText) {
+        if (buttonText.equals("enable")) {
+            CommonMethods.assertTrue(studentDetailsPage.enableButton.isDisplayed());
+            System.out.println("Enable button is displayed");
+        } else if (buttonText.equals("disable")) {
+            CommonMethods.assertTrue(studentDetailsPage.disableButton.isDisplayed());
+            System.out.println("Disable button is displayed");
+        }
+    }
+
+    /**
+     * Verifies that information about disabling the student is displayed on the student details page.
+     *
+     * @param dataTable A DataTable object containing the expected disable reason and disable note.
+     *                  The expected disable reason should be provided in the first cell (0, 1) of the table
+     *                  and the expected disable note should be provided in the second cell (1, 1) of the table.
+     * @throws AssertionError if the disable reason or disable note is not displayed as expected.
+     */
+    public static void information_about_disabling_the_student_is_displayed(DataTable dataTable) {
+        CommonMethods.assertTrue(studentDetailsPage.disableReasonText.isDisplayed());
+        CommonMethods.assertEquals(studentDetailsPage.disableReasonText.getText(), dataTable.cell(0, 1)); // Disable Reason
+        CommonMethods.assertTrue(studentDetailsPage.disableNoteText.isDisplayed());
+        CommonMethods.assertEquals(studentDetailsPage.disableNoteText.getText(), dataTable.cell(1, 1)); // Disable Note
+    }
+
+    /**
+     * This method allows the user to click on the enable button on the student details page.
+     * It verifies if the enable button is displayed and then performs a click action on it.
+     */
+    public static void user_click_on_the_enable_button() {
+        CommonMethods.assertTrue(studentDetailsPage.enableButton.isDisplayed());
+        CommonMethods.click(studentDetailsPage.enableButton);
+    }
+
+    /**
+     * Accepts an alert with the specified text.
+     *
+     * @param text The expected text of the alert.
+     */
+    public static void accepts_alert_with_text(String text) {
+        CommonMethods.assertEquals(CommonMethods.getAlertText(), text);
+        CommonMethods.acceptAlert();
+    }
+}

@@ -1,6 +1,6 @@
 Feature: AG1CP-13: Student Admission with Unique Admission Number
 
-  @Regression @AG1CP-13 @Vlad @StudentAdmissionWithUniqueAdmissionNumber @Progression
+  @Regression @AG1CP-13 @Vlad @StudentAdmissionWithUniqueAdmissionNumber
   Scenario: Student Admission with Unique Admission Number
     Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
     When user goes to the "Bulk Delete" page:

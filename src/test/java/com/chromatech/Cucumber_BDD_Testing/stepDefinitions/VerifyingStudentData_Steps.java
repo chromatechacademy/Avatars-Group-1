@@ -1,14 +1,24 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.StepsImplementation;
+import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
+import com.chromatech.utils.CommonMethods;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class VerifyingStudentData_Steps {
 
-    @When("the user navigates to the detailed {string} student information page {string}")
-    public void the_user_navigates_to_the_detailed_student_information_page(String adminssionNumber, String url) {
-        StepsImplementation.the_user_navigates_to_the_detailed_student_information_page(adminssionNumber, url);
+    @When("user clicks on the name in the student record {string}")
+    public void user_clicks_on_the_name_in_the_student_record(String number) {
+        CommonMethods.click(SearchPage.studentNameByAdmissionNumber(number));
+
+    }
+
+    @Then("user navigates to the detailed student information page {string}")
+    public void user_navigates_to_the_detailed_student_information_page(String url) {
+        CommonMethods.assertTrue(driver.getCurrentUrl().contains(url));
     }
 
     @When("verifies the information in the student name block:")
@@ -39,5 +49,15 @@ public class VerifyingStudentData_Steps {
     @When("checks the data from the fourth block {string}:")
     public void checks_the_data_from_the_fourth_block(String expectedHeaderText, DataTable dataTable) {
         StepsImplementation.checks_the_data_from_the_fourth_block(expectedHeaderText, dataTable);
+    }
+
+    @When("click on the student name in the record {string}")
+    public void click_on_the_student_name_in_the_record(String number) {
+        CommonMethods.click(SearchPage.studentNameByAdmissionNumber(number));
+    }
+
+    @Then("user navidates to the Student Details page {string}")
+    public void user_navidates_to_the_student_details_page(String url) {
+        CommonMethods.assertTrue(driver.getCurrentUrl().contains(url));
     }
 }

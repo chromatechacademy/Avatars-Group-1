@@ -104,11 +104,6 @@ public class Ability_To_Edit_Student_Records_Steps extends PageInitializer {
         CommonMethods.click(searchPage.searchButton);
     }
 
-    @Then("make sure the entry {string} is in the list")
-    public void student_s_record_is_displayed(String number) {
-        CommonMethods.assertTrue(SearchPage.tableLocatorByText(number).isDisplayed());
-    }
-
     @When("user clicks on the name of student record with admission number {string}")
     public void user_clicks_on_the_name_of_student_record_with_admission_number(String number) {
         CommonMethods.click(SearchPage.dynamicTableLocator(number));

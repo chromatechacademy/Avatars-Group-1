@@ -3,6 +3,14 @@ Feature: AG1CP-12: StudentAdmission
   @Regression @AG1CP-12 @Vlad @StudentAdmission
   Scenario: Student Admission
     Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
+    When user goes to the "Disabled Students" page:
+      | Module              | SubModule         | URL                                                 |
+      | Student Information | Disabled Students | https://mexil.it/chroma/student/disablestudentslist |
+    And user is searching for a student record based on parameters:
+      | Class            | SDET                  |
+      | Section          | Cucumber Fundamentals |
+      | Admission Number | 33001                 |
+    And make the record "33001" enabled if it is in the list
     When user goes to the "Bulk Delete" page:
       | Module              | SubModule   | URL                                        |
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
@@ -66,7 +74,7 @@ Feature: AG1CP-12: StudentAdmission
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
       | Admission Number | 33001                 |
-    Then make sure the entry "33001" is in the list:
+    Then make sure the entry "33001" is in the list and verify data
       | Admission Number | 33001                       |
       | Student Name     | Vlad Islav                  |
       | Class(Section)   | SDET(Cucumber Fundamentals) |

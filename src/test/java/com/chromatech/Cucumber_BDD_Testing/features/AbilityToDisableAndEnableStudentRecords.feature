@@ -1,7 +1,7 @@
-Feature: Ability to edit student records
+Feature: AG1CP-15 / AG1CP-16 - Ability to disable student records
 
-  @Regression @Antony @AG1CP-14 @AbilityToEditStudentRecords
-  Scenario: Ability to edit student records
+  @Regression @Vlad @AG1CP-15 @AG1CP-16 @AbilityToDisableAndEnableStudentRecords
+  Scenario: Ability to disable student records
     Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
     When user goes to the "Disabled Students" page:
       | Module              | SubModule         | URL                                                 |
@@ -9,20 +9,20 @@ Feature: Ability to edit student records
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 33445                 |
-    And make the record "33445" enabled if it is in the list
+      | Admission Number | 44001                 |
+    And make the record "44001" enabled if it is in the list
     When user goes to the "Bulk Delete" page:
       | Module              | SubModule   | URL                                        |
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 33445            | Are you sure you want to delete this? |
+      | SDET  | Cucumber Fundamentals | 44001            | Are you sure you want to delete this? |
     When user goes to the "Student Admission" page:
       | Module              | SubModule         | URL                                    |
       | Student Information | Student Admission | https://mexil.it/chroma/student/create |
     And user fills the first row:
       | Admission No | Roll Number | Class | Section               |
-      | 33445        | 10017777    | SDET  | Cucumber Fundamentals |
+      | 44001        | 10014444    | SDET  | Cucumber Fundamentals |
     And user fills the second row:
       | First Name | Last Name | Gender | Date of Birth |
       | Vlad       | Islav     | Male   | 01/02/1991    |
@@ -73,54 +73,57 @@ Feature: Ability to edit student records
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 33445                 |
-    Then make sure the entry "33445" is in the list and verify data
-      | Admission Number | 33445                       |
-      | Student Name     | Vlad Islav                  |
-      | Class(Section)   | SDET(Cucumber Fundamentals) |
-      | Father Name      | Leaha Petrov                |
-      | Date of Birth    | 01/02/1991                  |
-      | Gender           | Male                        |
-      | Category         | new                         |
-      | Mobile Number    | 6028808888                  |
-      | Height           | 6'3                         |
-      | Weight           | 9999                        |
-    When user clicks on the name of student record with admission number "33445"
-    And clicks on edit button located near top right pencil icon
-    And user edits roll number field to "10019999"
-    And user edits first name field to "Vova"
-    And user edits last name field to "Hook"
-    And user edits gender field drop down to "Male"
-    And user edits DOB field to "05/05/2005"
-    And user edits category field to "Selenium"
-    And user edits email field to "thisismyemail@hmail.com"
-    And user edits Admission Date field to "06/06/2024"
-    And user edits Student Photo field
-    And user edits Blood Group field to "B-"
-    And user edits As On Date field to "04/21/2024"
-    And user edits Mobile Number field to "1234567890"
-    And user edits Height field to "5'6"
-    And user edits Weight field to "562300"
-    And user edits Father Name field to "Misha"
-    And user edits Phone No field to "0987654321"
-    And user edits Father Occupation field to "Nail and Hair Specialist"
-    And user edits Father Photo field
-    And user edits Mother Name field to "Anna"
-    And user edits Mother Phone field to "6028801122"
-    And user edits Mother Occupation field to "FBI"
-    And user edits Mother Photo field
-    And user selects on the father radio button on edit page
-    And user edits Guardian Name to "Misha"
-    And user edits Guardian Relation to "Father"
-    And user edits Guardian Email to "anemail@email.com"
-    And user edits Guardian Photo
-    And user edits Guardian Phone to "777989898989898989"
-    And user edits Guardian Occupation to "Guardian Occupation"
-    And user edits Guardian Address "Functioning Road 314, Bridgeton, Palau, 508603"
-    Then user clicks on the save button on edit page
+      | Admission Number | 44001                 |
+    When user clicks on the name in the student record "44001"
+    Then user navigates to the detailed student information page "https://mexil.it/chroma/student/view"
+    When verifies the information in the student name block:
+      | Student Name     | Vlad Islav            |
+      | Admission Number | 44001                 |
+      | Roll Number      | 10014444              |
+      | Class            | SDET (2020-21)        |
+      | Section          | Cucumber Fundamentals |
+      | RTE              | Yes                   |
+      | Gender           | Male                  |
+    Then the "enable" button is not displayed on the screen
+    Then the "disable" button is displayed on the screen
+    And user clicks on the "disable" button and accept alert with text "Are you sure you want to disable this record."
+    And enters data into the "Disable Student" modal window
+      | Reason | Very Loud   |
+      | Note   | Really Loud |
+    When user goes to the "Disabled Students" page:
+      | Module              | SubModule         | URL                                                 |
+      | Student Information | Disabled Students | https://mexil.it/chroma/student/disablestudentslist |
+    And user is searching for a student record based on parameters:
+      | Class            | SDET                  |
+      | Section          | Cucumber Fundamentals |
+      | Admission Number | 44001                 |
+    And click on the student name in the record "44001"
+    Then user navidates to the Student Details page "https://mexil.it/chroma/student/view"
+    Then the "disable" button is not displayed on the screen
+    Then the "enable" button is displayed on the screen
+    Then information about disabling the student is displayed
+      | Reason | Very Loud   |
+      | Note   | Really Loud |
+    And user clicks on the "enable" button and accept alert with text "Are you sure? you want to enable this record"
+    When verifies the information in the student name block:
+      | Student Name     | Vlad Islav            |
+      | Admission Number | 44001                 |
+      | Roll Number      | 10014444              |
+      | Class            | SDET (2020-21)        |
+      | Section          | Cucumber Fundamentals |
+      | RTE              | Yes                   |
+      | Gender           | Male                  |
+    When user goes to the "Disabled Students" page:
+      | Module              | SubModule         | URL                                                 |
+      | Student Information | Disabled Students | https://mexil.it/chroma/student/disablestudentslist |
+    And user is searching for a student record based on parameters:
+      | Class            | SDET                  |
+      | Section          | Cucumber Fundamentals |
+      | Admission Number | 44001                 |
+    And make the record "44001" enabled if it is in the list
     When user goes to the "Bulk Delete" page:
       | Module              | SubModule   | URL                                        |
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 33445            | Are you sure you want to delete this? |
+      | SDET  | Cucumber Fundamentals | 44001            | Are you sure you want to delete this? |

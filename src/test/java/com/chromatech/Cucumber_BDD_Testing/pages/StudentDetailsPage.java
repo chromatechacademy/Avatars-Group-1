@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import java.util.List;
 import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class StudentDetailsPage {
@@ -69,4 +70,41 @@ public class StudentDetailsPage {
     public static WebElement dynamicXpathFourthBlockProfile(String blockName, int i) {
         return driver.findElement(By.xpath("//h3[contains(text(), '" + blockName + "')]/following-sibling::div/table/tbody/tr[" + i + "]/td[2]"));
     }
+
+    // Disabling button
+    @FindBy(xpath = "//i[@class='fa fa-thumbs-o-down']")
+    public WebElement disableButton;
+
+    // Reason selector
+    @FindBy(xpath = "//select[@name='reason']")
+    public WebElement reasonSelector;
+
+    // Note textBox
+    @FindBy(xpath = "//textarea[@name='note']")
+    public WebElement noteTextBox;
+
+    // Save button in the modal dialog
+    @FindBy(xpath = "(//button[text()='Save'])[3]")
+    public WebElement saveButtonModalDialog;
+
+    // Dynamic xpath for disabling information
+    public static List<WebElement> disablingInformation() {
+        return driver.findElements(By.xpath("//ul[@class='list-group list-group-unbordered']/li/span"));
+    }
+
+    // Enabling button
+    @FindBy(xpath = "//i[@class='fa fa-thumbs-o-up']")
+    public WebElement enableButton;
+
+    // Disable Student modal dialog header text
+    @FindBy(xpath = "//h4[@class='box-title']")
+    public WebElement disableStudentModalDialogHeaderText;
+
+    // Disable Reason text
+    @FindBy(xpath = "(//span[@class='pull-right text-aqua'])[1]")
+    public WebElement disableReasonText;
+
+    // Disable Note text
+    @FindBy(xpath = "(//span[@class='pull-right text-aqua'])[2]")
+    public WebElement disableNoteText;
 }
