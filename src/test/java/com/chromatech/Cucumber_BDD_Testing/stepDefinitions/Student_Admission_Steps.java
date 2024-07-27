@@ -1,12 +1,13 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.StepsImplementation;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Student_Admission_Steps {
+public class Student_Admission_Steps extends PageInitializer {
 
     StepsImplementation stepsImplementation = new StepsImplementation();
 

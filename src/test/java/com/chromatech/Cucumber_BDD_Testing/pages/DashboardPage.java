@@ -25,7 +25,7 @@ public class DashboardPage {
     public WebElement studentInformationModule;
 
     // Dynamic xpath: Find module by text
-    public WebElement findModuleByText(String text) {
+    public static WebElement findModuleByText(String text) {
         return driver.findElement(By.xpath("//span[text()='" + text + "']"));
     }
 

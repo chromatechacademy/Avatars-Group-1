@@ -1,8 +1,8 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.Constants;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.Cucumber_BDD_Testing.pages.AddExpensePage;
-import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.utils.CommonMethods;
 import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.java.en.And;
@@ -11,10 +11,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.NoSuchElementException;
 import static com.chromatech.utils.WebDriverUtils.driver;
 
-public class Add_Expense_Steps {
-
-    DashboardPage dashboardPage = new DashboardPage();
-    AddExpensePage addExpensePage = new AddExpensePage();
+public class Add_Expense_Steps extends PageInitializer {
 
     @When("the user clicks on the {string} module Expenses")
     public void the_user_clicks_on_the_module_expenses(String expense) {
@@ -85,13 +82,13 @@ public class Add_Expense_Steps {
 
     @Then("the expense record with {string} Name is deleted")
     public void the_expense_record_with_name_is_deleted(String expenseName) {
-        CommonMethods.waitForClickability(addExpensePage.dynamicDeleteRecordLocator(expenseName));
-        addExpensePage.dynamicDeleteRecordLocator(expenseName).click();
+        CommonMethods.waitForClickability(AddExpensePage.dynamicDeleteRecordLocator(expenseName));
+        AddExpensePage.dynamicDeleteRecordLocator(expenseName).click();
         addExpensePage.deleteButton.click();
-        CommonMethods.waitForClickability(addExpensePage.dynamicDeleteRecordLocator(expenseName));
+        CommonMethods.waitForClickability(AddExpensePage.dynamicDeleteRecordLocator(expenseName));
         CommonMethods.acceptAlert();
         try {
-            addExpensePage.dynamicDeleteRecordLocator(expenseName);
+            AddExpensePage.dynamicDeleteRecordLocator(expenseName);
             System.out.println("Deletion of the record failed.");
         } catch(NoSuchElementException ex) {
             System.out.println("Record was successfully deleted.");

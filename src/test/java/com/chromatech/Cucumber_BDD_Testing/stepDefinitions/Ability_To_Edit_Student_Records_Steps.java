@@ -1,9 +1,8 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.Constants;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.StepsImplementation;
-import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
-import com.chromatech.Cucumber_BDD_Testing.pages.EditPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.SearchPage;
 import com.chromatech.utils.CommonMethods;
 import com.chromatech.utils.JavascriptMethods;
@@ -12,12 +11,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.chromatech.utils.WebDriverUtils.driver;
 
-public class Ability_To_Edit_Student_Records_Steps {
+public class Ability_To_Edit_Student_Records_Steps extends PageInitializer {
 
-    SearchPage searchPage = new SearchPage();
-    EditPage editPage = new EditPage();
-    DashboardPage dashboardPage = new DashboardPage();
-    StepsImplementation stepsImplementation = new StepsImplementation();
 
     @When("the user clicks on Student Information module")
     public void the_user_clicks_on_student_information_module() {
@@ -111,12 +106,12 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @Then("make sure the entry {string} is in the list")
     public void student_s_record_is_displayed(String number) {
-        CommonMethods.assertTrue(searchPage.tableLocatorByText(number).isDisplayed());
+        CommonMethods.assertTrue(SearchPage.tableLocatorByText(number).isDisplayed());
     }
 
     @When("user clicks on the name of student record with admission number {string}")
     public void user_clicks_on_the_name_of_student_record_with_admission_number(String number) {
-        CommonMethods.click(searchPage.dynamicTableLocator(number));
+        CommonMethods.click(SearchPage.dynamicTableLocator(number));
     }
 
     @When("clicks on edit button located near top right pencil icon")
@@ -301,6 +296,6 @@ public class Ability_To_Edit_Student_Records_Steps {
 
     @Then("user selects {string} student admission number and deletes it")
     public void user_selects_student_admission_number_and_deletes_it(String admissionNumber) {
-        stepsImplementation.user_selects_student_admission_number_and_deletes_it(admissionNumber);
+        StepsImplementation.user_selects_student_admission_number_and_deletes_it(admissionNumber);
     }
 }
