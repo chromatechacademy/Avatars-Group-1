@@ -2,7 +2,6 @@ package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.Cucumber_BDD_Testing.appsCommon.StepsImplementation;
-import com.chromatech.Cucumber_BDD_Testing.pages.StudentAdmissionPage;
 import com.chromatech.utils.CommonMethods;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;

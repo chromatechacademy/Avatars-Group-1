@@ -37,5 +37,4 @@ public class BulkDeletePage {
     public static WebElement dynamicXpathFindByAdmissionNumber(String number) {
         return driver.findElement(By.xpath("//td[text()='" + number + "']"));
     }
-
 }
