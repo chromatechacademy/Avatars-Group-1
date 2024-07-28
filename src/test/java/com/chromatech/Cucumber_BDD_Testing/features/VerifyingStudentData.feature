@@ -2,7 +2,6 @@ Feature: AG1CP-27: Verifying Student Data
 
   @Regression @AG1CP-27 @Vannia
   Scenario: Verifying Student Data
-      # Student Admission -> Verify -> Student Admission (with a sibling) -> Verify - Delete both
       Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
       When user goes to the "Disabled Students" page:
         | Module              | SubModule         | URL                                                 |
