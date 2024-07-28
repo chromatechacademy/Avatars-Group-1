@@ -1,12 +1,13 @@
 package com.chromatech.Cucumber_BDD_Testing.pages;
 
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import static com.chromatech.utils.WebDriverUtils.driver;
 
-public class ExpenseHeadPage {
+public class ExpenseHeadPage extends PageInitializer {
 
     public ExpenseHeadPage() {
         PageFactory.initElements(driver, this);

@@ -1,5 +1,7 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.StepsImplementation;
 import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.ExpenseHeadPage;
 import com.chromatech.utils.CommonMethods;
@@ -8,10 +10,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Ability_To_Add_And_Remove_Expense_Heads_Steps {
-
-    ExpenseHeadPage expenseHeadPage = new ExpenseHeadPage();
-    DashboardPage dashboardPage = new DashboardPage();
+public class Ability_To_Add_And_Remove_Expense_Heads_Steps extends PageInitializer {
 
     @When("the user clicks on the Expenses Module")
     public void the_user_clicks_on_the_expenses_module() {
@@ -45,14 +44,11 @@ public class Ability_To_Add_And_Remove_Expense_Heads_Steps {
 
     @And("the user clicks on the x button to delete")
     public void the_user_clicks_on_the_x_button_to_delete() {
-        JavascriptMethods.scrollIntoView(expenseHeadPage.expenseHeadBill);
-        expenseHeadPage.expenseHeadXBtn.click();
-        CommonMethods.acceptAlert();
+        StepsImplementation.the_user_clicks_on_the_x_button_to_delete();
     }
 
     @And("clicks OK on the alert message")
     public void clicks_ok_on_the_alert_message() {
-        CommonMethods.sleep(3000);
         CommonMethods.acceptAlert();
     }
 }
