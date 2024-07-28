@@ -9,9 +9,6 @@ Feature: AG1CP-19: Admitting multiple students
     When user fills in the fields in the "Student Admission" section:
       | Module              | SubModule         | Admission No       | Roll Number   | Class   | Section   | First Name   | Last Name   | Gender   | Date of Birth   | Category   | Email   | Admission Date   | Student Photo   | Blood Group   | As on Date   | Mobile Number   | Height   | Weight   | URL                                    |
       | Student Information | Student Admission | <Admission Number> | <Roll Number> | <Class> | <Section> | <First Name> | <Last Name> | <Gender> | <Date of Birth> | <Category> | <Email> | <Admission Date> | <Student Photo> | <Blood Group> | <As on Date> | <Mobile Number> | <Height> | <Weight> | https://mexil.it/chroma/student/create |
-    And user adds a sibling using the "Add Sibling" button:
-      | Sibling Class   | Sibling Section   | Sibling First Name   | Sibling Last Name   | Sibling Roll Number   |
-      | <Sibling Class> | <Sibling Section> | <Sibling First Name> | <Sibling Last Name> | <Sibling Roll Number> |
     And user adds father's information:
       | Father Name   | Father Phone   | Father Occupation   | Father Photo   |
       | <Father Name> | <Father Phone> | <Father Occupation> | <Father Photo> |

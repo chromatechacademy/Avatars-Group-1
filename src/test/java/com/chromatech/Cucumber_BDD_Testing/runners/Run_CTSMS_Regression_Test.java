@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
         "pretty", "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
         features = "src/test/java/com/chromatech/Cucumber_BDD_Testing/features",
         glue = {"com.chromatech.Cucumber_BDD_Testing.stepDefinitions", "Hooks"},
-        tags = "@AG1CP-11",
+        tags = "@Regression",
         dryRun = false
 )
 

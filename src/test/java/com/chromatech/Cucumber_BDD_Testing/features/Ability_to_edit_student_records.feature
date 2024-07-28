@@ -9,7 +9,7 @@ Feature: Ability to edit student records
     And the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
     When the user clicks on Student Information module
     And user clicks on Student Admission
-    When user enters admission number field to the "42990"
+    When user enters admission number field to the "66011"
     When the user selects "SDET" in the Class dropdown
     And selects "Cucumber Fundamentals" in the Section dropdown
     And user enters first name field to "8ill"
@@ -23,10 +23,10 @@ Feature: Ability to edit student records
     And the user navigates to the student search page "https://mexil.it/chroma/student/search"
     When the user selects "SDET" in the Class dropdown in edit page
     And selects "Cucumber Fundamentals" in the Section dropdown in edit page
-    And enters the Admission Number "42990" in the Search By Keyword field
+    And enters the Admission Number "66011" in the Search By Keyword field
     And clicks the search button
-    Then make sure the entry "42990" is in the list
-    When user clicks on the name of student record with admission number "42990"
+    Then make sure the entry "66011" is in the list
+    When user clicks on the name of student record with admission number "66011"
     And clicks on edit button located near top right pencil icon
     And user edits roll number field to "42222"
     And user edits first name field to "Mr.$am"
@@ -63,4 +63,4 @@ Feature: Ability to edit student records
     And user selects the class drop down "SDET"
     And user selects the section drop down "Cucumber Fundamentals"
     And user clicks on search button
-    And user selects "42990" student admission number and deletes it
+    And user selects "66011" student admission number and deletes it
