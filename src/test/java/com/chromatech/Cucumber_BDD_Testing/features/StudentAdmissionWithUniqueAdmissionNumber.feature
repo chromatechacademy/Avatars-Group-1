@@ -30,7 +30,7 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
     And user adds father's information:
       | Father Name  | Father Phone | Father Occupation |
       | Leaha Petrov | 6028801111   | Father Occupation |
-    And user adds mothers's information:
+    And user adds mother's information:
       | Mother Name     | Mother Phone         | Mother Occupation |
       | Tamaria Petrova | 60288602880222201111 | Mother Occupation |
     And user selects "Mother" in If Guardian Is radiobuttons
@@ -98,7 +98,7 @@ Feature: AG1CP-13: Student Admission with Unique Admission Number
     And user adds father's information:
       | Father Name  | Father Phone | Father Occupation |
       | Leaha Petrov | 6028801111   | Father Occupation |
-    And user adds mothers's information:
+    And user adds mother's information:
       | Mother Name     | Mother Phone         | Mother Occupation |
       | Tamaria Petrova | 60288602880222201111 | Mother Occupation |
     And user selects "Mother" in If Guardian Is radiobuttons

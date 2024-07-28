@@ -62,6 +62,7 @@ public class StepsImplementation extends PageInitializer {
             }
         }
     }
+
     /**
      * Logs in a user to the main page of the CT SMS application.
      *
@@ -104,8 +105,6 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.click(dashboardPage.studentAdmissionSubModule); // SubModule
         CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
     }
-
-
 
     /**
      * If a student record already exists, the user deletes it.
@@ -374,7 +373,6 @@ public class StepsImplementation extends PageInitializer {
         }
         Assert.assertEquals(actualData, expectedData);
     }
-
 
     /**
      * Verifies the information in the student name block.

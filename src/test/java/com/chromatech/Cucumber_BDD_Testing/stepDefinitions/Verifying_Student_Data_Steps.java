@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import static com.chromatech.utils.WebDriverUtils.driver;
 
-public class VerifyingStudentData_Steps {
+public class Verifying_Student_Data_Steps {
 
     @When("user clicks on the name in the student record {string}")
     public void user_clicks_on_the_name_in_the_student_record(String number) {

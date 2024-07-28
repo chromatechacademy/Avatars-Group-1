@@ -38,7 +38,6 @@ public class Abillity_To_Disable_Student_Records extends PageInitializer {
         StepsImplementation.the_button_is_displayed_on_the_screen(buttonText);
     }
 
-
     @Then("information about disabling the student is displayed")
     public void information_about_disabling_the_student_is_displayed(DataTable dataTable) {
         StepsImplementation.information_about_disabling_the_student_is_displayed(dataTable);
