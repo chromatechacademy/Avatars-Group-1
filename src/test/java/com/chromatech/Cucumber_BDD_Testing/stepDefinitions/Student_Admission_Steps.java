@@ -65,7 +65,7 @@ public class Student_Admission_Steps extends PageInitializer {
         StepsImplementation.user_adds_father_s_information(dataTable);
     }
 
-    @When("user adds mothers's information:")
+    @When("user adds mother's information:")
     public void user_adds_mother_s_information(DataTable dataTable) {
         StepsImplementation.user_adds_mother_s_information(dataTable);
     }
