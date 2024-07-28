@@ -1,5 +1,7 @@
 package com.chromatech.Cucumber_BDD_Testing.appsCommon;
 
+import com.chromatech.Cucumber_BDD_Testing.pages.CategoryPage;
+import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.EditPage;
 import com.chromatech.utils.CommonMethods;
 import com.chromatech.utils.JavascriptMethods;

@@ -1,17 +1,11 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
-import com.chromatech.Cucumber_BDD_Testing.appsCommon.StepImplementation;
-import com.chromatech.Cucumber_BDD_Testing.pages.CategoryPage;
-import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Ability_to_add_and_delete_student_categories_steps {
-
-    DashboardPage dashboardPage = new DashboardPage();
-    CategoryPage categoryPage = new CategoryPage();
-    StepImplementation stepImplementation = new StepImplementation();
+public class Ability_to_add_and_delete_student_categories_steps extends PageInitializer {
 
     @When("the user click on {string} module")
     public void the_user_click_on_module(String StudentInformation) {
@@ -40,6 +34,6 @@ public class Ability_to_add_and_delete_student_categories_steps {
 
     @Then("user click on delete button to remove {string} name and confirm")
     public void user_click_on_delete_button_to_remove_name_and_confirm(String Oksana) {
-       stepImplementation.user_click_on_delete_button_to_remove_name_and_confirm(Oksana);
+        stepImplementation.user_click_on_delete_button_to_remove_name_and_confirm(Oksana);
     }
 }
