@@ -28,21 +28,21 @@ public class SearchPage {
     @FindBy(xpath = "//select[@name='section_id']")
     public WebElement sectionDropDown;
 
+    // Edit Icon Button
+    @FindBy(xpath = "//i[@class='fa fa-pencil']")
+    public WebElement editIconButton;
+
     // Table Locator by Text
     public static WebElement tableLocatorByText(String text) {
         return driver.findElement(By.xpath("//td[text()='" + text + "']"));
     }
-
-    // Edit Icon Button
-    @FindBy(xpath = "//i[@class='fa fa-pencil']")
-    public WebElement editIconButton;
 
     // Dynamic Table Locator
     public static WebElement dynamicTableLocator(String text) {
         return driver.findElement(By.xpath("//td[contains(text(),'" + text + "')]//parent::tr/td[2]"));
     }
 
-    // Dymanic Table Locator To Find Student Name by Admission Number
+    // Dynamic Table Locator To Find Student Name by Admission Number
     public static WebElement studentNameByAdmissionNumber(String number) {
         return driver.findElement(By.xpath("//td[text()='" + number + "']/following-sibling::td[1]/a"));
     }
