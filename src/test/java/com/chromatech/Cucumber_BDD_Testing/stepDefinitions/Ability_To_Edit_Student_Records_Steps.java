@@ -13,7 +13,6 @@ import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class Ability_To_Edit_Student_Records_Steps extends PageInitializer {
 
-
     @When("the user clicks on Student Information module")
     public void the_user_clicks_on_student_information_module() {
         CommonMethods.click(dashboardPage.studentInformationModule);
