@@ -17,6 +17,7 @@ public class PageInitializer {
     public static StudentAdmissionPage studentAdmissionPage;
     public static StudentDetailsPage studentDetailsPage;
     public static DisabledStudentsPage disabledStudentsPage;
+    public static ClassPage classPage;
 
     public static void initializeAllPages() {
         searchPage = new SearchPage();
@@ -28,5 +29,6 @@ public class PageInitializer {
         studentAdmissionPage = new StudentAdmissionPage();
         studentDetailsPage = new StudentDetailsPage();
         disabledStudentsPage = new DisabledStudentsPage();
+        classPage = new ClassPage();
     }
 }

@@ -17,7 +17,7 @@ Feature: AG1CP-15 / AG1CP-16 - Ability to disable and enable student records
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
       | SDET  | Cucumber Fundamentals | 66011            | Are you sure you want to delete this? |
-    When user goes to the "Student Admission" page:
+    When user goes to the student admission page
       | Module              | SubModule         | URL                                    |
       | Student Information | Student Admission | https://mexil.it/chroma/student/create |
     And user fills the first row:

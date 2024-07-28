@@ -17,7 +17,7 @@ Feature: Ability to edit student records
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
       | SDET  | Cucumber Fundamentals | 33445            | Are you sure you want to delete this? |
-    When user goes to the "Student Admission" page:
+    When user goes to the student admission page
       | Module              | SubModule         | URL                                    |
       | Student Information | Student Admission | https://mexil.it/chroma/student/create |
     And user fills the first row:

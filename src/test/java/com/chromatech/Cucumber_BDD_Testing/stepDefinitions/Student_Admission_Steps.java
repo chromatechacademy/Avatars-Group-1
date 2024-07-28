@@ -20,9 +20,14 @@ public class Student_Admission_Steps extends PageInitializer {
         StepsImplementation.if_a_student_record_already_exists_the_user_deletes_it(dataTable);
     }
 
+    @When("user goes to the student admission page")
+    public void user_goes_to_the_student_admission_page(DataTable dataTable) {
+        StepsImplementation.user_goes_to_the_student_admission_page(dataTable);
+    }
+
     @When("user goes to the {string} page:")
-    public void user_goes_to_the_page(String pageName, DataTable dataTable) {
-        StepsImplementation.user_goes_to_the_page(pageName, dataTable);
+    public void user_goes_to_the_page(String subModuleName, DataTable dataTable) {
+        StepsImplementation.user_goes_to_the_page(subModuleName, dataTable);
     }
 
     @When("user fills the first row:")

@@ -7,14 +7,61 @@ import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
 import org.testng.Assert;
-
-import java.util.ArrayList;
 import java.util.List;
-
 import static com.chromatech.utils.WebDriverUtils.driver;
+import java.util.ArrayList;
 
 public class StepsImplementation extends PageInitializer {
+
+    /**
+     * This method selects a section by entering text in the corresponding input field and clicking on the checkbox.
+     *
+     * @param text the text to be entered in the input field
+     */
+    public static void selects_section(String text) {
+        List<WebElement> textBoxes = driver.findElements(By.cssSelector("input[value='298']"));
+        WebElement textBox = textBoxes.get(0);
+        textBox.sendKeys(text);
+        CommonMethods.click(classPage.sectionsCheckBox);
+    }
+
+    /**
+     * Removes a class by clicking on the delete button and confirming the deletion.
+     *
+     * @param classText the text of the class to be deleted
+     */
+    public static void user_clicks_on_delete_button_to_remove_class_and_confirms(String classText) {
+        List<WebElement> rows = driver.findElements(By.xpath("//tbody/tr"));
+        for (WebElement row : rows) {
+            WebElement classTitle = row.findElement(By.tagName("td"));
+            if (classTitle.getText().equals(classText)) {
+                WebElement deleteButton = driver.findElement(By.xpath("//td[contains(text(), '" + classText + "')]//parent::tr/td[3]/a[2]/i"));
+                CommonMethods.click(deleteButton);
+                CommonMethods.acceptAlert();
+                break;
+            }
+        }
+    }
+
+    /**
+     * Removes a class if it exists by clicking on the delete button and confirming the deletion.
+     *
+     * @param classText the text of the class to be removed
+     */
+    public static void make_sure_does_not_exist_if_yes_remove_it(String classText) {
+        List<WebElement> rows = driver.findElements(By.xpath("//tbody/tr"));
+        for (WebElement row : rows) {
+            WebElement classTitle = row.findElement(By.tagName("td"));
+            if (classTitle.getText().equals(classText)) {
+                WebElement deleteButton = driver.findElement(By.xpath("//td[contains(text(), '" + classText + "')]//parent::tr/td[3]/a[2]/i"));
+                CommonMethods.click(deleteButton);
+                CommonMethods.acceptAlert();
+                break;
+            }
+        }
+    }
 
     /**
      * Logs in a user to the main page of the CT SMS application.
@@ -37,11 +84,29 @@ public class StepsImplementation extends PageInitializer {
      */
     public static void user_goes_to_the_page(String subModuleName, DataTable dataTable) {
         if (!(DashboardPage.findSubModuleByText(subModuleName).isDisplayed())) {
-            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(1, 0))); // Module
+            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(1 ,0))); // Module
         }
         CommonMethods.click(DashboardPage.findSubModuleByText(dataTable.cell(1, 1))); // SubModule
         CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
     }
+
+    /**
+     * Navigates the user to the student admission page.
+     *
+     * @param dataTable a DataTable object containing the data for the navigation
+     *    - Module: the name of the module to be clicked on the dashboard page
+     *    - URL: the expected URL of the student admission page
+     */
+    public static void user_goes_to_the_student_admission_page(DataTable dataTable) {
+        if (!(dashboardPage.studentAdmissionSubModule.isDisplayed())) {
+            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(0 ,1))); // Module
+        }
+        CommonMethods.assertEquals(dashboardPage.studentAdmissionSubModule.getText(), dataTable.cell(1 ,1));
+        CommonMethods.click(dashboardPage.studentAdmissionSubModule); // SubModule
+        CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
+    }
+
+
 
     /**
      * If a student record already exists, the user deletes it.

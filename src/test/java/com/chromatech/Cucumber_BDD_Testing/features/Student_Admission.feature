@@ -9,20 +9,20 @@ Feature: AG1CP-12: StudentAdmission
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 33001                 |
-    And make the record "33001" enabled if it is in the list
+      | Admission Number | 22022                  |
+    And make the record "22022" enabled if it is in the list
     When user goes to the "Bulk Delete" page:
       | Module              | SubModule   | URL                                        |
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 33001            | Are you sure you want to delete this? |
-    When user goes to the "Student Admission" page:
+      | SDET  | Cucumber Fundamentals | 22022             | Are you sure you want to delete this? |
+    When user goes to the student admission page
       | Module              | SubModule         | URL                                    |
       | Student Information | Student Admission | https://mexil.it/chroma/student/create |
     And user fills the first row:
       | Admission No | Roll Number | Class | Section               |
-      | 33001        | 10013333    | SDET  | Cucumber Fundamentals |
+      | 22022         | 00777       | SDET  | Cucumber Fundamentals |
     And user fills the second row:
       | First Name | Last Name | Gender | Date of Birth |
       | Vlad       | Islav     | Male   | 01/02/1991    |
@@ -73,9 +73,9 @@ Feature: AG1CP-12: StudentAdmission
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 33001                 |
-    Then make sure the entry "33001" is in the list and verify data
-      | Admission Number | 33001                       |
+      | Admission Number | 22022                  |
+    Then make sure the entry "22022" is in the list and verify data
+      | Admission Number | 22022                        |
       | Student Name     | Vlad Islav                  |
       | Class(Section)   | SDET(Cucumber Fundamentals) |
       | Father Name      | Leaha Petrov                |
@@ -90,4 +90,4 @@ Feature: AG1CP-12: StudentAdmission
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 33001            | Are you sure you want to delete this? |
+      | SDET  | Cucumber Fundamentals | 22022             | Are you sure you want to delete this? |
