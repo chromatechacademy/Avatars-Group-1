@@ -58,7 +58,6 @@ public class StepsImplementation extends PageInitializer {
             }
         }
     }
-
     /**
      * Deletes a student's admission number as selected by the user.
      *
@@ -72,4 +71,5 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.click(editPage.deleteButton);
         CommonMethods.acceptAlert();
     }
+
 }
