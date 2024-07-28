@@ -13,7 +13,6 @@ public class Verifying_Student_Data_Steps {
     @When("user clicks on the name in the student record {string}")
     public void user_clicks_on_the_name_in_the_student_record(String number) {
         CommonMethods.click(SearchPage.studentNameByAdmissionNumber(number));
-
     }
 
     @Then("user navigates to the detailed student information page {string}")
