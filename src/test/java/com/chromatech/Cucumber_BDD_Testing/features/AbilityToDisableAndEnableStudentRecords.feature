@@ -1,7 +1,7 @@
-Feature: AG1CP-15 / AG1CP-16 - Ability to disable student records
+Feature: AG1CP-15 / AG1CP-16 - Ability to disable and enable student records
 
   @Regression @Vlad @AG1CP-15 @AG1CP-16 @AbilityToDisableAndEnableStudentRecords
-  Scenario: Ability to disable student records
+  Scenario: Ability to disable and enable student records
     Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
     When user goes to the "Disabled Students" page:
       | Module              | SubModule         | URL                                                 |
@@ -9,20 +9,20 @@ Feature: AG1CP-15 / AG1CP-16 - Ability to disable student records
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 44001                 |
-    And make the record "44001" enabled if it is in the list
+      | Admission Number | 66011                 |
+    And make the record "66011" enabled if it is in the list
     When user goes to the "Bulk Delete" page:
       | Module              | SubModule   | URL                                        |
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 44001            | Are you sure you want to delete this? |
+      | SDET  | Cucumber Fundamentals | 66011            | Are you sure you want to delete this? |
     When user goes to the "Student Admission" page:
       | Module              | SubModule         | URL                                    |
       | Student Information | Student Admission | https://mexil.it/chroma/student/create |
     And user fills the first row:
       | Admission No | Roll Number | Class | Section               |
-      | 44001        | 10014444    | SDET  | Cucumber Fundamentals |
+      | 66011        | 777222      | SDET  | Cucumber Fundamentals |
     And user fills the second row:
       | First Name | Last Name | Gender | Date of Birth |
       | Vlad       | Islav     | Male   | 01/02/1991    |
@@ -73,13 +73,13 @@ Feature: AG1CP-15 / AG1CP-16 - Ability to disable student records
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 44001                 |
-    When user clicks on the name in the student record "44001"
+      | Admission Number | 66011                 |
+    When user clicks on the name in the student record "66011"
     Then user navigates to the detailed student information page "https://mexil.it/chroma/student/view"
     When verifies the information in the student name block:
       | Student Name     | Vlad Islav            |
-      | Admission Number | 44001                 |
-      | Roll Number      | 10014444              |
+      | Admission Number | 66011                 |
+      | Roll Number      | 777222                |
       | Class            | SDET (2020-21)        |
       | Section          | Cucumber Fundamentals |
       | RTE              | Yes                   |
@@ -96,8 +96,8 @@ Feature: AG1CP-15 / AG1CP-16 - Ability to disable student records
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 44001                 |
-    And click on the student name in the record "44001"
+      | Admission Number | 66011                 |
+    And click on the student name in the record "66011"
     Then user navidates to the Student Details page "https://mexil.it/chroma/student/view"
     Then the "disable" button is not displayed on the screen
     Then the "enable" button is displayed on the screen
@@ -107,8 +107,8 @@ Feature: AG1CP-15 / AG1CP-16 - Ability to disable student records
     And user clicks on the "enable" button and accept alert with text "Are you sure? you want to enable this record"
     When verifies the information in the student name block:
       | Student Name     | Vlad Islav            |
-      | Admission Number | 44001                 |
-      | Roll Number      | 10014444              |
+      | Admission Number | 66011                 |
+      | Roll Number      | 777222                |
       | Class            | SDET (2020-21)        |
       | Section          | Cucumber Fundamentals |
       | RTE              | Yes                   |
@@ -119,11 +119,11 @@ Feature: AG1CP-15 / AG1CP-16 - Ability to disable student records
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 44001                 |
-    And make the record "44001" enabled if it is in the list
+      | Admission Number | 66011                 |
+    And make the record "66011" enabled if it is in the list
     When user goes to the "Bulk Delete" page:
       | Module              | SubModule   | URL                                        |
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 44001            | Are you sure you want to delete this? |
+      | SDET  | Cucumber Fundamentals | 66011            | Are you sure you want to delete this? |
