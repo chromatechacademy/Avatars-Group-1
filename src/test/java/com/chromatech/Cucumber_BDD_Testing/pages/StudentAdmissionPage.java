@@ -100,7 +100,7 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//input[@id='email']")
     public WebElement emailTextBox;
 
-    // Bloog Group dropDown
+    // Blood Group dropDown
     @FindBy(xpath = "//select[@name='blood_group']")
     public WebElement bloodGroupDropDown;
 
@@ -439,7 +439,7 @@ public class StudentAdmissionPage {
      * @param headerText the text of the header in the section
      * @param dataTable  the data table containing the information to be added
      */
-    public void user_addins_information_in_the_section(String headerText, DataTable dataTable) {
+    public void user_addings_information_in_the_section(String headerText, DataTable dataTable) {
         List<Map<String, String>> dataList = dataTable.asMaps(String.class, String.class);
         for (Map<String, String> data : dataList) {
             CommonMethods.assertEquals(miscellaneousDetailsHeader.getText(), headerText);

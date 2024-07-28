@@ -8,7 +8,6 @@ import io.cucumber.java.en.When;
 
 public class Student_Admission_Steps extends PageInitializer {
 
-
     @Given("a CTSMS user is logged in to the main page {string}")
     public void a_ctsms_user_is_logged_in_to_the_main_page(String url) {
         loginPage.a_ctsms_user_is_logged_in_to_the_main_page(url);
@@ -51,7 +50,7 @@ public class Student_Admission_Steps extends PageInitializer {
 
     @When("user addins information in the {string} section:")
     public void user_addins_information_in_the_section(String headerText, DataTable dataTable) {
-        studentAdmissionPage.user_addins_information_in_the_section(headerText, dataTable);
+        studentAdmissionPage.user_addings_information_in_the_section(headerText, dataTable);
     }
 
     @When("saves submission")

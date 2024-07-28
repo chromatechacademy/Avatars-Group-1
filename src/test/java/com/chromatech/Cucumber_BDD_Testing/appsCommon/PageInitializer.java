@@ -17,6 +17,7 @@ public class PageInitializer {
     public static StudentAdmissionPage studentAdmissionPage;
     public static CategoryPage categoryPage;
     public static StepImplementation stepImplementation;
+    public static ClassPage classPage;
 
     public static void initializeAllPages() {
         searchPage = new SearchPage();
@@ -28,5 +29,6 @@ public class PageInitializer {
         studentAdmissionPage = new StudentAdmissionPage();
         categoryPage = new CategoryPage();
         stepImplementation = new StepImplementation();
+        classPage = new ClassPage();
     }
 }
