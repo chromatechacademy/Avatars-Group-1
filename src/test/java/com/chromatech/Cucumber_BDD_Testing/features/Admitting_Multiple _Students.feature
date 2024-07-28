@@ -30,7 +30,7 @@ Feature: AG1CP-19: Admitting multiple students
     And user adds father's information:
       | Father Name   | Father Phone   | Father Occupation   |
       | <Father Name> | <Father Phone> | <Father Occupation> |
-    And user adds mothers's information:
+    And user adds mother's information:
       | Mother Name   | Mother Phone   | Mother Occupation   |
       | <Mother Name> | <Mother Phone> | <Mother Occupation> |
     And user selects "<If Guardian Is>" in If Guardian Is radiobuttons

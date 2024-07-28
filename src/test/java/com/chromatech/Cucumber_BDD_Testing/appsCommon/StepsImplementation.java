@@ -62,7 +62,6 @@ public class StepsImplementation extends PageInitializer {
             }
         }
     }
-
     /**
      * Logs in a user to the main page of the CT SMS application.
      *
@@ -226,7 +225,7 @@ public class StepsImplementation extends PageInitializer {
      *
      * @param dataTable The DataTable containing the mother's information.
      */
-    public static void user_adds_mothers_s_information(DataTable dataTable) {
+    public static void user_adds_mother_s_information(DataTable dataTable) {
         CommonMethods.sendKeys(studentAdmissionPage.motherNameTextBox, dataTable.cell(1, 0)); // Mother Name
         CommonMethods.sendKeys(studentAdmissionPage.motherPhoneTextBox, dataTable.cell(1, 1)); // Mother Phone
         CommonMethods.sendKeys(studentAdmissionPage.motherOccupationTextBox, dataTable.cell(1, 2)); // Mother Occupation
@@ -454,7 +453,7 @@ public class StepsImplementation extends PageInitializer {
         // Actual Data
         ArrayList<String> actualData = new ArrayList<>();
         for (int i = 0; i < dataTable.height(); i++) {
-            actualData.add(studentDetailsPage.dynamicXpathFirstBlockProfile(i).getText());
+            actualData.add(StudentDetailsPage.dynamicXpathFirstBlockProfile(i).getText());
         }
         Assert.assertEquals(actualData, expectedData);
     }
@@ -508,7 +507,7 @@ public class StepsImplementation extends PageInitializer {
         // Actual Data
         ArrayList<String> actualData = new ArrayList<>();
         for (int i = 1; i <= dataTable.height(); i++) {
-            actualData.add(studentDetailsPage.dynamicXpathFourthBlockProfile(expectedBlockName, i).getText());
+            actualData.add(StudentDetailsPage.dynamicXpathFourthBlockProfile(expectedBlockName, i).getText());
         }
         Assert.assertEquals(actualData, expectedData);
     }
@@ -537,23 +536,7 @@ public class StepsImplementation extends PageInitializer {
                 CommonMethods.click(studentDetailsPage.enableButton);
             }
         } catch (NoSuchElementException e) {
-            System.out.println("Enebling button is not displayed");
-        }
-    }
-
-    /**
-     * Makes sure that the entry corresponding to the provided admission number is present in the list.
-     * If the entry is found, it clicks on the corresponding name link.
-     *
-     * @param number The admission number of the entry to be checked.
-     */
-    public static void make_sure_the_entry_is_in_the_list(String number) {
-        try {
-            if (DisabledStudentsPage.dynamicXpathFindByNumber(number).isDisplayed()) {
-                CommonMethods.assertEquals(DisabledStudentsPage.dynamicXpathFindByNumber(number).getText(), number);
-            }
-        } catch (NoSuchElementException e) {
-            System.out.println("Student " + number + " is not disabled");
+            System.out.println("Enable button is not displayed");
         }
     }
 

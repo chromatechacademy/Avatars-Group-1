@@ -66,8 +66,8 @@ public class Student_Admission_Steps extends PageInitializer {
     }
 
     @When("user adds mothers's information:")
-    public void user_adds_mothers_s_information(DataTable dataTable) {
-        StepsImplementation.user_adds_mothers_s_information(dataTable);
+    public void user_adds_mother_s_information(DataTable dataTable) {
+        StepsImplementation.user_adds_mother_s_information(dataTable);
     }
 
     @When("user selects {string} in If Guardian Is radiobuttons")

@@ -93,7 +93,7 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//input[@id='email']")
     public WebElement emailTextBox;
 
-    // Bloog Group dropDown
+    // Blood Group dropDown
     @FindBy(xpath = "//select[@name='blood_group']")
     public WebElement bloodGroupDropDown;
 
