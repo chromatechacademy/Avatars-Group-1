@@ -48,11 +48,6 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//input[@id='father_name']")
     public WebElement fatherNameTextBox;
 
-    // Dynamic If Guardian Is radioButton
-    public static WebElement dynamicIfGuardianRadioButton(String text) {
-        return driver.findElement(By.xpath("//input[@value='" + text.toLowerCase() + "']"));
-    }
-
     // Guardian Name textBox
     @FindBy(xpath = "//input[@id='guardian_name']")
     public WebElement guardianNameTextBox;
@@ -241,11 +236,6 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//input[@id='samagra_id']")
     public WebElement localIdentificationNumberTextBox;
 
-    // Dynamic RTE radioButtons
-    public WebElement rteRadioButton(String text) {
-        return driver.findElement(By.xpath("//input[@value='" + text + "']"));
-    }
-
     // Upload Documents Header textElement
     @FindBy(xpath = "//h4[text()='Upload Documents']")
     public WebElement uploadDocumentsHeaderText;
@@ -281,4 +271,14 @@ public class StudentAdmissionPage {
     // Doc #4 upload textBox
     @FindBy(xpath = "(//input[contains(@name,'doc')])[4]")
     public WebElement documentFourTextBox;
+
+    // Dynamic If Guardian Is radioButton
+    public static WebElement dynamicIfGuardianRadioButton(String text) {
+        return driver.findElement(By.xpath("//input[@value='" + text.toLowerCase() + "']"));
+    }
+
+    // Dynamic RTE radioButtons
+    public WebElement rteRadioButton(String text) {
+        return driver.findElement(By.xpath("//input[@value='" + text + "']"));
+    }
 }

@@ -41,6 +41,38 @@ public class StudentDetailsPage {
     @FindBy(xpath = "//h3[text()='Sibling']")
     public WebElement siblingHeaderText;
 
+    // Disabling button
+    @FindBy(xpath = "//i[@class='fa fa-thumbs-o-down']")
+    public WebElement disableButton;
+
+    // Reason selector
+    @FindBy(xpath = "//select[@name='reason']")
+    public WebElement reasonSelector;
+
+    // Note textBox
+    @FindBy(xpath = "//textarea[@name='note']")
+    public WebElement noteTextBox;
+
+    // Save button in the modal dialog
+    @FindBy(xpath = "(//button[text()='Save'])[3]")
+    public WebElement saveButtonModalDialog;
+
+    // Enabling button
+    @FindBy(xpath = "//i[@class='fa fa-thumbs-o-up']")
+    public WebElement enableButton;
+
+    // Disable Student modal dialog header text
+    @FindBy(xpath = "//h4[@class='box-title']")
+    public WebElement disableStudentModalDialogHeaderText;
+
+    // Disable Reason text
+    @FindBy(xpath = "(//span[@class='pull-right text-aqua'])[1]")
+    public WebElement disableReasonText;
+
+    // Disable Note text
+    @FindBy(xpath = "(//span[@class='pull-right text-aqua'])[2]")
+    public WebElement disableNoteText;
+
     // Dynamic xpath for the Student Name block
     public static WebElement dynamicXpathForTheStudentNameBlock(String studentName, int i) {
         return driver.findElement(By.xpath("//h3[text()='" + studentName + "']/following-sibling::ul/li[" + (i + 1) + "]/a"));
@@ -71,40 +103,8 @@ public class StudentDetailsPage {
         return driver.findElement(By.xpath("//h3[contains(text(), '" + blockName + "')]/following-sibling::div/table/tbody/tr[" + i + "]/td[2]"));
     }
 
-    // Disabling button
-    @FindBy(xpath = "//i[@class='fa fa-thumbs-o-down']")
-    public WebElement disableButton;
-
-    // Reason selector
-    @FindBy(xpath = "//select[@name='reason']")
-    public WebElement reasonSelector;
-
-    // Note textBox
-    @FindBy(xpath = "//textarea[@name='note']")
-    public WebElement noteTextBox;
-
-    // Save button in the modal dialog
-    @FindBy(xpath = "(//button[text()='Save'])[3]")
-    public WebElement saveButtonModalDialog;
-
     // Dynamic xpath for disabling information
     public static List<WebElement> disablingInformation() {
         return driver.findElements(By.xpath("//ul[@class='list-group list-group-unbordered']/li/span"));
     }
-
-    // Enabling button
-    @FindBy(xpath = "//i[@class='fa fa-thumbs-o-up']")
-    public WebElement enableButton;
-
-    // Disable Student modal dialog header text
-    @FindBy(xpath = "//h4[@class='box-title']")
-    public WebElement disableStudentModalDialogHeaderText;
-
-    // Disable Reason text
-    @FindBy(xpath = "(//span[@class='pull-right text-aqua'])[1]")
-    public WebElement disableReasonText;
-
-    // Disable Note text
-    @FindBy(xpath = "(//span[@class='pull-right text-aqua'])[2]")
-    public WebElement disableNoteText;
 }
