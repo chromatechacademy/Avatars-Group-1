@@ -8,9 +8,13 @@ import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class SearchPage {
 
+    public SearchPage() {
+        PageFactory.initElements(driver, this);
+    }
+
     // Search by Keyword textbox
     @FindBy(xpath = "//input[@class='form-control']")
-    public WebElement SearchByKeywordTextBox;
+    public WebElement searchByKeywordTextBox;
 
     // Search button
     @FindBy(xpath = "//button[@value='search_full']")
@@ -20,20 +24,31 @@ public class SearchPage {
     @FindBy(xpath = "//select[@id='class_id']")
     public WebElement classDropDown;
 
-    // Section dropDown
-    @FindBy(xpath = "//select[@id='section_id']")
+    // Section Drop Down
+    @FindBy(xpath = "//select[@name='section_id']")
     public WebElement sectionDropDown;
 
     // Table Locator by Text
     public static WebElement tableLocatorByText(String text) {
-        return driver.findElement(By.xpath("//td[contains(text(),'" + text + "')]"));
+        return driver.findElement(By.xpath("//td[text()='" + text + "']"));
     }
 
-    // Bulk Delete subModule
-    @FindBy(xpath = "//a[normalize-space()='Bulk Delete']")
-    public WebElement bulkDeleteSubModule;
+    // Edit Icon Button
+    @FindBy(xpath = "//i[@class='fa fa-pencil']")
+    public WebElement editIconButton;
 
-    public SearchPage() {
-        PageFactory.initElements(driver, this);
+    // Dynamic Table Locator
+    public static WebElement dynamicTableLocator(String text) {
+        return driver.findElement(By.xpath("//td[contains(text(),'" + text + "')]//parent::tr/td[2]"));
+    }
+
+    // Dymanic Table Locator To Find Student Name by Admission Number
+    public static WebElement studentNameByAdmissionNumber(String number) {
+        return driver.findElement(By.xpath("//td[text()='" + number + "']/following-sibling::td[1]/a"));
+    }
+
+    // Dynamic Xpath to grab data from a record on the search page
+    public static WebElement informationAboutTheStudentOnTheSearchPage(String admissionNumber, int i) {
+        return driver.findElement(By.xpath("//td[text()='" + admissionNumber + "']//parent::tr/td[" + i + "]"));
     }
 }

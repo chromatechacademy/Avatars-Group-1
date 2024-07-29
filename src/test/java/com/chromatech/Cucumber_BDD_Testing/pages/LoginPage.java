@@ -7,21 +7,23 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
 
-    /* USERNAME TEXT BOX*/
-    @FindBy(xpath = "//input[@placeholder='Username']")
-    public  WebElement usernameTextBox;
+    public LoginPage() {
+        PageFactory.initElements(WebDriverUtils.driver, this);
+    }
 
-    /* PASSWORD TEXT BOX */
+    // Username textBox
+    @FindBy(xpath = "//input[@placeholder='Username']")
+    public WebElement usernameTextBox;
+
+    // Password textBox
     @FindBy(xpath = "//input[@placeholder='Password']")
     public WebElement passwordTextBox;
 
-    /* SIGN IN BUTTON*/
+    // SignIn button
     @FindBy(xpath = " //button[normalize-space()='Sign In']")
-    public  WebElement signInButton;
+    public WebElement signInButton;
 
-    /*ERROR MESSAGE*/
+    // Error message text
     @FindBy(xpath = "//div[@class='alert alert-danger']")
     public WebElement errorMessage;
-
-    public LoginPage() {PageFactory.initElements(WebDriverUtils.driver, this);}
 }

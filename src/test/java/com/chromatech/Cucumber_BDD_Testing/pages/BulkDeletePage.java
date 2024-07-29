@@ -8,6 +8,10 @@ import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class BulkDeletePage {
 
+    public BulkDeletePage() {
+        PageFactory.initElements(driver, this);
+    }
+
     // Class dropdown
     @FindBy(xpath = "//select[@id='class_id']")
     public WebElement classDropdown;
@@ -21,15 +25,16 @@ public class BulkDeletePage {
     public WebElement searchButton;
 
     // Dynamic XPATH for checkBoxes
-    public static WebElement dynamicXpathForCheckboxes(String number) {
-        return driver.findElement(By.xpath("//td[text()='" + number + "']//parent::tr/td[1]/input[@type='checkbox']"));
+    public static WebElement dynamicXpathForCheckboxes(String admissionNumber) {
+        return driver.findElement(By.xpath("//td[text()='" + admissionNumber + "']//parent::tr/td[1]/input[@type='checkbox']"));
     }
 
     // Delete button
     @FindBy(xpath = "//button[@id='load']")
     public WebElement deleteButton;
 
-    public BulkDeletePage() {
-        PageFactory.initElements(driver, this);
+    // Dynamic xpath to find a record by Admission Number
+    public static WebElement dynamicXpathFindByAdmissionNumber(String number) {
+        return driver.findElement(By.xpath("//td[text()='" + number + "']"));
     }
 }

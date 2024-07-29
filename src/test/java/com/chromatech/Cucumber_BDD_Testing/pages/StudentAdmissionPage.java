@@ -8,6 +8,14 @@ import static com.chromatech.utils.WebDriverUtils.driver;
 
 public class StudentAdmissionPage {
 
+    public StudentAdmissionPage() {
+        PageFactory.initElements(driver, this);
+    }
+
+    // Student Admission hearder
+    @FindBy(xpath = "//h4[contains(text(), 'Student Admission')]")
+    public WebElement studentAdmissionHeader;
+
     // Admission Number textBox
     @FindBy(xpath = "//input[@id='admission_no']")
     public WebElement admissionNumberTextBox;
@@ -40,11 +48,6 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//input[@id='father_name']")
     public WebElement fatherNameTextBox;
 
-    // Dynamic If Guardian Is radioButton
-    public static WebElement dynamicIfGuardianRadioButton(String text) {
-        return driver.findElement(By.xpath("//input[@value='" + text + "']"));
-    }
-
     // Guardian Name textBox
     @FindBy(xpath = "//input[@id='guardian_name']")
     public WebElement guardianNameTextBox;
@@ -61,10 +64,6 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//input[@id='guardian_occupation']")
     public WebElement guardianOccupationTextBox;
 
-    // Guardian Phone Number textBox
-    @FindBy(xpath = "//input[@id='guardian_phone']")
-    public WebElement guardianPhoneNumberTextBox;
-
     // Save button
     @FindBy(xpath = "//button[@type='submit'][normalize-space()='Save']")
     public WebElement saveButton;
@@ -72,10 +71,6 @@ public class StudentAdmissionPage {
     // "The Admission No field must contain a unique value" errorText
     @FindBy(xpath = "//p[contains(text(),'The Admission No field must contain a unique value')]")
     public WebElement errorText;
-
-    // Student Details subModule
-    @FindBy(xpath = "(//a[@href=\"https://mexil.it/chroma/student/search\"])[2]")
-    public WebElement studentDetailsSubModule;
 
     // "Record Saved Successfully" text
     @FindBy(xpath = "//div[@class='alert alert-success']")
@@ -93,7 +88,7 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//input[@id='email']")
     public WebElement emailTextBox;
 
-    // Bloog Group dropDown
+    // Blood Group dropDown
     @FindBy(xpath = "//select[@name='blood_group']")
     public WebElement bloodGroupDropDown;
 
@@ -133,9 +128,57 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//input[@id='admission_date']")
     public WebElement admissionDateTextBox;
 
+    // Student Photo uplaodFileButton
+    @FindBy(xpath = "(//input[@type='file'])[1]")
+    public WebElement studentPhotoUpload;
+
+    // Father Photo uploadFileButton
+    @FindBy(xpath = "(//input[@type='file'])[2]")
+    public WebElement fatherPhotoUpload;
+
+    // Mother Photo uploadFile button
+    @FindBy(xpath = "(//input[@type='file'])[3]")
+    public WebElement motherPhotoUpload;
+
+    // Guardian Photo uploadFile button
+    @FindBy(xpath = "(//input[@type='file'])[4]")
+    public WebElement guardianPhotoUpload;
+
     // As on Date textBox
     @FindBy(xpath = "//input[@id='measure_date']")
     public WebElement asOnDateTextBox;
+
+    // Add Sibling button
+    @FindBy(xpath = "//button[normalize-space()='Add Sibling']")
+    public WebElement addSiblingButton;
+
+    // Class dropDown In The Sibling modal dialog
+    @FindBy(xpath = "//select[@id='sibiling_class_id']")
+    public WebElement classDropDownInTheSiblingModalDialog;
+
+    // Section dropDown In The Sibling modal dialog
+    @FindBy(xpath = "//select[@id='sibiling_section_id']")
+    public WebElement sectionDropDownInTheSiblingModalDialog;
+
+    // Student dropDown In The Sibling modal dialog
+    @FindBy(xpath = "//select[@id='sibiling_student_id']")
+    public WebElement studentDropDownInTheSiblingModalDialog;
+
+    // Add button In The Siblings modal dialog
+    @FindBy(xpath = "//button[@id='load']")
+    public WebElement addButtonInTheSiblingModalDialog;
+
+    // Sibling Name text
+    @FindBy(xpath = "//span[@id='sibling_name']")
+    public WebElement siblingNameText;
+
+    // Previous School Details textBox
+    @FindBy(xpath = "//textarea[@name='previous_school']")
+    public WebElement previousSchoolDetailsTextBox;
+
+    // Note textBox
+    @FindBy(xpath = "//textarea[@name='note']")
+    public WebElement noteTextBox;
 
     // Guardian Email textBox
     @FindBy(xpath = "//input[@id='guardian_email']")
@@ -145,8 +188,97 @@ public class StudentAdmissionPage {
     @FindBy(xpath = "//textarea[@id='guardian_address']")
     public WebElement guardianAddressTextBox;
 
+    // Add More Details box plus button
+    @FindBy(xpath = "//a[@class='collapsed btn boxplus']")
+    public WebElement addMoreBoxPlusButton;
 
-    public StudentAdmissionPage() {
-        PageFactory.initElements(driver, this);
+    // Student Address Details header
+    @FindBy(xpath = "//h4[contains(text(), 'Student Address Details')]")
+    public WebElement studentAddressDetailsHeader;
+
+    // If Guardian Address is Current Address checkBox
+    @FindBy(xpath = "//input[@id='autofill_current_address']")
+    public WebElement ifGuardianAddressIsCurrentAddressCheckbox;
+
+    // Current Address textBox
+    @FindBy(xpath = "//textarea[@id='current_address']")
+    public WebElement currentAddressTextBox;
+
+    // If Permanent Address is Current Address checkBox;
+    @FindBy(xpath = "//input[@id='autofill_address']")
+    public WebElement ifPermanentAddressIsCurrentAddressCheckBox;
+
+    // Permanent Address textBox
+    @FindBy(xpath = "//textarea[@id='permanent_address']")
+    public WebElement permanentAddressTextBox;
+
+    // Miscellaneous Details header
+    @FindBy(xpath = "//h4[normalize-space()='Miscellaneous Details']")
+    public WebElement miscellaneousDetailsHeader;
+
+    // Bank Account Number textBox
+    @FindBy(xpath = "//input[@id='bank_account_no']")
+    public WebElement bankAccountNumberTextBox;
+
+    // Bank Name textBox
+    @FindBy(xpath = "//input[@id='bank_name']")
+    public WebElement bankNameTextBox;
+
+    // IFSC Code textBox
+    @FindBy(xpath = "//input[@id='ifsc_code']")
+    public WebElement iFSCCodetextBox;
+
+    // National Identification Number textBox
+    @FindBy(xpath = "//input[@id='adhar_no']")
+    public WebElement nationalIdentificationNumberTextBox;
+
+    // Local Identification Number textBox
+    @FindBy(xpath = "//input[@id='samagra_id']")
+    public WebElement localIdentificationNumberTextBox;
+
+    // Upload Documents Header textElement
+    @FindBy(xpath = "//h4[text()='Upload Documents']")
+    public WebElement uploadDocumentsHeaderText;
+
+    // Title #1 textBox
+    @FindBy(xpath = "(//input[contains(@name,'title')])[1]")
+    public WebElement titleOneTextBox;
+
+    // Title #2 textBox
+    @FindBy(xpath = "(//input[contains(@name,'title')])[2]")
+    public WebElement titleTwoTextBox;
+
+    // Title #3 textBox
+    @FindBy(xpath = "(//input[contains(@name,'title')])[3]")
+    public WebElement titleThreeTextBox;
+
+    // Title #4 textBox
+    @FindBy(xpath = "(//input[contains(@name,'title')])[4]")
+    public WebElement titleFourTextBox;
+
+    // Doc #1 upload textBox
+    @FindBy(xpath = "(//input[contains(@name,'doc')])[1]")
+    public WebElement documentOneTextBox;
+
+    // Doc #2 upload textBox
+    @FindBy(xpath = "(//input[contains(@name,'doc')])[2]")
+    public WebElement documentTwoTextBox;
+
+    // Doc #3 upload textBox
+    @FindBy(xpath = "(//input[contains(@name,'doc')])[3]")
+    public WebElement documentThreeTextBox;
+
+    // Doc #4 upload textBox
+    @FindBy(xpath = "(//input[contains(@name,'doc')])[4]")
+    public WebElement documentFourTextBox;
+
+    // Dynamic If Guardian Is radioButton
+    public static WebElement dynamicIfGuardianRadioButton(String text) {
+        return driver.findElement(By.xpath("//input[@value='" + text.toLowerCase() + "']"));
+    }
+
+    // Dynamic RTE radioButtons
+    public WebElement rteRadioButton(String text) {
+        return driver.findElement(By.xpath("//input[@value='" + text + "']"));
     }
 }

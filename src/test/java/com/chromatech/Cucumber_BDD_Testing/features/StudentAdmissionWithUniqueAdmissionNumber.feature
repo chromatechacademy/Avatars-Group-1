@@ -1,86 +1,153 @@
 Feature: AG1CP-13: Student Admission with Unique Admission Number
 
   @Regression @AG1CP-13 @Vlad @StudentAdmissionWithUniqueAdmissionNumber
-  Scenario: Student Admission with Unique Admission Number (Flow: Create - Search - Create - Delete)
-    Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
-    When the user enters username "general@teacher.com" in username text box
-    When the user enters password "123456" in password text box
-    And clicks on Sign In button
-    Then the user is successfully directed to the dashboard page "https://mexil.it/chroma/admin/admin/dashboard"
-    And user clicks on the "Student Information" module
-    And within the expanded module, clicks on the "Student Admission" submodule
-    Then user is on the Student Admission page "https://mexil.it/chroma/student/create"
-    When user enters Unique Admission Number "42001"
-    And user enters Roll Number "1001"
-    And selects "SDET" for class drop down
-    And selects "Cucumber Fundamentals" for section drop down
-    And enters first name "FirstName"
-    And enters last name "Last Name"
-    And selects "Female" from gender drop down
-    And selects "01/02/1991" for Date of Birth Calendar
-    And selects "new" from category drop down
-    And enters email "test@email.com"
-    And enters admission date "04/20/2024"
-    And selects "A+" from blood group drop down
-    And enters As on Date "04/20/2024"
-    And enters mobile number "6028808888"
-    And enters height "6'3"
-    And enters weight "9999"
-    And enters father name "FatherName"
-    And enters father phone "6028801111"
-    And enters father occupation "Father Occupation"
-    And enters mother name "MotherName"
-    And enters mother phone "6028802222"
-    And enters mother occupation "Mother Occupation"
-    And selects "mother" radio button for If guardian is field
-    And enters guardian name "Chroma"
-    And enters guardian relation "Tech"
-    And enters guardian email "guardian@email.com"
-    And enters guardian phone "6028801020"
-    And enters guardian occupation "Academy"
-    And enters guardian address "1142 G Address"
+  Scenario: Student Admission with Unique Admission Number
+    Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
+    When user goes to the "Bulk Delete" page:
+      | Module              | SubModule   | URL                                        |
+      | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
+    When if a student record already exists, the user deletes it:
+      | Class | Section               | Admission Number | Alert Text                            |
+      | SDET  | Cucumber Fundamentals | 999400567        | Are you sure you want to delete this? |
+    When user goes to the "Student Admission" page:
+      | Module              | SubModule         | URL                                    |
+      | Student Information | Student Admission | https://mexil.it/chroma/student/create |
+    And user fills the first row:
+      | Admission No | Roll Number  | Class | Section               |
+      | 999400567    | 882392937501 | SDET  | Cucumber Fundamentals |
+    And user fills the second row:
+      | First Name | Last Name | Gender | Date of Birth |
+      | Vlad       | Islav     | Male   | 01/02/1991    |
+    And user fills the third row:
+      | Category | Email                   |
+      | new      | vladislav1142@gmail.com |
+    And user fills the fourth row:
+      | Admission Date | Blood Group | As on Date |
+      | 04/20/2024     | A+          | 04/20/2024 |
+    And user fills the fifth row:
+      | Mobile Number | Height | Weight |
+      | 6028808888    | 6'3    | 9999   |
+    And user adds father's information:
+      | Father Name  | Father Phone | Father Occupation |
+      | Leaha Petrov | 6028801111   | Father Occupation |
+    And user adds mother's information:
+      | Mother Name     | Mother Phone         | Mother Occupation |
+      | Tamaria Petrova | 60288602880222201111 | Mother Occupation |
+    And user selects "Mother" in If Guardian Is radiobuttons
+    And user adds the first row of guardian's information:
+      | Guardian Name | Guardian Relation | Guardian Email              |
+      | Chroma        | Tech              | charomatechacademy@the.best |
+    And user adds the second row of guardian's information:
+      | Guardian Phone | Guardian Occupation | Guardian Address                                       |
+      | 6028801020     | Academy             | Monsters Street 3587, East Worcester, Guernsey, 497905 |
+    And user adds information in the "Student Address Details" block:
+      | If Guardian Address is Current Address  | true                                                     |
+      | Current Address                         | Accountability Street 6348, Vader, Lithuania, 076645     |
+      | If Permanent Address is Current Address | true                                                     |
+      | Permanent Address                       | Terms Street 6744, Siletz, Saint Kitts And Nevis, 459138 |
+    And user adds information in the first row of the "Miscellaneous Details" section:
+      | Bank Account Number | Bank Name   | IFSC Code |
+      | 1301822             | GraphicBank | 395       |
+    And user adds information in the second row of the "Miscellaneous Details" section:
+      | National Identification Number | Local Identification Number | RTE |
+      | 122101706                      | 121000358                   | Yes |
+    And user adds information in the third row of the "Miscellaneous Details" section:
+      | Previous School Details             | Note                                        |
+      | https://jurisdictionkooif9oevxks.qp | At least here, can we not make up the text? |
+    And fills out all text fields and uploads files in the "Upload Documents" section:
+      | Title #1 | Title #2 | Title #3 | Title #4 |
+      | Vander   | Medarda  | Victor   | Jayce    |
     And saves submission
-    Then user sees a message about successful card creation "Record Saved Successfully"
-    When user clicks on the "Student Details" submodule
-    And the user navigates to the student search page "https://mexil.it/chroma/student/search"
-    When the user selects "SDET" in the Class dropdown
-    And selects "Cucumber Fundamentals" in the Section dropdown
-    And enters the Admission Number "42001" in the Search By Keyword field
-    And clicks the search button
-    Then make sure the entry "42001" is in the list
-    When within the expanded module, clicks on the "Student Admission" submodule
-    Then user is on the Student Admission page "https://mexil.it/chroma/student/create"
-    When user enters Unique Admission Number "42001"
-    And user enters Roll Number "1001"
-    And selects "SDET" for class drop down
-    And selects "Cucumber Fundamentals" for section drop down
-    And enters first name "FirstName"
-    And enters last name "Last Name"
-    And selects "Female" from gender drop down
-    And selects "01/02/1991" for Date of Birth Calendar
-    And selects "new" from category drop down
-    And enters email "test@email.com"
-    And enters admission date "04/20/2024"
-    And selects "A+" from blood group drop down
-    And enters As on Date "04/20/2024"
-    And enters mobile number "6028808888"
-    And enters height "6'3"
-    And enters weight "9999"
-    And enters father name "FatherName"
-    And enters father phone "6028801111"
-    And enters father occupation "Father Occupation"
-    And enters mother name "MotherName"
-    And enters mother phone "6028802222"
-    And enters mother occupation "Mother Occupation"
-    And selects "mother" radio button for If guardian is field
-    And enters guardian email "guardian@email.com"
-    And enters guardian address "1142 G Address"
+    Then user receives a message of success "Record Saved Successfully"
+    When user goes to the "Student Details" page:
+      | Module              | SubModule       | URL                                    |
+      | Student Information | Student Details | https://mexil.it/chroma/student/search |
+    And user is searching for a student record based on parameters:
+      | Class            | SDET                  |
+      | Section          | Cucumber Fundamentals |
+      | Admission Number | 999400567             |
+    Then make sure the entry "999400567" is in the list and verify data
+      | Admission Number | 999400567                   |
+      | Student Name     | Vlad Islav                  |
+      | Class(Section)   | SDET(Cucumber Fundamentals) |
+      | Father Name      | Leaha Petrov                |
+      | Date of Birth    | 01/02/1991                  |
+      | Gender           | Male                        |
+      | Category         | new                         |
+      | Mobile Number    | 6028808888                  |
+      | Height           | 6'3                         |
+      | Weight           | 9999                        |
+    When user goes to the "Student Admission" page:
+      | Module              | SubModule         | URL                                    |
+      | Student Information | Student Admission | https://mexil.it/chroma/student/create |
+    And user fills the first row:
+      | Admission No | Roll Number  | Class | Section               |
+      | 999400567    | 882392937501 | SDET  | Cucumber Fundamentals |
+    And user fills the second row:
+      | First Name | Last Name | Gender | Date of Birth |
+      | Vlad       | Islav     | Male   | 01/02/1991    |
+    And user fills the third row:
+      | Category | Email                   |
+      | new      | vladislav1142@gmail.com |
+    And user fills the fourth row:
+      | Admission Date | Blood Group | As on Date |
+      | 04/20/2024     | A+          | 04/20/2024 |
+    And user fills the fifth row:
+      | Mobile Number | Height | Weight |
+      | 6028808888    | 6'3    | 9999   |
+    And user adds father's information:
+      | Father Name  | Father Phone | Father Occupation |
+      | Leaha Petrov | 6028801111   | Father Occupation |
+    And user adds mother's information:
+      | Mother Name     | Mother Phone         | Mother Occupation |
+      | Tamaria Petrova | 60288602880222201111 | Mother Occupation |
+    And user selects "Mother" in If Guardian Is radiobuttons
+    And user adds the first row of guardian's information:
+      | Guardian Name | Guardian Relation | Guardian Email              |
+      | Chroma        | Tech              | charomatechacademy@the.best |
+    And user adds the second row of guardian's information:
+      | Guardian Phone | Guardian Occupation | Guardian Address                                       |
+      | 6028801020     | Academy             | Monsters Street 3587, East Worcester, Guernsey, 497905 |
+    And user adds information in the "Student Address Details" block:
+      | If Guardian Address is Current Address  | true                                                     |
+      | Current Address                         | Accountability Street 6348, Vader, Lithuania, 076645     |
+      | If Permanent Address is Current Address | true                                                     |
+      | Permanent Address                       | Terms Street 6744, Siletz, Saint Kitts And Nevis, 459138 |
+    And user adds information in the first row of the "Miscellaneous Details" section:
+      | Bank Account Number | Bank Name   | IFSC Code |
+      | 1301822             | GraphicBank | 395       |
+    And user adds information in the second row of the "Miscellaneous Details" section:
+      | National Identification Number | Local Identification Number | RTE |
+      | 122101706                      | 121000358                   | Yes |
+    And user adds information in the third row of the "Miscellaneous Details" section:
+      | Previous School Details             | Note                                        |
+      | https://jurisdictionkooif9oevxks.qp | At least here, can we not make up the text? |
+    And fills out all text fields and uploads files in the "Upload Documents" section:
+      | Title #1 | Title #2 | Title #3 | Title #4 |
+      | Vander   | Medarda  | Victor   | Jayce    |
     And saves submission
-    Then user sees error message "The Admission No field must contain a unique value."
-    When user clicks on the submodule "Bulk Delete" to delete a student record
-    Then user is on the page for deleting records "https://mexil.it/chroma/student/bulkdelete"
-    When user selects the student's class "SDET" from the dropdown list
-    And user selects the student's section "Cucumber Fundamentals" from the dropdown list
-    And user clicks on the search button
-    And user clicks on the checkbox next to the record with the Admission Number "42001"
-    And user clicks on the delete button and accept alert with text "Are you sure you want to delete this?"
+    Then user receives an error message "The Admission No field must contain a unique value."
+    When user goes to the "Student Details" page:
+      | Module              | SubModule       | URL                                    |
+      | Student Information | Student Details | https://mexil.it/chroma/student/search |
+    And user is searching for a student record based on parameters:
+      | Class            | SDET                  |
+      | Section          | Cucumber Fundamentals |
+      | Admission Number | 999400567             |
+    Then make sure the entry "999400567" is in the list and verify data
+      | Admission Number | 999400567                   |
+      | Student Name     | Vlad Islav                  |
+      | Class(Section)   | SDET(Cucumber Fundamentals) |
+      | Father Name      | Leaha Petrov                |
+      | Date of Birth    | 01/02/1991                  |
+      | Gender           | Male                        |
+      | Category         | new                         |
+      | Mobile Number    | 6028808888                  |
+      | Height           | 6'3                         |
+      | Weight           | 9999                        |
+    When user goes to the "Bulk Delete" page:
+      | Module              | SubModule   | URL                                        |
+      | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
+    When if a student record already exists, the user deletes it:
+      | Class | Section               | Admission Number | Alert Text                            |
+      | SDET  | Cucumber Fundamentals | 999400567        | Are you sure you want to delete this? |
