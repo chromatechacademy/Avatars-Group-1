@@ -13,5 +13,5 @@ import org.testng.annotations.DataProvider;
         dryRun = false
 )
 
-public class Run_CTSMS_Smoke_Test extends AbstractTestNGCucumberTests {git
+public class Run_CTSMS_Smoke_Test extends AbstractTestNGCucumberTests {
 }
