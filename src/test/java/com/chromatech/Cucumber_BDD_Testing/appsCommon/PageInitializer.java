@@ -17,6 +17,8 @@ public class PageInitializer {
     public static StudentAdmissionPage studentAdmissionPage;
     public static ClassAndSectionPage classAndSectionPage;
     public static ExpenseHeadPage expenseHeadPage;
+    public static CategoryPage categoryPage;
+    public static StepImplementation stepImplementation;
     public static ClassPage classPage;
 
     public static void initializeAllPages() {
@@ -29,6 +31,8 @@ public class PageInitializer {
         studentAdmissionPage = new StudentAdmissionPage();
         classAndSectionPage = new ClassAndSectionPage();
         expenseHeadPage = new ExpenseHeadPage();
+        categoryPage = new CategoryPage();
+        stepImplementation = new StepImplementation();
         classPage = new ClassPage();
     }
 }

@@ -10,6 +10,7 @@ Feature: Ability to edit student records
     When the user clicks on Student Information module
     And user clicks on Student Admission
     When user enters admission number field to the "66011"
+    When user enters admission number field to the "87654"
     When the user selects "SDET" in the Class dropdown
     And selects "Cucumber Fundamentals" in the Section dropdown
     And user enters first name field to "8ill"
@@ -30,6 +31,13 @@ Feature: Ability to edit student records
     And clicks on edit button located near top right pencil icon
     And user edits roll number field to "42222"
     And user edits first name field to "Mr.$am"
+    And enters the Admission Number "87654" in the Search By Keyword field
+    And clicks the search button
+    Then make sure the entry "87654" is in the list
+    When user clicks on the name of student record with admission number "87654"
+    And clicks on edit button located near top right pencil icon
+    And user edits roll number field to "98765"
+    And user edits first name field to "Mr.Bo$$"
     And user edits last name field to "R@dio Head"
     And user edits gender field drop down to "Male"
     And user edits DOB field to "05/05/2005"
@@ -64,3 +72,4 @@ Feature: Ability to edit student records
     And user selects the section drop down "Cucumber Fundamentals"
     And user clicks on search button
     And user selects "66011" student admission number and deletes it
+    And user selects "87654" student admission number and deletes it

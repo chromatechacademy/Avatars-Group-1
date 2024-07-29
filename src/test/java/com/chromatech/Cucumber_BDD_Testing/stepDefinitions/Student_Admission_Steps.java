@@ -50,7 +50,7 @@ public class Student_Admission_Steps extends PageInitializer {
 
     @When("user addins information in the {string} section:")
     public void user_addins_information_in_the_section(String headerText, DataTable dataTable) {
-        studentAdmissionPage.user_addins_information_in_the_section(headerText, dataTable);
+        studentAdmissionPage.user_addings_information_in_the_section(headerText, dataTable);
     }
 
     @When("saves submission")
