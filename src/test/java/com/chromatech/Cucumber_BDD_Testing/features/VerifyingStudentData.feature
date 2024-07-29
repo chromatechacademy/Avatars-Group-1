@@ -1,6 +1,6 @@
 Feature: AG1CP-27: Verifying Student Data
 
-  @Regression @AG1CP-27 @Vannia
+  @Regression @AG1CP-27 @Vannia @Smoke
   Scenario: Verifying Student Data
       Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
       When user goes to the "Disabled Students" page:

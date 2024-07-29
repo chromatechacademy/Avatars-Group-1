@@ -84,7 +84,7 @@ public class StepsImplementation extends PageInitializer {
      */
     public static void user_goes_to_the_page(String subModuleName, DataTable dataTable) {
         if (!(DashboardPage.findSubModuleByText(subModuleName).isDisplayed())) {
-            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(1 ,0))); // Module
+            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(1, 0))); // Module
         }
         CommonMethods.click(DashboardPage.findSubModuleByText(dataTable.cell(1, 1))); // SubModule
         CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
@@ -94,14 +94,14 @@ public class StepsImplementation extends PageInitializer {
      * Navigates the user to the student admission page.
      *
      * @param dataTable a DataTable object containing the data for the navigation
-     *    - Module: the name of the module to be clicked on the dashboard page
-     *    - URL: the expected URL of the student admission page
+     *                  - Module: the name of the module to be clicked on the dashboard page
+     *                  - URL: the expected URL of the student admission page
      */
     public static void user_goes_to_the_student_admission_page(DataTable dataTable) {
         if (!(dashboardPage.studentAdmissionSubModule.isDisplayed())) {
-            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(0 ,1))); // Module
+            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(0, 1))); // Module
         }
-        CommonMethods.assertEquals(dashboardPage.studentAdmissionSubModule.getText(), dataTable.cell(1 ,1));
+        CommonMethods.assertEquals(dashboardPage.studentAdmissionSubModule.getText(), dataTable.cell(1, 1));
         CommonMethods.click(dashboardPage.studentAdmissionSubModule); // SubModule
         CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
     }
@@ -577,7 +577,7 @@ public class StepsImplementation extends PageInitializer {
     /**
      * Performs a user click on a button and accepts an alert with specified text.
      *
-     * @param text The text representing the button action. It can be either "disable" or "enable".
+     * @param text      The text representing the button action. It can be either "disable" or "enable".
      * @param alertText The text expected in the alert message.
      */
     public static void user_clicks_on_the_button_and_accept_alert_with_text(String text, String alertText) {
@@ -596,7 +596,7 @@ public class StepsImplementation extends PageInitializer {
      * Enters data into the modal window.
      *
      * @param modalDialogHeaderText The expected header text for the modal dialog.
-     * @param dataTable The data table containing the input values.
+     * @param dataTable             The data table containing the input values.
      */
     public static void enters_data_into_the_modal_window(String modalDialogHeaderText, DataTable dataTable) {
         CommonMethods.waitForVisibility(studentDetailsPage.disableButton);
@@ -677,5 +677,27 @@ public class StepsImplementation extends PageInitializer {
     public static void accepts_alert_with_text(String text) {
         CommonMethods.assertEquals(CommonMethods.getAlertText(), text);
         CommonMethods.acceptAlert();
+    }
+
+    public static void user_click_on_delete_button_to_remove_name_and_confirm(String Oksana) {
+        CommonMethods.waitForClickability(CategoryPage.dynamicDeleteRecordLocator(Oksana));
+        categoryPage.deleteButton.isDisplayed();
+        CategoryPage.dynamicDeleteRecordLocator(Oksana).click();
+        CommonMethods.acceptAlert();
+    }
+
+    public static void the_module_is_displays(String expectedHomeworkModuleText) {
+        CommonMethods.assertTrue(dashboardPage.studentHomeworkModule.isDisplayed());
+        CommonMethods.assertEquals(dashboardPage.studentHomeworkModule.getText(), expectedHomeworkModuleText);
+    }
+
+    public static void the_user_clicks_on_the_Homework_module() {
+        CommonMethods.assertTrue(dashboardPage.studentHomeworkModule.isDisplayed());
+        CommonMethods.click(dashboardPage.studentInformationModule);
+    }
+
+    public static void the_submodule_is_displays(String expectedAddHomeworkSubmoduleText) {
+        CommonMethods.assertTrue(dashboardPage.addHomework.isDisplayed());
+        CommonMethods.assertEquals(dashboardPage.addHomework.getText().trim(), expectedAddHomeworkSubmoduleText);
     }
 }
