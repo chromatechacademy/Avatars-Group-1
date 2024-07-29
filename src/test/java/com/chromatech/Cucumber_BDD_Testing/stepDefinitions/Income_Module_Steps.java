@@ -5,7 +5,7 @@ import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class Income_Module_Steps extends PageInitializer {
+public class  Income_Module_Steps extends PageInitializer {
 
     @When("user clicks on Income module")
     public void user_clicks_on_income_module() {
