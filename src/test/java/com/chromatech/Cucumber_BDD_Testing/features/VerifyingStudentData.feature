@@ -9,8 +9,8 @@ Feature: AG1CP-27: Verifying Student Data
       And user is searching for a student record based on parameters:
         | Class            | SDET                  |
         | Section          | Cucumber Fundamentals |
-        | Admission Number | 44044                 |
-      And make the record "44044" enabled if it is in the list
+        | Admission Number | 808090                 |
+      And make the record "808090" enabled if it is in the list
       When user goes to the "Bulk Delete" page:
         | Module              | SubModule   | URL                                        |
         | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
@@ -22,7 +22,7 @@ Feature: AG1CP-27: Verifying Student Data
         | Student Information | Student Admission | https://mexil.it/chroma/student/create |
       And user fills the first row:
         | Admission No | Roll Number | Class | Section               |
-        | 44044        | 10015555    | SDET  | Cucumber Fundamentals |
+        | 808090        | 10015555    | SDET  | Cucumber Fundamentals |
       And user fills the second row:
         | First Name | Last Name | Gender | Date of Birth |
         | Vlad       | Islav     | Male   | 01/02/1991    |
@@ -73,9 +73,9 @@ Feature: AG1CP-27: Verifying Student Data
       And user is searching for a student record based on parameters:
         | Class            | SDET                  |
         | Section          | Cucumber Fundamentals |
-        | Admission Number | 44044                 |
-      Then make sure the entry "44044" is in the list and verify data
-        | Admission Number | 44044                       |
+        | Admission Number | 808090                 |
+      Then make sure the entry "808090" is in the list and verify data
+        | Admission Number | 808090                       |
         | Student Name     | Vlad Islav                  |
         | Class(Section)   | SDET(Cucumber Fundamentals) |
         | Father Name      | Leaha Petrov                |
@@ -85,11 +85,11 @@ Feature: AG1CP-27: Verifying Student Data
         | Mobile Number    | 6028808888                  |
         | Height           | 6'3                         |
         | Weight           | 9999                        |
-      And click on the student name in the record "44044"
+      And click on the student name in the record "808090"
       Then user navidates to the Student Details page "https://mexil.it/chroma/student/view"
       And verifies the information in the student name block:
         | Student Name     | Vlad Islav            |
-        | Admission Number | 44044                 |
+        | Admission Number | 808090                 |
         | Roll Number      | 10015555              |
         | Class            | SDET (2020-21)        |
         | Section          | Cucumber Fundamentals |
@@ -97,7 +97,7 @@ Feature: AG1CP-27: Verifying Student Data
         | Gender           | Male                  |
       And if the "Sibling" block is displayed, verifies the data from that block:
         | Sibling Name             | Vlad Islav            |
-        | Sibling Admission Number | 44044                 |
+        | Sibling Admission Number | 808090                 |
         | Sibling Class            | SDET                  |
         | Sibling Section          | Cucumber Fundamentals |
       And checks the data from the first block under the "Profile" tab:
@@ -138,13 +138,13 @@ Feature: AG1CP-27: Verifying Student Data
         | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
       When if a student record already exists, the user deletes it:
         | Class | Section               | Admission Number | Alert Text                            |
-        | SDET  | Cucumber Fundamentals | 33004            | Are you sure you want to delete this? |
+        | SDET  | Cucumber Fundamentals | 707010            | Are you sure you want to delete this? |
       When user goes to the "Student Admission" page:
         | Module              | SubModule         | URL                                    |
         | Student Information | Student Admission | https://mexil.it/chroma/student/create |
       And user fills the first row:
         | Admission No | Roll Number | Class | Section               |
-        | 33004        | 10018800    | SDET  | Cucumber Fundamentals |
+        | 707010        | 10018800    | SDET  | Cucumber Fundamentals |
       And user fills the second row:
         | First Name | Last Name | Gender | Date of Birth |
         | Vlad       | Islav     | Male   | 01/02/1991    |
@@ -198,9 +198,9 @@ Feature: AG1CP-27: Verifying Student Data
       And user is searching for a student record based on parameters:
         | Class            | SDET                  |
         | Section          | Cucumber Fundamentals |
-        | Admission Number | 33004                 |
-      Then make sure the entry "33004" is in the list and verify data
-        | Admission Number | 33004                       |
+        | Admission Number | 707010                 |
+      Then make sure the entry "707010" is in the list and verify data
+        | Admission Number | 707010                       |
         | Student Name     | Vlad Islav                  |
         | Class(Section)   | SDET(Cucumber Fundamentals) |
         | Father Name      | Leaha Petrov                |
@@ -210,11 +210,11 @@ Feature: AG1CP-27: Verifying Student Data
         | Mobile Number    | 6028808888                  |
         | Height           | 6'3                         |
         | Weight           | 9999                        |
-      And click on the student name in the record "33004"
+      And click on the student name in the record "707010"
       Then user navidates to the Student Details page "https://mexil.it/chroma/student/view"
       And verifies the information in the student name block:
         | Student Name     | Vlad Islav            |
-        | Admission Number | 33004                 |
+        | Admission Number | 707010                 |
         | Roll Number      | 10018800              |
         | Class            | SDET (2020-21)        |
         | Section          | Cucumber Fundamentals |
@@ -222,7 +222,7 @@ Feature: AG1CP-27: Verifying Student Data
         | Gender           | Male                  |
       And if the "Sibling" block is displayed, verifies the data from that block:
         | Sibling Name             | Vlad Islav            |
-        | Sibling Admission Number | 44044                 |
+        | Sibling Admission Number | 808090                 |
         | Sibling Class            | SDET                  |
         | Sibling Section          | Cucumber Fundamentals |
       And checks the data from the first block under the "Profile" tab:
@@ -263,10 +263,10 @@ Feature: AG1CP-27: Verifying Student Data
         | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
       When if a student record already exists, the user deletes it:
         | Class | Section               | Admission Number | Alert Text                            |
-        | SDET  | Cucumber Fundamentals | 44044            | Are you sure you want to delete this? |
+        | SDET  | Cucumber Fundamentals | 808090            | Are you sure you want to delete this? |
       When user goes to the "Bulk Delete" page:
         | Module              | SubModule   | URL                                        |
         | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
       When if a student record already exists, the user deletes it:
         | Class | Section               | Admission Number | Alert Text                            |
-        | SDET  | Cucumber Fundamentals | 33004            | Are you sure you want to delete this? |
+        | SDET  | Cucumber Fundamentals | 707010            | Are you sure you want to delete this? |

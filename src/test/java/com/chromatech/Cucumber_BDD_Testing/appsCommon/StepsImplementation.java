@@ -86,6 +86,7 @@ public class StepsImplementation extends PageInitializer {
         if (!(DashboardPage.findSubModuleByText(subModuleName).isDisplayed())) {
             CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(1 ,0))); // Module
         }
+        CommonMethods.waitForClickability(DashboardPage.findSubModuleByText(dataTable.cell(1, 1)));
         CommonMethods.click(DashboardPage.findSubModuleByText(dataTable.cell(1, 1))); // SubModule
         CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
     }
@@ -524,22 +525,39 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.acceptAlert();
     }
 
+    /**
+     * Scrolls into view the x button and clicks on it to delete.
+     */
     public static void the_user_clicks_on_the_x_button_to_delete() {
         JavascriptMethods.scrollIntoView(expenseHeadPage.expenseHeadBill);
         expenseHeadPage.expenseHeadXBtn.click();
         CommonMethods.acceptAlert();
     }
 
+    /**
+     * This method checks if a Chroma Tech user is on the dashboard page.
+     * It verifies that the dashboard page header is displayed and the text on the header is the same as expected.
+     */
     public static void a_chroma_tech_user_is_on_the_dashboard_page() {
         CommonMethods.assertTrue(classAndSectionPage.dashBoardPageHeader.isDisplayed());
         CommonMethods.assertEquals(classAndSectionPage.dashBoardPageHeader.getText(), classAndSectionPage.dashBoardPageHeader.getText());
     }
 
+    /**
+     * Navigates the user to the Class submodule in the Academics module.
+     */
     public static void the_user_navigates_to_the_class_submodule() {
         classAndSectionPage.academicsModuleTab.click();
         classAndSectionPage.classSubmodule.click();
     }
 
+    /**
+     * This method verifies the presence of two classes, SDET and Cyber Security, along with their sections.
+     *
+     * @param class1 The name of the first class to be verified.
+     * @param section1 The name of the section for the first class to be verified.
+     * @param dataTable The DataTable object representing the table of sections and their presence.
+     */
     public static void there_are_two_classes_sdet_and_cyber_security_displayed_with_the_following_sections(String class1, String section1, DataTable dataTable) {
         CommonMethods.assertTrue(classAndSectionPage.sdetClass.isDisplayed());
         CommonMethods.assertTrue(classAndSectionPage.cyberSecurityClass.isDisplayed());
@@ -714,6 +732,11 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.acceptAlert();
     }
 
+    /**
+     * Clicks on the delete button to remove a specific name and confirms the deletion.
+     *
+     * @param name the name to be removed
+     */
     public static void user_click_on_delete_button_to_remove_name_and_confirm(String Oksana) {
         CommonMethods.waitForClickability(CategoryPage.dynamicDeleteRecordLocator(Oksana));
         categoryPage.deleteButton.isDisplayed();
@@ -721,16 +744,32 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.acceptAlert();
     }
 
+    /**
+     *
+     * The method verifies if the student homework module is displayed and
+     * it matches the expected homework module text.
+     *
+     * @param expectedHomeworkModuleText the expected text to be displayed in the student homework module
+     */
     public static void the_module_is_displays(String expectedHomeworkModuleText) {
         CommonMethods.assertTrue(dashboardPage.studentHomeworkModule.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.studentHomeworkModule.getText(), expectedHomeworkModuleText);
     }
 
+    /**
+     * Clicks on the Homework module in the user interface.
+     * It verifies that the Homework module is displayed and then performs a click action on it.
+     */
     public static void the_user_clicks_on_the_Homework_module() {
         CommonMethods.assertTrue(dashboardPage.studentHomeworkModule.isDisplayed());
         CommonMethods.click(dashboardPage.studentInformationModule);
     }
 
+    /**
+     * Check if the submodule "Add Homework" is displayed and has the expected text.
+     *
+     * @param expectedAddHomeworkSubmoduleText The expected text of the "Add Homework" submodule.
+     */
     public static void the_submodule_is_displays(String expectedAddHomeworkSubmoduleText) {
         CommonMethods.assertTrue(dashboardPage.addHomework.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.addHomework.getText().trim(), expectedAddHomeworkSubmoduleText);
