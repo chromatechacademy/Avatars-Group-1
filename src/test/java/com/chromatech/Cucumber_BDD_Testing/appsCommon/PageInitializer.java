@@ -20,7 +20,6 @@ public class PageInitializer {
     public static StudentDetailsPage studentDetailsPage;
     public static DisabledStudentsPage disabledStudentsPage;
     public static CategoryPage categoryPage;
-    public static StepImplementation stepImplementation;
     public static ClassPage classPage;
 
     public static void initializeAllPages() {
@@ -36,7 +35,6 @@ public class PageInitializer {
         studentDetailsPage = new StudentDetailsPage();
         disabledStudentsPage = new DisabledStudentsPage();
         categoryPage = new CategoryPage();
-        stepImplementation = new StepImplementation();
         classPage = new ClassPage();
     }
 }
