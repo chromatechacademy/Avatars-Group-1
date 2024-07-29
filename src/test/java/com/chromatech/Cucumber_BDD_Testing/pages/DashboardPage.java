@@ -33,7 +33,7 @@ public class DashboardPage {
     public WebElement classSubmodule;
 
     // Dynamic Xpath: Find module by text
-    public WebElement findModuleByText(String text) {
+    public static WebElement findModuleByText(String text) {
         return driver.findElement(By.xpath("//span[text()='" + text + "']"));
     }
 
@@ -41,9 +41,9 @@ public class DashboardPage {
     @FindBy(xpath = "//ul[@class='treeview-menu menu-open']//a[normalize-space()='Student Details']")
     public WebElement studentDetailsSubModule;
 
-    // Dynamic Submodule by name
-    public WebElement findSubModuleByText(String subModuleName) {
-        return driver.findElement(By.xpath("//a[text()=' " + subModuleName + "']"));
+    // Dynamic submodule by name
+    public static WebElement findSubModuleByText(String subModuleName) {
+        return driver.findElement(By.xpath("//a[text()= ' " + subModuleName + "']"));
     }
 
     // Student Admission Submodule
