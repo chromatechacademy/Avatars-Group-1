@@ -10,6 +10,8 @@ Feature: AG1CP-17: AcademicModuleSections
     Given a Chroma Tech faculty member clicks the "Academics" module
     When the user navigates to the "Sections" submodule
     And check the section " DMY" not exist
+    And find  section "Section Name" box
     Then adds a section key "DMY"
     And the section "DMY" is added
     And the user can also delete the section "DMY"
+    And check the section " DMY" not exist

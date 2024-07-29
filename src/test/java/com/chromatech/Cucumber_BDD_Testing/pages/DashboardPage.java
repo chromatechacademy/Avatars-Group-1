@@ -111,6 +111,15 @@ public class DashboardPage {
     @FindBy(xpath = "//a[normalize-space()='Sections']")
     public WebElement academicSections;
 
+    //Sections Module Box
+    @FindBy(xpath = "(//input[@id='section'])[1]")
+    public  WebElement academicSectionBox;
+
+    //Sections Module create ID
+
+
+
+
     public DashboardPage() {
         PageFactory.initElements(WebDriverUtils.driver, this);
     }

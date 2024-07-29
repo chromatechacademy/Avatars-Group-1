@@ -4,7 +4,10 @@ import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.SectionPage;
 import com.chromatech.utils.CommonMethods;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 import java.util.NoSuchElementException;
 
@@ -32,8 +35,8 @@ public class Academic_Module_Sections_steps {
     public void check_the_section_not_exist(String dmy) {
         try {
             if (sectionPage.dynamicXpath_Find_element_by_text(dmy).isDisplayed()) {
-         CommonMethods.click(sectionPage.dynamicXpath_Find_Delete_Button_By_text(dmy));
-         CommonMethods.acceptAlert();
+                CommonMethods.click(sectionPage.dynamicXpath_Find_Delete_Button_By_text(dmy));
+                CommonMethods.acceptAlert();
             }
         } catch (Exception e) {
             System.out.println("Element Not Found");
@@ -41,4 +44,16 @@ public class Academic_Module_Sections_steps {
 
 
     }
+
+    @When("find  section {string} box")
+    public void find_section_box(String string) {
+        CommonMethods.assertTrue(DashboardPage.academicSectionBox.isDisplayed());
+
+    }
+    @Then("adds a section key {string}")
+    public void adds_a_section_key(String dmy) {
+        CommonMethods.sendKeys(DashboardPage.academicSectionBox.sendKeys();
+
+    }
 }
+
