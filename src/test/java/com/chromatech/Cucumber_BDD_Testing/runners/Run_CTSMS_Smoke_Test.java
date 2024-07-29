@@ -2,6 +2,7 @@ package com.chromatech.Cucumber_BDD_Testing.runners;
 
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
+import org.testng.annotations.DataProvider;
 
 @CucumberOptions(plugin = {"html:target/cucumber-reports/cucumber-html-report.html", "json:target/cucumber.json",
         "rerun:target/failed.txt",
@@ -12,5 +13,5 @@ import io.cucumber.testng.CucumberOptions;
         dryRun = false
 )
 
-public class Run_CTSMS_Smoke_Test extends AbstractTestNGCucumberTests {
+public class Run_CTSMS_Smoke_Test extends AbstractTestNGCucumberTests {git
 }
