@@ -1,5 +1,6 @@
 package com.chromatech.Cucumber_BDD_Testing.stepDefinitions;
 
+import com.chromatech.Cucumber_BDD_Testing.appsCommon.PageInitializer;
 import com.chromatech.Cucumber_BDD_Testing.pages.DashboardPage;
 import com.chromatech.Cucumber_BDD_Testing.pages.SectionPage;
 import com.chromatech.utils.CommonMethods;
@@ -11,7 +12,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.NoSuchElementException;
 
-public class Academic_Module_Sections_steps {
+public class Academic_Module_Sections_steps extends PageInitializer {
 
     DashboardPage DashboardPage = new DashboardPage();
     SectionPage sectionPage = new SectionPage();
@@ -52,7 +53,7 @@ public class Academic_Module_Sections_steps {
     }
     @Then("adds a section key {string}")
     public void adds_a_section_key(String dmy) {
-        CommonMethods.sendKeys(DashboardPage.academicSectionBox.sendKeys();
+        CommonMethods.sendKeys(DashboardPage.academicSectionBox.sendKeys("dmy");
 
     }
 }
