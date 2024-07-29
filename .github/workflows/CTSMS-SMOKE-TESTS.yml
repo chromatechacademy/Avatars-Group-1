@@ -3,13 +3,6 @@ name: Smoke Tests Workflow
 on:
   workflow_dispatch:
 
-  workflow_dispatch:
-  schedule:
-    # During standard time (EST: UTC-5, so set for 5:00 AM UTC)
-    - cron: '0 5 * * *'
-    # During daylight saving time (EDT: UTC-4, so set for 4:00 AM UTC)
-    - cron: '0 4 * * *'
-
 jobs:
   test:
     name: Run Test
