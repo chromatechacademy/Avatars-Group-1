@@ -14,5 +14,4 @@ import org.testng.annotations.DataProvider;
 )
 
 public class Run_CTSMS_Regression_Test extends AbstractTestNGCucumberTests {
-
 }
