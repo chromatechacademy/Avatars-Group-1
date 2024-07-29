@@ -86,6 +86,7 @@ public class StepsImplementation extends PageInitializer {
         if (!(DashboardPage.findSubModuleByText(subModuleName).isDisplayed())) {
             CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(1 ,0))); // Module
         }
+        CommonMethods.waitForClickability(DashboardPage.findSubModuleByText(dataTable.cell(1, 1)));
         CommonMethods.click(DashboardPage.findSubModuleByText(dataTable.cell(1, 1))); // SubModule
         CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
     }
