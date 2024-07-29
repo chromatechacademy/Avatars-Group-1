@@ -402,8 +402,8 @@ public class StepsImplementation extends PageInitializer {
             ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
             // Actual Data
             ArrayList<String> actualData = new ArrayList<>();
-            List<WebElement> elemtnts = StudentDetailsPage.disablingInformation();
-            for (WebElement element : elemtnts) {
+            List<WebElement> elements = StudentDetailsPage.disablingInformation();
+            for (WebElement element : elements) {
                 actualData.add(element.getText());
             }
             Assert.assertEquals(actualData, expectedData);

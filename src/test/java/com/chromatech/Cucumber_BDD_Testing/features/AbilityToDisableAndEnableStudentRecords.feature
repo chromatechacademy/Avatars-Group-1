@@ -114,8 +114,8 @@ Feature: AG1CP-15 / AG1CP-16 - Ability to disable and enable student records
       | RTE              | Yes                   |
       | Gender           | Male                  |
     When user goes to the "Disabled Students" page:
-      | Module              | SubModule         | URL                                                 |
-      | Student Information | Disabled Students | https://mexil.it/chroma/student/disablestudentslist |
+      | Module              | SubModule         | URL |
+      | Student Information | Disabled Students |https://mexil.it/chroma/student/disablestudentslist |
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
