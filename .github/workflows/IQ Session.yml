@@ -26,4 +26,12 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Run CTSMS Progression Test
-        run: mvn -Dtest=Run_CTSMS_Progression_Test.java test -q
+        run: mvn test -Dtest=Run_CTSMS_Progression_Test.java -q
+
+      - name: Archive Cucumber Reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: cucumber-reports
+          path: |
+            target/cucumber-reports
+            target/cucumber.json
