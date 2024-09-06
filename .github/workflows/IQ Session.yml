@@ -1,4 +1,4 @@
-name: Run CTSMS Progression Test
+name: Run CTSMS Progression Test and Publish Report
 
 on:
   workflow_dispatch:
@@ -25,8 +25,24 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Install dependencies
-        run: mvn install -DskipTests
-
       - name: Run CTSMS Progression Test
-        run: mvn -Dtest=Run_CTSMS_Progression_Test.java test
+        run: mvn test -Dtest=Run_CTSMS_Progression_Test.java -q
+
+      - name: Clean gh-pages branch
+        run: |
+          git checkout --orphan gh-pages
+          git rm -rf .
+
+      - name: Move Cucumber Reports
+        run: |
+          mkdir docs
+          cp -r target/cucumber-reports/* docs/
+
+      - name: Push to GitHub Pages
+        run: |
+          git config --local user.email "diegojuarezbusiness@gmail.com"
+          git config --local user.name "iamdez99"
+          git add docs/*
+          git commit -m "Update GitHub Pages"
+          git remote set-url origin https://iamdez99:${{secrets.GH_PAT}}@github.com/chromatechacademy/Avatars-Group-1.git
+          git push origin gh-pages
