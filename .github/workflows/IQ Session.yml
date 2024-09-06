@@ -39,6 +39,7 @@ jobs:
         run: |
           mkdir docs
           cp -r target/cucumber-reports/* docs/
+          mv docs/cucumber-html-report.html docs/index.html
 
       - name: Push to GitHub Pages
         run: |
