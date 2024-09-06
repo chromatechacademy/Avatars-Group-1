@@ -28,15 +28,20 @@ jobs:
       - name: Run CTSMS Progression Test
         run: mvn test -Dtest=Run_CTSMS_Progression_Test.java -q
 
-      - name: Deploy to GitHub Pages
+      - name: Clean gh-pages branch
         run: |
-          rm -rf target/docs
-          cp -r target/cucumber-reports target/docs
+          git checkout --orphan gh-pages
+          git rm -rf .
+
+      - name: Move Cucumber Reports
+        run: |
+          mkdir docs
+          cp -r target/cucumber-reports/* docs/
+
+      - name: Push to GitHub Pages
+        run: |
           git config --local user.email "team@chromatechacademy.com"
           git config --local user.name "chromatechacademy"
-          git checkout --orphan gh-pages
-          rm -rf *
-          mv ../target/docs/* .
-          git add -A
+          git add docs/*
           git commit -m "Update GitHub Pages"
           git push -f origin gh-pages
