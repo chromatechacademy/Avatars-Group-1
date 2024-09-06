@@ -1,4 +1,4 @@
-name: Run CTSMS Progression Test
+name: Run CTSMS Progression Test and Publish Report
 
 on:
   workflow_dispatch:
@@ -28,10 +28,15 @@ jobs:
       - name: Run CTSMS Progression Test
         run: mvn test -Dtest=Run_CTSMS_Progression_Test.java -q
 
-      - name: Archive Cucumber Reports
-        uses: actions/upload-artifact@v2
-        with:
-          name: cucumber-reports
-          path: |
-            target/cucumber-reports
-            target/cucumber.json
+      - name: Deploy to GitHub Pages
+        run: |
+          rm -rf target/docs
+          cp -r target/cucumber-reports target/docs
+          git config --local user.email "team@chromatechacademy.com"
+          git config --local user.name "chromatechacademy"
+          git checkout --orphan gh-pages
+          rm -rf *
+          mv ../target/docs/* .
+          git add -A
+          git commit -m "Update GitHub Pages"
+          git push -f origin gh-pages
