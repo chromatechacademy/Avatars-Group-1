@@ -25,8 +25,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      - name: Install dependencies
-        run: mvn install -DskipTests
-
       - name: Run CTSMS Progression Test
         run: mvn -Dtest=Run_CTSMS_Progression_Test.java test
