@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        with: # Use personal access token to authenticate
+        with:
           token: ${{ secrets.GH_PAT }}
 
       - name: Set up JDK 11
@@ -47,4 +47,4 @@ jobs:
           git add docs/*
           git commit -m "Update GitHub Pages"
           git remote set-url origin https://iamdez99:${{secrets.GH_PAT}}@github.com/chromatechacademy/Avatars-Group-1.git
-          git push origin gh-pages
+          git push -f origin gh-pages
