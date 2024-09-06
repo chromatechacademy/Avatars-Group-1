@@ -1,6 +1,6 @@
 Feature: AG1CP-1: Valid Credentials Login
 
-  @Regression @AG1CP-1 @Hasnaa @ValidCredentialsLogin
+  @Regression @AG1CP-1 @Hasnaa @ValidCredentialsLogin @Progression
   Scenario: Valid Credentials Login
     Given a Chroma Tech Academy teacher or admin is on the login page "https://chroma.mexil.it/site/login"
     When the user enters username "general@teacher.com" in username text box
