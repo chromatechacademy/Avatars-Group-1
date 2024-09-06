@@ -40,7 +40,7 @@ jobs:
 
       - name: Push to GitHub Pages
         run: |
-          git config --local user.email "team@chromatechacademy.com"
+          git config --local user.email "diegojuarezbusiness@gmail.com"
           git config --local user.name "iamdez99"
           git add docs/*
           git commit -m "Update GitHub Pages"
