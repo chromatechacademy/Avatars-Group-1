@@ -41,7 +41,7 @@ jobs:
       - name: Push to GitHub Pages
         run: |
           git config --local user.email "team@chromatechacademy.com"
-          git config --local user.name "chromatechacademy"
+          git config --local user.name "iamdez99"
           git add docs/*
           git commit -m "Update GitHub Pages"
           git push -f https://${{ secrets.GH_PAT }}@github.com/chromatechacademy/Avatars-Group-1.git gh-pages
