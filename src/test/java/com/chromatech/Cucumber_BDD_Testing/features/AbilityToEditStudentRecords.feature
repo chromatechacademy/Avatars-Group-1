@@ -9,20 +9,20 @@ Feature: Ability to edit student records
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 33445                 |
-    And make the record "33445" enabled if it is in the list
+      | Admission Number | 202040                |
+    And make the record "202040" enabled if it is in the list
     When user goes to the "Bulk Delete" page:
       | Module              | SubModule   | URL                                        |
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 33445            | Are you sure you want to delete this? |
+      | SDET  | Cucumber Fundamentals | 202040           | Are you sure you want to delete this? |
     When user goes to the student admission page
       | Module              | SubModule         | URL                                    |
       | Student Information | Student Admission | https://mexil.it/chroma/student/create |
     And user fills the first row:
       | Admission No | Roll Number | Class | Section               |
-      | 33445        | 10017777    | SDET  | Cucumber Fundamentals |
+      | 202040       | 100200300   | SDET  | Cucumber Fundamentals |
     And user fills the second row:
       | First Name | Last Name | Gender | Date of Birth |
       | Vlad       | Islav     | Male   | 01/02/1991    |
@@ -73,9 +73,9 @@ Feature: Ability to edit student records
     And user is searching for a student record based on parameters:
       | Class            | SDET                  |
       | Section          | Cucumber Fundamentals |
-      | Admission Number | 33445                 |
-    Then make sure the entry "33445" is in the list and verify data
-      | Admission Number | 33445                       |
+      | Admission Number | 202040                |
+    Then make sure the entry "202040" is in the list and verify data
+      | Admission Number | 202040                      |
       | Student Name     | Vlad Islav                  |
       | Class(Section)   | SDET(Cucumber Fundamentals) |
       | Father Name      | Leaha Petrov                |
@@ -85,14 +85,14 @@ Feature: Ability to edit student records
       | Mobile Number    | 6028808888                  |
       | Height           | 6'3                         |
       | Weight           | 9999                        |
-    When user clicks on the name of student record with admission number "33445"
+    When user clicks on the name of student record with admission number "202040"
     And clicks on edit button located near top right pencil icon
     And user edits roll number field to "10019999"
     And user edits first name field to "Vova"
     And user edits last name field to "Hook"
     And user edits gender field drop down to "Male"
     And user edits DOB field to "05/05/2005"
-    And user edits category field to "Selenium"
+    And user edits category field to "new"
     And user edits email field to "thisismyemail@hmail.com"
     And user edits Admission Date field to "06/06/2024"
     And user edits Student Photo field
@@ -123,4 +123,4 @@ Feature: Ability to edit student records
       | Student Information | Bulk Delete | https://mexil.it/chroma/student/bulkdelete |
     When if a student record already exists, the user deletes it:
       | Class | Section               | Admission Number | Alert Text                            |
-      | SDET  | Cucumber Fundamentals | 33445            | Are you sure you want to delete this? |
+      | SDET  | Cucumber Fundamentals | 202040           | Are you sure you want to delete this? |

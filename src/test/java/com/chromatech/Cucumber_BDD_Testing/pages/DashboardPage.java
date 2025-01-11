@@ -43,7 +43,7 @@ public class DashboardPage {
 
     // Dynamic submodule by name
     public static WebElement findSubModuleByText(String subModuleName) {
-        return driver.findElement(By.xpath("//a[text()= ' " + subModuleName + "']"));
+        return driver.findElement(By.xpath("//a[text()= ' " + subModuleName + "']/i"));
     }
 
     // Student Admission Submodule

@@ -5,9 +5,9 @@ import com.chromatech.Cucumber_BDD_Testing.pages.EditPage;
 import com.chromatech.utils.CommonMethods;
 import com.chromatech.utils.JavascriptMethods;
 import io.cucumber.datatable.DataTable;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import java.util.List;
 import static com.chromatech.utils.WebDriverUtils.driver;
@@ -84,8 +84,9 @@ public class StepsImplementation extends PageInitializer {
      */
     public static void user_goes_to_the_page(String subModuleName, DataTable dataTable) {
         if (!(DashboardPage.findSubModuleByText(subModuleName).isDisplayed())) {
-            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(1, 0))); // Module
+            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(1 ,0))); // Module
         }
+        CommonMethods.waitForClickability(DashboardPage.findSubModuleByText(dataTable.cell(1, 1)));
         CommonMethods.click(DashboardPage.findSubModuleByText(dataTable.cell(1, 1))); // SubModule
         CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
     }
@@ -94,14 +95,14 @@ public class StepsImplementation extends PageInitializer {
      * Navigates the user to the student admission page.
      *
      * @param dataTable a DataTable object containing the data for the navigation
-     *                  - Module: the name of the module to be clicked on the dashboard page
-     *                  - URL: the expected URL of the student admission page
+     *    - Module: the name of the module to be clicked on the dashboard page
+     *    - URL: the expected URL of the student admission page
      */
     public static void user_goes_to_the_student_admission_page(DataTable dataTable) {
         if (!(dashboardPage.studentAdmissionSubModule.isDisplayed())) {
-            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(0, 1))); // Module
+            CommonMethods.click(DashboardPage.findModuleByText(dataTable.cell(0 ,1))); // Module
         }
-        CommonMethods.assertEquals(dashboardPage.studentAdmissionSubModule.getText(), dataTable.cell(1, 1));
+        CommonMethods.assertEquals(dashboardPage.studentAdmissionSubModule.getText(), dataTable.cell(1 ,1));
         CommonMethods.click(dashboardPage.studentAdmissionSubModule); // SubModule
         CommonMethods.assertEquals(driver.getCurrentUrl(), (dataTable.cell(1, 2))); // URL
     }
@@ -402,8 +403,8 @@ public class StepsImplementation extends PageInitializer {
             ArrayList<String> expectedData = new ArrayList<>(dataTable.column(1));
             // Actual Data
             ArrayList<String> actualData = new ArrayList<>();
-            List<WebElement> elements = StudentDetailsPage.disablingInformation();
-            for (WebElement element : elements) {
+            List<WebElement> elemtnts = StudentDetailsPage.disablingInformation();
+            for (WebElement element : elemtnts) {
                 actualData.add(element.getText());
             }
             Assert.assertEquals(actualData, expectedData);
@@ -518,10 +519,62 @@ public class StepsImplementation extends PageInitializer {
     public static void user_selects_student_admission_number_and_deletes_it(String admissionNumber) {
         CommonMethods.waitForClickability(EditPage.dynamicRecordLocateDelete(admissionNumber));
         JavascriptMethods.scrollIntoView(EditPage.dynamicRecordLocateDelete(admissionNumber));
-        Assert.assertEquals(editPage.admissionNumber.getText(), editPage.admissionNumber.getText());
+        Assert.assertEquals(editPage.admissionNumber.getText(), admissionNumber);
         EditPage.dynamicRecordLocateDelete(admissionNumber).click();
         CommonMethods.click(editPage.deleteButton);
         CommonMethods.acceptAlert();
+    }
+
+    /**
+     * Scrolls into view the x button and clicks on it to delete.
+     */
+    public static void the_user_clicks_on_the_x_button_to_delete() {
+        JavascriptMethods.scrollIntoView(expenseHeadPage.expenseHeadBill);
+        expenseHeadPage.expenseHeadXBtn.click();
+        CommonMethods.acceptAlert();
+    }
+
+    /**
+     * This method checks if a Chroma Tech user is on the dashboard page.
+     * It verifies that the dashboard page header is displayed and the text on the header is the same as expected.
+     */
+    public static void a_chroma_tech_user_is_on_the_dashboard_page() {
+        CommonMethods.assertTrue(classAndSectionPage.dashBoardPageHeader.isDisplayed());
+        CommonMethods.assertEquals(classAndSectionPage.dashBoardPageHeader.getText(), classAndSectionPage.dashBoardPageHeader.getText());
+    }
+
+    /**
+     * Navigates the user to the Class submodule in the Academics module.
+     */
+    public static void the_user_navigates_to_the_class_submodule() {
+        classAndSectionPage.academicsModuleTab.click();
+        classAndSectionPage.classSubmodule.click();
+    }
+
+    /**
+     * This method verifies the presence of two classes, SDET and Cyber Security, along with their sections.
+     *
+     * @param class1 The name of the first class to be verified.
+     * @param section1 The name of the section for the first class to be verified.
+     * @param dataTable The DataTable object representing the table of sections and their presence.
+     */
+    public static void there_are_two_classes_sdet_and_cyber_security_displayed_with_the_following_sections(String class1, String section1, DataTable dataTable) {
+        CommonMethods.assertTrue(classAndSectionPage.sdetClass.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.cyberSecurityClass.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.testingFundamentals.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.sdlcMethodogies.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.seleniumTestAutomation.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.cucumberFundamentals.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.apiTesting.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.gitgithub.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.java11ForCoolPeople.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.mobileTestAutomation.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.accessiblityTesting.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.databaseTesting.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.networkingFundamentals.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.linuxFundamentals.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.ciaTriad.isDisplayed());
+        CommonMethods.assertTrue(classAndSectionPage.penetrationTestingEthicalHacking.isDisplayed());
     }
 
     /**
@@ -577,7 +630,7 @@ public class StepsImplementation extends PageInitializer {
     /**
      * Performs a user click on a button and accepts an alert with specified text.
      *
-     * @param text      The text representing the button action. It can be either "disable" or "enable".
+     * @param text The text representing the button action. It can be either "disable" or "enable".
      * @param alertText The text expected in the alert message.
      */
     public static void user_clicks_on_the_button_and_accept_alert_with_text(String text, String alertText) {
@@ -596,7 +649,7 @@ public class StepsImplementation extends PageInitializer {
      * Enters data into the modal window.
      *
      * @param modalDialogHeaderText The expected header text for the modal dialog.
-     * @param dataTable             The data table containing the input values.
+     * @param dataTable The data table containing the input values.
      */
     public static void enters_data_into_the_modal_window(String modalDialogHeaderText, DataTable dataTable) {
         CommonMethods.waitForVisibility(studentDetailsPage.disableButton);
@@ -679,6 +732,11 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.acceptAlert();
     }
 
+    /**
+     * Clicks on the delete button to remove a specific name and confirms the deletion.
+     *
+     * @param name the name to be removed
+     */
     public static void user_click_on_delete_button_to_remove_name_and_confirm(String Oksana) {
         CommonMethods.waitForClickability(CategoryPage.dynamicDeleteRecordLocator(Oksana));
         categoryPage.deleteButton.isDisplayed();
@@ -686,18 +744,35 @@ public class StepsImplementation extends PageInitializer {
         CommonMethods.acceptAlert();
     }
 
+    /**
+     *
+     * The method verifies if the student homework module is displayed and
+     * it matches the expected homework module text.
+     *
+     * @param expectedHomeworkModuleText the expected text to be displayed in the student homework module
+     */
     public static void the_module_is_displays(String expectedHomeworkModuleText) {
         CommonMethods.assertTrue(dashboardPage.studentHomeworkModule.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.studentHomeworkModule.getText(), expectedHomeworkModuleText);
     }
 
+    /**
+     * Clicks on the Homework module in the user interface.
+     * It verifies that the Homework module is displayed and then performs a click action on it.
+     */
     public static void the_user_clicks_on_the_Homework_module() {
         CommonMethods.assertTrue(dashboardPage.studentHomeworkModule.isDisplayed());
         CommonMethods.click(dashboardPage.studentInformationModule);
     }
 
+    /**
+     * Check if the submodule "Add Homework" is displayed and has the expected text.
+     *
+     * @param expectedAddHomeworkSubmoduleText The expected text of the "Add Homework" submodule.
+     */
     public static void the_submodule_is_displays(String expectedAddHomeworkSubmoduleText) {
         CommonMethods.assertTrue(dashboardPage.addHomework.isDisplayed());
         CommonMethods.assertEquals(dashboardPage.addHomework.getText().trim(), expectedAddHomeworkSubmoduleText);
     }
+
 }

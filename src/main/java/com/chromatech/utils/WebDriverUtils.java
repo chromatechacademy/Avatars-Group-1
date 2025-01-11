@@ -8,7 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import java.time.Duration;
 
-public class WebDriverUtils {
+public class  WebDriverUtils {
 
     public static WebDriver driver;
 

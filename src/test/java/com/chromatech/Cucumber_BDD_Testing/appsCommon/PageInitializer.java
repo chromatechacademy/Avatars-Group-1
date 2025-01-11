@@ -15,6 +15,8 @@ public class PageInitializer {
     public static LoginPage loginPage;
     public static BulkDeletePage bulkDeletePage;
     public static StudentAdmissionPage studentAdmissionPage;
+    public static ClassAndSectionPage classAndSectionPage;
+    public static ExpenseHeadPage expenseHeadPage;
     public static StudentDetailsPage studentDetailsPage;
     public static DisabledStudentsPage disabledStudentsPage;
     public static CategoryPage categoryPage;
@@ -28,6 +30,8 @@ public class PageInitializer {
         loginPage = new LoginPage();
         bulkDeletePage = new BulkDeletePage();
         studentAdmissionPage = new StudentAdmissionPage();
+        classAndSectionPage = new ClassAndSectionPage();
+        expenseHeadPage = new ExpenseHeadPage();
         studentDetailsPage = new StudentDetailsPage();
         disabledStudentsPage = new DisabledStudentsPage();
         categoryPage = new CategoryPage();

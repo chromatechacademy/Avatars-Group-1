@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite" parallel="tests" thread-count="5">
+    <test name="CucumberBDDTestingSmokeTest">
+        <classes>
+            <class name="com.chromatech.Cucumber_BDD_Testing.runners.Run_CTSMS_Smoke_Test"/>
+        </classes>
+    </test>
+</suite>
