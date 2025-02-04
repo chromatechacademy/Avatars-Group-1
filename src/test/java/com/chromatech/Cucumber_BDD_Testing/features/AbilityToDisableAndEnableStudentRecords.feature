@@ -1,6 +1,6 @@
 Feature: AG1CP-15 / AG1CP-16 - Ability to disable and enable student records
 
-  @Regression @Vlad @AG1CP-15 @AG1CP-16 @AbilityToDisableAndEnableStudentRecords @Smoke
+  @Regression @Vlad @AG1CP-15 @AG1CP-16 @AbilityToDisableAndEnableStudentRecords
   Scenario: Ability to disable and enable student records
     Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
     When user goes to the "Disabled Students" page:

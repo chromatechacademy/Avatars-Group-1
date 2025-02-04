@@ -1,6 +1,6 @@
 Feature: Ability to edit student records
 
-  @Regression @Antony @AG1CP-14 @AbilityToEditStudentRecords @Smoke
+  @Regression @Antony @AG1CP-14 @AbilityToEditStudentRecords
   Scenario: Ability to edit student records
     Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
     When user goes to the "Disabled Students" page:
