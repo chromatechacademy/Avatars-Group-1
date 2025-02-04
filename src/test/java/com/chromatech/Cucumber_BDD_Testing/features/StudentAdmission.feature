@@ -1,6 +1,6 @@
 Feature: AG1CP-12: StudentAdmission
 
-  @Regression @AG1CP-12 @Vlad @StudentAdmission @Smoke
+  @Regression @AG1CP-12 @Vlad @StudentAdmission
   Scenario: Student Admission
     Given a CTSMS user is logged in to the main page "https://mexil.it/chroma/admin/admin/dashboard"
     When user goes to the "Disabled Students" page:
