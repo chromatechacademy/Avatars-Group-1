@@ -28,7 +28,7 @@ jobs:
         run: mvn -q -Dtest=Run_CTSMS_Smoke_Test test
 
       - name: Upload Cucumber Report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: cucumber-report
           path: target/cucumber-reports/cucumber-html-report.html
